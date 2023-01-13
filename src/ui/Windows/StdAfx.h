@@ -5,6 +5,12 @@
 //      are changed infrequently
 //
 
+#ifdef WIN32
+
+#ifndef VC_EXTRALEAN
+#define VC_EXTRALEAN        // Exclude rarely-used stuff from Windows headers
+#endif
+
 // The following is needed because gdiplustypes.h uses the Windows macros
 // min & max but these "can" cause the error "C3861: 'min': identifier not found"
 // when building under VS2015.
@@ -12,17 +18,65 @@
 // of std::min & std::max everywhere.  As not macros, these also require
 // the arguments to be the same type e.g. "int, int" or "long, long" etc.
 // unlike the Windows macros min & max.
+#ifndef NOMINMAX
 #define NOMINMAX
+#endif
+
+#endif // WIN32
+
 #include <algorithm>
+#include <atomic>
+#include <bitset>
+#include <cassert>
+#include <cctype>
+#include <cerrno>
+#include <climits>
+#include <clocale>
+#include <cmath>
+#include <codecvt>
+#include <condition_variable>  // NOLINT
+#include <cstdarg>
+#include <cstddef>
+#include <cstdint>
+#include <cstdio>
+#include <deque>
+#include <exception>
+#include <fstream>
+#include <functional>
+#include <iomanip>
+#include <iosfwd>
+#include <iostream>
+#include <iterator>
+#include <limits>
+#include <list>
+#include <locale>
+#include <map>
+#include <memory>
+#include <new>
+#include <ostream>  // NOLINT
+#include <random>
+#include <regex>
+#include <set>
+#include <sstream>
+#include <stack>
+#include <stdexcept>
+#include <string>
+#include <tuple>
+#include <type_traits>
+#include <typeinfo>
+#include <unordered_map>
+#include <utility>
+#include <vector>
+
+#ifdef WIN32
 namespace Gdiplus {
   using std::min;
   using std::max;
 };
 
-#define VC_EXTRALEAN        // Exclude rarely-used stuff from Windows headers
 
 // Show warnings
-#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS 
+#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS
 #define _AFX_ALL_WARNINGS
 
 #include <afxwin.h>         // MFC core and standard components
@@ -39,6 +93,10 @@ namespace Gdiplus {
 #include <afxdlgs.h>
 #include <afxcontrolbars.h>
 
+#include <afxole.h>
+
+#include <atlimage.h>
+
 // Don't show warning for automatic inline conversion
 #pragma warning(disable: 4711)
 
@@ -51,3 +109,5 @@ namespace Gdiplus {
 
 // Save including it everywhere!
 #include "Windowsdefs.h"
+
+#endif // WIN32

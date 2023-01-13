@@ -684,7 +684,7 @@ void CPWTreeCtrlX::OnEndLabelEdit(NMHDR *pNotifyStruct, LRESULT *pLResult)
     // (Still called "New Group" or the changed name if that already existed)
     if (app.GetMainDlg()->IsInAddGroup()) {
       // m_eLabel is the old name but need to get the path
-      StringX sxPath = GetGroup(ti);
+      StringX sxPath = GetGroup(ti).GetString();
       pmulticmds->Add(DBEmptyGroupsCommand::Create(pcore, sxPath,
                              DBEmptyGroupsCommand::EG_ADD));
 
@@ -1121,7 +1121,7 @@ HTREEITEM CPWTreeCtrlX::AddGroup(const CString &group, bool &bAlreadyExists)
   bAlreadyExists = true;
 
   if (!group.IsEmpty()) {
-    StringX sxPath = group;
+    StringX sxPath = group.GetString();
     StringX sxTemp, sxPath2Root(L"");
     do {
       sxTemp = GetFirstPathElem(sxPath);
@@ -1602,7 +1602,7 @@ BOOL CPWTreeCtrlX::OnDrop(CWnd *, COleDataObject *pDataObject,
           // If item was last entry in the parent group, be it a leaf or a node,
           // make it an empty group
           if (numchildren == 1) {
-            const StringX sxPath = GetGroup(parent);
+            const StringX sxPath = GetGroup(parent).GetString();
             pmulticmds->Add(DBEmptyGroupsCommand::Create(app.GetCore(), sxPath,
               DBEmptyGroupsCommand::EG_ADD));
           }
@@ -1988,10 +1988,10 @@ bool CPWTreeCtrlX::CollectData(BYTE * &out_buffer, long &outLen)
     out_oblist.m_bDragNode = false;
     GetEntryData(out_oblist, pci);
   } else {
-    const StringX DragPathParent = GetGroup(GetParentItem(m_hitemDrag));
+    const StringX DragPathParent = GetGroup(GetParentItem(m_hitemDrag)).GetString();
     m_nDragPathLen = (int)DragPathParent.length();
 
-    StringX DragPath = GetGroup(m_hitemDrag);
+    StringX DragPath = GetGroup(m_hitemDrag).GetString();
     // Check if this is an empty group
     if (app.GetMainDlg()->IsEmptyGroup(DragPath)) {
       // Don't bother looking for children
@@ -2628,7 +2628,7 @@ CFont *CPWTreeCtrlX::GetFontBasedOnStatus(HTREEITEM &hItem, CItemData *pci, COLO
 {
   Fonts *pFonts = Fonts::GetInstance();
   if (pci == NULL) {
-    StringX path = GetGroup(hItem);
+    StringX path = GetGroup(hItem).GetString();
     if (app.GetMainDlg()->IsNodeModified(path)) {
       cf = pFonts->GetModified_Color();
       return pFonts->GetItalicTreeListFont();

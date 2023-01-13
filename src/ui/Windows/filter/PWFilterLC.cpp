@@ -2494,7 +2494,7 @@ void CPWFilterLC::OnProcessKey(UINT nID)
       if (m_iItem < 0)
         m_iItem = 0;
       pos = GetFirstSelectedItemPosition();
-      if (pos > 0)
+      if (pos)
         m_iItem = (int)(INT_PTR)pos - 1;
       EnsureVisible(m_iItem, FALSE);
       SetItemState(m_iItem, 0, LVIS_SELECTED);

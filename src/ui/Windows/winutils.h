@@ -13,7 +13,7 @@
 #ifndef __WINUTILS_H__
 #define __WINUTILS_H__
 
-#include <xstring>
+#include <string>
 #include <afxwin.h>
 
 namespace WinUtil {

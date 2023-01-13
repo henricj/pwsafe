@@ -2311,7 +2311,7 @@ void DboxMain::OnImportText()
   if (rc == IDOK) {
     bool bWasEmpty = m_core.GetNumEntries() == 0;
     std::wstring strError;
-    StringX TxtFileName = fd.GetPathName();
+    StringX TxtFileName = fd.GetPathName().GetString();
     int numImported(0), numSkipped(0), numPWHErrors(0), numRenamed(0), numWarnings(0),
       numNoPolicy(0);
     wchar_t delimiter = dlg.m_defimpdelim[0];
@@ -2465,7 +2465,7 @@ void DboxMain::OnImportKeePassV1CSV()
     CGeneralMsgBox gmb;
     bool bWasEmpty = m_core.GetNumEntries() == 0;
     Command *pcmd = NULL;
-    StringX KPsFileName = fd.GetPathName();
+    StringX KPsFileName = fd.GetPathName().GetString();
     int numImported, numSkipped, numRenamed;
 
     // Create report as we go
@@ -2572,7 +2572,7 @@ void DboxMain::OnImportKeePassV1TXT()
     CGeneralMsgBox gmb;
     bool bWasEmpty = m_core.GetNumEntries() == 0;
     Command *pcmd = NULL;
-    StringX KPsFileName = fd.GetPathName();
+    StringX KPsFileName = fd.GetPathName().GetString();
     int numImported, numSkipped, numRenamed;
 
     // Create report as we go

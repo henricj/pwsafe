@@ -5453,7 +5453,7 @@ StringX DboxMain::GetListViewItemText(CItemData &ci, const int &icolumn)
       // Get "&Yes" and remove & (May not be leading in non-English languages)
       CString csYes(MAKEINTRESOURCE(IDS_YES));
       csYes.Replace(L"&", L"");
-      sx_fielddata = ci.HasAttRef() ? csYes : L"";
+      sx_fielddata = ci.HasAttRef() ? csYes.GetString() : L"";
       break;
     }
     default:

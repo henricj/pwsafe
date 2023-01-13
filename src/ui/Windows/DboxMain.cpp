@@ -3244,7 +3244,7 @@ std::vector<pws_os::CUUID> DboxMain::MakeOrderedItemList(OrderedItemList &OIL, H
       }
     } // iterate over collected pcis
   } else { // hItem not null, just this group - used for Export Group
-    const StringX sxThisGroup = m_ctlItemTree.GetGroup(hItem);
+    const StringX sxThisGroup = m_ctlItemTree.GetGroup(hItem).GetString();
     const StringX sxThisGroupDot = sxThisGroup + L".";
 
     for (auto pci = tc.pcis.begin(); pci != tc.pcis.end(); pci++) {

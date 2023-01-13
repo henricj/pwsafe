@@ -1135,7 +1135,7 @@ void DboxMain::Delete(MultiCommands *&pmcmd)
 
     // If this was the last group - make parent empty.
     if (numchildren == 1) {
-      const StringX sxPath = m_ctlItemTree.GetGroup(parent);
+      const StringX sxPath = m_ctlItemTree.GetGroup(parent).GetString();
       pmcmd->Add(DBEmptyGroupsCommand::Create(&m_core, sxPath,
         DBEmptyGroupsCommand::EG_ADD));
     }

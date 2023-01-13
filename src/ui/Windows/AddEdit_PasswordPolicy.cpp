@@ -602,7 +602,7 @@ void CAddEdit_PasswordPolicy::OnOwnSymbolsChanged()
   m_symbols.GetWindowText(cs_symbols);
 
   std::wstring oldstr = static_cast<LPCWSTR>(M_symbols());
-  std::wstring newstr = cs_symbols;
+  std::wstring newstr = cs_symbols.GetString();
 
   // First check lengths the same
   if (newstr.length() != oldstr.length()) {
@@ -616,7 +616,7 @@ void CAddEdit_PasswordPolicy::OnOwnSymbolsChanged()
     std::sort(oldstr.begin(), oldstr.end());
 
     // Then compare
-    bIsSymbolsChanged = oldstr.compare(newstr) != 0;
+    bIsSymbolsChanged = oldstr != newstr;
   }
   m_ae_psh->SetSymbolsChanged(bIsSymbolsChanged);
 }

@@ -15,6 +15,7 @@ pwsafe*.msi
 *.props
 *.stackdump
 *.vc.opendb
-/.vs
+/out/
 *.VC.db
-.vscode
+/.vs/
+.vscode/

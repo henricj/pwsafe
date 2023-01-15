@@ -79,7 +79,17 @@ namespace S_Alloc
       // In-place construction
       void construct(pointer p, const_reference c) {
         // placement new operator
+#ifdef new
+// DEBUG_NEW or WXDEBUG_NEW can clobber placement new...
+#pragma push_macro("new")
+#undef new
+#define stringx_new_is_pushed
+#endif
         new(reinterpret_cast<void *>(p)) T(c);
+#ifdef stringx_new_is_pushed
+#pragma pop_macro("new")
+#undef stringx_new_is_pushed
+#endif
       }
 
       // In-place destruction

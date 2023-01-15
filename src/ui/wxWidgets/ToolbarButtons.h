@@ -223,7 +223,17 @@ _PwsToolbarInfo(int aid, const wxString &atoollabel, const wxString &atooltip, c
 } PwsToolbarButtons[] =
 
 {
+#ifdef new
+// DEBUG_NEW or WXDEBUG_NEW can clobber "new".
+#pragma push_macro("new")
+#undef new
+#define stringx_new_is_pushed
+#endif
           { wxID_NEW,          _("New"),             _("Make New Database"),            PWS_TOOLBAR_BITMAPS(new)            },
+#ifdef stringx_new_is_pushed
+#pragma pop_macro("new")
+#undef stringx_new_is_pushed
+#endif
           { wxID_OPEN,         _("Open"),            _("Open Another Database"),        PWS_TOOLBAR_BITMAPS(open)           },
           { wxID_CLOSE,        _("Close"),           _("Close Database"),               PWS_TOOLBAR_BITMAPS(close)          },
           { ID_LOCK_SAFE,      _("Lock"),            _("Lock Database"),                PWS_TOOLBAR_BITMAPS(lock)           },

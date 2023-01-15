@@ -345,9 +345,9 @@ bool ImagePanel::LoadFromAttachment(const CItemAtt& itemAttachment, wxWindow* pa
     return false;
   }
 
-  unsigned char buffer[size];
+  std::vector<unsigned char> buffer(size);
 
-  if (!itemAttachment.GetContent(buffer, size)) {
+  if (!itemAttachment.GetContent(buffer.data(), buffer.size())) {
     wxMessageDialog(
       parent,
       _("An error occurred while trying to get the image data from database item.\n"
@@ -358,7 +358,7 @@ bool ImagePanel::LoadFromAttachment(const CItemAtt& itemAttachment, wxWindow* pa
     return false;
   }
 
-  wxMemoryInputStream stream(&buffer, size);
+  wxMemoryInputStream stream(buffer.data(), buffer.size());
 
   if (!LoadFromMemory(stream)) {
     wxMessageDialog(

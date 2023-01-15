@@ -1305,9 +1305,9 @@ void TreeCtrl::OnMouseMove(wxMouseEvent& event)
     else
       m_had_been_out = true;
   }
-  
-  wxTreeCtrl::OnMouse(event);
-  
+
+  event.Skip();
+
   // Call SetCurosr after wxTreeCtrl::OnMouse to overrule the setting of the library, which is working fine as long as we are not leaving the window in macOS, where the size change cursor is shown from now on.
   if(bSetCursor) {
     SetCursor(newCursor);

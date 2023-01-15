@@ -171,7 +171,7 @@ class TreeCtrl : public TreeCtrlBase, public Observer
 
 public:
   /// Constructors
-  TreeCtrl(); // Declared, never defined, as we don't support this!
+  TreeCtrl() = delete;
   TreeCtrl(PWScore &core);
   TreeCtrl(wxWindow* parent, PWScore &core, wxWindowID id, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxTR_HAS_BUTTONS);
 

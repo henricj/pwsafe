@@ -85,7 +85,7 @@ namespace S_Alloc
 #undef new
 #define stringx_new_is_pushed
 #endif
-        new(reinterpret_cast<void *>(p)) T(c);
+        ::new (const_cast<void*>(static_cast<const volatile void*>(p))) T(c);
 #ifdef stringx_new_is_pushed
 #pragma pop_macro("new")
 #undef stringx_new_is_pushed
@@ -95,7 +95,7 @@ namespace S_Alloc
       // In-place destruction
       void destroy(pointer p) const {
         // call destructor directly
-        (p)->T::~T();
+        p->~T();
       }
 
       // Rebind to allocators of other types

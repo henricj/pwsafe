@@ -104,7 +104,7 @@ wxString SelectionCriteria::GetGroupSelectionDescription() const
   else
     return wxString(_("Entries whose ")) << GetSelectableFieldName(subgroups[m_subgroupObject]) << wxS(' ')
             << GetSubgroupFunctionName(m_subgroupFunction) << wxS(" \"") << m_subgroupText
-                                         << wxS("\" [") << (m_fCaseSensitive? wxS("") : _("not ")) << _("case-sensitive]");
+                                         << wxS("\" [") << (m_fCaseSensitive ? wxString() : _("not ")) << _("case-sensitive]");
 }
 
 void SelectionCriteria::ReportAdvancedOptions(CReport* rpt, const wxString& operation, const wxString& fullPath)

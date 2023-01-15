@@ -917,7 +917,10 @@ wxString pwFiltersLCChoiceRenderer::getFieldTypeString(int lc)
 
 wxString pwFiltersLCChoiceRenderer::getLCChoiceString(bool bIncludeInvalid)
 {
-  return (bIncludeInvalid ? getFieldTypeString(LC_INVALID) + _T(",") : _T("")) + getFieldTypeString(LC_AND) + _T(",") + getFieldTypeString(LC_OR);
+  wxString invalid;
+  if (bIncludeInvalid)
+    invalid = getFieldTypeString(LC_INVALID) + _T(",");
+  return invalid + getFieldTypeString(LC_AND) + wxString(_T(",")) + getFieldTypeString(LC_OR);
 }
 
 /*!

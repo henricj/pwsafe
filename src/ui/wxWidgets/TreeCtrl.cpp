@@ -1454,7 +1454,9 @@ void TreeCtrl::OnEndDrag(wxTreeEvent& evt)
         // It's only one item to handle
         CItemData *dataSrc = TreeCtrl::GetItem(m_drag_item);
         wxASSERT(dataSrc);
-        StringX sxNewPath = tostringx((GetRootItem() != itemDst) ? GetItemGroup(itemDst) : "");
+        StringX sxNewPath;
+        if (GetRootItem() != itemDst)
+            sxNewPath = tostringx(GetItemGroup(itemDst));
         CItemData modifiedItem = CreateNewItemAsCopy(dataSrc, sxNewPath, ! doOverride, makeCopy);
 
         if(makeCopy) {
@@ -2035,7 +2037,9 @@ void TreeCtrl::CollectDnDData(wxMemoryBuffer &outDDmem, wxString &fileName)
 {
   std::vector<StringX> vEmptyGroups;
   wxTreeItemId parent = GetItemParent(m_last_dnd_item);
-  StringX DragPathParent = tostringx((GetRootItem() != m_last_dnd_item) ? GetItemGroup(parent) : "");
+  StringX DragPathParent;
+  if (GetRootItem() != m_last_dnd_item)
+    DragPathParent = tostringx(GetItemGroup(parent));
   DnDObList dnd_oblist(DragPathParent.length());
   // With shift key pressed on drag left full group, else wise remove path to group
   dnd_oblist.SetDragNode(::wxGetKeyState(WXK_SHIFT) ? false : true);

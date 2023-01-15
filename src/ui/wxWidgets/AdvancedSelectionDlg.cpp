@@ -173,7 +173,9 @@ bool AdvancedSelectionPanel::TransferDataToWindow()
         if (IsUsableField(ft)) {
           if ( (criteriaChanged && m_criteria->IsFieldSelected(ft)) ||
                               (!criteriaChanged && IsPreselectedField(ft)) ) {
-            const wxString title = SelectionCriteria::GetSelectableFieldName(ft) + (IsMandatoryField(ft)? _(" [Mandatory Field]"): wxS(""));
+            wxString title = SelectionCriteria::GetSelectableFieldName(ft);
+            if (IsMandatoryField(ft))
+                title += _(" [Mandatory Field]");
             lbSelected->Append(title, reinterpret_cast<void *>(idx));
           }
           else {

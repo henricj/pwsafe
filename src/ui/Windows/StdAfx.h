@@ -68,7 +68,8 @@
 #include <utility>
 #include <vector>
 
-#ifdef WIN32
+#ifdef PWS_UI_MFC
+
 namespace Gdiplus {
   using std::min;
   using std::max;
@@ -109,5 +110,6 @@ namespace Gdiplus {
 
 // Save including it everywhere!
 #include "Windowsdefs.h"
-
-#endif // WIN32
+#elif defined(_WIN32)
+#include <Windows.h>
+#endif // PWS_UI_MFC

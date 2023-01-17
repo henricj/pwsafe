@@ -3,7 +3,7 @@
 
 #if WIN32
 
-#ifdef USE_MFC
+#ifdef PWS_UI_MFC
 
 #ifndef VC_EXTRALEAN
 #define VC_EXTRALEAN        // Exclude rarely-used stuff from Windows headers
@@ -31,7 +31,7 @@
 
 #include <atlimage.h>
 
-#else // USE_MFC
+#else // PWS_UI_MFC
 
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
@@ -39,7 +39,7 @@
 
 #include <windows.h>
 
-#endif // USE_MFC
+#endif // PWS_UI_MFC
 
 #ifndef NOMINMAX
 #define NOMINMAX

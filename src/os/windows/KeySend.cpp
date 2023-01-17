@@ -6,7 +6,7 @@
 * http://www.opensource.org/licenses/artistic-license-2.0.php
 */
 
-#ifndef __WX__
+#ifdef PWS_UI_MFC
 #include <afxwin.h>
 #endif
 

@@ -42,17 +42,15 @@
 #define NOMINMAX
 #endif
 
-#if (defined(_WIN32) || defined (_WIN64)) && !defined(__WX__)
-// ONLY place in core which refers to parent. Ugh.
+#if (defined(_WIN32) || defined (_WIN64))
+// TODO: ONLY place in core which refers to parent. Ugh.
 #include "../ui/Windows/stdafx.h"
 #else
 // some globally useful includes for non-Windows
 #include <cassert>
 #endif
 
-#ifndef _MSC_VER
-#include <stdint.h>
-#endif
+#include <cstdint>
 
 #if defined(__linux__) || defined(__CYGWIN__)
 #include <endian.h>

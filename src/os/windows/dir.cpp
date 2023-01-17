@@ -10,7 +10,7 @@
  * \file Windows-specific implementation of dir.h
  */
 
-#ifndef __WX__
+#ifdef PWS_UI_MFC
 #include <afx.h>
 #else
 #include <Windows.h>

@@ -17,7 +17,7 @@
 #include "../registry.h"
 #include "../debug.h"
 
-#ifndef __WX__
+#ifdef PWS_UI_MFC
 
 static HKEY hSubTreeKey;      // not re-entrant, but who cares?
 static bool bSubTreeKeyValid; // not me!
@@ -247,7 +247,7 @@ bool pws_os::DeleteRegistryEntries()
   return retval;
 }
 
-#else /* __WX__ */
+#else /* PWS_UI_MFC */
 
 // XXX All TBD...
 

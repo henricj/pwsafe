@@ -10,11 +10,12 @@
  * \file Windows-specific implementation of file.h
  */
 
-#ifndef __WX__
+#ifdef PWS_UI_MFC
 #include <afx.h>
+#else
+#include <Windows.h>
 #endif
 
-#include <Windows.h>
 #include <LMCONS.H> // for UNLEN definition
 #include <shellapi.h>
 #include <shlwapi.h>

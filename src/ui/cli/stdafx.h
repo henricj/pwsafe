@@ -5,10 +5,19 @@
 #ifdef USE_PRECOMPILED_HEADER
 #pragma once
 
-#include "targetver.h"
+#include <iostream>
+#include <string>
+#include <vector>
 
-#include <stdio.h>
+#include <cstdio>
+
+#ifdef _WIN32
+
+#include "targetver.h"
 #include <tchar.h>
+
+#if PWS_UI_MFC
+
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS      // some CString constructors will be explicit
 #define _AFX_NO_MFC_CONTROLS_IN_DIALOGS         // remove support for MFC controls in dialogs
 
@@ -26,9 +35,8 @@
 #include <afxcmn.h>                     // MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
-#include <iostream>
+#endif // PWS_UI_MFC
 
+#endif // WIN32
 
-
-// TODO: reference additional headers your program requires here
 #endif

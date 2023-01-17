@@ -37,6 +37,7 @@
 #include <iomanip>
 
 #include <cerrno>
+#include <cstring>
 
 using namespace std;
 
@@ -55,6 +56,17 @@ static void xormem(unsigned char *mem1, const unsigned char *mem2, int length)
 // and http://www.cypherpunks.to/~peter/usenix01.pdf
 namespace
 {
+#ifdef HAVE_MEMSET_S
+void secure_memset(void* buffer, int value, size_t length)
+{
+    memeset_s(buffer, value, length);
+}
+
+void secure_zero(void* buffer, size_t length)
+{
+    secure_memset(buffer, 0, length);
+}
+#else
 // Try OpenSSL's approach of forcing the call to memset through
 // a volatile function pointer.
 // https://github.com/openssl/openssl/blob/master/crypto/mem_clr.c
@@ -88,6 +100,7 @@ void secure_zero(void* buffer, size_t length)
 #endif
 #endif
 }
+#endif // HAVE_MEMSET_S
 }
 
 void trashMemory(void *buffer, size_t length)

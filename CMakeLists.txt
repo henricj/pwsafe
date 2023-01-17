@@ -16,6 +16,7 @@ endif (NOT WIN32 OR WX_WINDOWS)
 # prerequisites
 include(CheckLibraryExists)
 include(CheckIncludeFile)
+include(CheckCXXSourceCompiles)
 
 # IPO = interprocedural optimisation, not initial public offering (unfortunately)
 include(CheckIPOSupported OPTIONAL RESULT_VARIABLE CHECK_IPO_FOUND)
@@ -344,6 +345,17 @@ if (NOT MSVC)
    # (b) -O3 is the default for cmake
    set (CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
 endif (NOT MSVC)
+
+check_cxx_source_compiles("
+#include <cstring>
+char buffer[16];
+main() { memset_s(buffer, sizeof(buffer), 0); }
+"
+HAVE_MEMSET_S)
+
+if (HAVE_MEMSET_S)
+  add_compile_definitions(HAVE_MEMSET_S)
+endif ()
 
 if (WIN32)
    set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

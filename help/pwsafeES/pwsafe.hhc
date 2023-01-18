@@ -1,215 +1,360 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//ES">
-<HTML>
-<HEAD>
-<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
-<!-- Sitemap 1.0 -->
-</HEAD><BODY>
-<OBJECT type="text/site properties">
-	<param name="Window Styles" value="0x800025">
-</OBJECT>
-<UL>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Bienvenida">
-		<param name="Local" value="html/Welcome.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Acerca de Password Safe">
-		<param name="Local" value="html/about_pws.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Primeros pasos">
-		</OBJECT>
-	<UL>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Crear y abrir una base de datos">
-			<param name="Local" value="html/create_new_db.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Usar contraseñas almacenadas">
-			<param name="Local" value="html/retrieve_pwd.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Buscando una entrada">
-			<param name="Local" value="html/searching.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Actualizar desde versiones anteriores">
-			<param name="Local" value="html/upgrade_from_v1x.html">
-			</OBJECT>
-	</UL>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Usar Password Safe">
-		</OBJECT>
-	<UL>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Una nota sobre contraseñas maestras">
-			<param name="Local" value="html/about_combinations.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Nombres de usuario, contraseñas y grupos">
-			</OBJECT>
-		<UL>
-			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Básico">
-				<param name="Local" value="html/entering_pwd.html">
-				</OBJECT>
-			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Adicional">
-				<param name="Local" value="html/entering_pwd_add.html">
-				</OBJECT>
-			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Fechas y horas">
-				<param name="Local" value="html/entering_pwd_date.html">
-				</OBJECT>
-			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Política de contraseñas">
-				<param name="Local" value="html/entering_pwd_pp.html">
-				</OBJECT>
-		</UL>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Fijar una política de contraseñas">
-			<param name="Local" value="html/password_policies.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Mantener el historial de contraseñas">
-			<param name="Local" value="html/password_history.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Cambiar las contraseñas maestras">
-			<param name="Local" value="html/change_combo.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Autoescritura">
-			<param name="Local" value="html/autotype.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Haciendo y restaurando copias de seguridad">
-			<param name="Local" value="html/backup_and_restore.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Copias de respaldo intermedias automáticas">
-			<param name="Local" value="html/backups_tab.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Copias de seguridad a prueba de fallos automáticas">
-			<param name="Local" value="html/failsafebackups.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Importar entradas">
-			<param name="Local" value="html/import.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Exportar entradas">
-			<param name="Local" value="html/export.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Filtrar entradas">
-			<param name="Local" value="html/filters.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Argumentos de la línea de comandos">
-			<param name="Local" value="html/cli.html">
-			</OBJECT>
-	</UL>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Menús de Password Safe">
-		</OBJECT>
-	<UL>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menú archivo">
-			<param name="Local" value="html/file_menu.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menú editar">
-			<param name="Local" value="html/edit_menu.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menú ver">
-			<param name="Local" value="html/view_menu.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menú herramientas">
-			<param name="Local" value="html/manage_menu.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menú ayuda">
-			<param name="Local" value="html/help_menu.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menú barra de herramientas">
-			<param name="Local" value="html/menu_toolbar.html">
-			</OBJECT>
-	</UL>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Opciones">
-		</OBJECT>
-	<UL>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Opciones de copia de seguridad">
-			<param name="Local" value="html/backups_tab.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Opciones de visualización">
-			<param name="Local" value="html/display_tab.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Opciones Misc.">
-			<param name="Local" value="html/misc_tab.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Opciones de historial de contraseñas">
-			<param name="Local" value="html/password_history_tab.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Opciones de política de contraseñas">
-			<param name="Local" value="html/password_policies.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Opciones de seguridad">
-			<param name="Local" value="html/security_tab.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Opciones del sistema">
-			<param name="Local" value="html/system_tab.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Atajos de teclado">
-			<param name="Local" value="html/shortcuts_tab.html">
-			</OBJECT>
-	</UL>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Apéndices">
-		</OBJECT>
-	<UL>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Alias de contraseñas">
-			<param name="Local" value="html/aliases.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Exportación e importación en texto sin formato">
-			<param name="Local" value="html/imp_exp_text_details.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Preferencias">
-			<param name="Local" value="html/preferences.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Ejecutar comando">
-			<param name="Local" value="html/run_command.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Teclas de acceso directo">
-			<param name="Local" value="html/Shortcut_Keys.html">
-			</OBJECT>
-	</UL>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Créditos del programa">
-		</OBJECT>
-	<UL>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Créditos del programa">
-			<param name="Local" value="html/credits.html">
-			</OBJECT>
-	</UL>
-</UL>
-</BODY></HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+    <meta charset="utf-8">
+    <meta name="GENERATOR" content="MicrosoftÂ® HTML Help Workshop 4.1"><!-- Sitemap 1.0 -->
+
+    <title>
+    </title>
+  </head>
+  <body>
+    <object type="text/site properties">
+      <param name="Window Styles" value="0x800025">
+    </object>
+    <ul>
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="Bienvenida">
+           <param name="Local" value="html/Welcome.html">
+        </object>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="Acerca de Password Safe">
+           <param name="Local" value="html/about_pws.html">
+        </object>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="Primeros pasos">
+        </object>
+        <ul>
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Crear y abrir una base de datos">
+               <param name="Local" value="html/create_new_db.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Usar contraseÃ±as almacenadas">
+               <param name="Local" value="html/retrieve_pwd.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Buscando una entrada">
+               <param name="Local" value="html/searching.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Actualizar desde versiones anteriores">
+               <param name="Local" value="html/upgrade_from_v1x.html">
+            </object>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="Usar Password Safe">
+        </object>
+        <ul>
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Una nota sobre contraseÃ±as maestras">
+               <param name="Local" value="html/about_combinations.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Nombres de usuario, contraseÃ±as y grupos">
+            </object>
+            <ul>
+              <li>
+                <object type="text/sitemap">
+                  <param name="Name" value="BÃ¡sico">
+                   <param name="Local" value="html/entering_pwd.html">
+                </object>
+              </li>
+
+              <li>
+                <object type="text/sitemap">
+                  <param name="Name" value="Adicional">
+                   <param name="Local" value="html/entering_pwd_add.html">
+                </object>
+              </li>
+
+              <li>
+                <object type="text/sitemap">
+                  <param name="Name" value="Fechas y horas">
+                   <param name="Local" value="html/entering_pwd_date.html">
+                </object>
+              </li>
+
+              <li>
+                <object type="text/sitemap">
+                  <param name="Name" value="PolÃ­tica de contraseÃ±as">
+                   <param name="Local" value="html/entering_pwd_pp.html">
+                </object>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Fijar una polÃ­tica de contraseÃ±as">
+               <param name="Local" value="html/password_policies.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Mantener el historial de contraseÃ±as">
+               <param name="Local" value="html/password_history.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Cambiar las contraseÃ±as maestras">
+               <param name="Local" value="html/change_combo.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Autoescritura">
+               <param name="Local" value="html/autotype.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Haciendo y restaurando copias de seguridad">
+               <param name="Local" value="html/backup_and_restore.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Copias de respaldo intermedias automÃ¡ticas">
+               <param name="Local" value="html/backups_tab.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Copias de seguridad a prueba de fallos automÃ¡ticas">
+               <param name="Local" value="html/failsafebackups.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Importar entradas">
+               <param name="Local" value="html/import.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Exportar entradas">
+               <param name="Local" value="html/export.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Filtrar entradas">
+               <param name="Local" value="html/filters.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Argumentos de la lÃ­nea de comandos">
+               <param name="Local" value="html/cli.html">
+            </object>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="MenÃºs de Password Safe">
+        </object>
+        <ul>
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="MenÃº archivo">
+               <param name="Local" value="html/file_menu.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="MenÃº editar">
+               <param name="Local" value="html/edit_menu.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="MenÃº ver">
+               <param name="Local" value="html/view_menu.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="MenÃº herramientas">
+               <param name="Local" value="html/manage_menu.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="MenÃº ayuda">
+               <param name="Local" value="html/help_menu.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="MenÃº barra de herramientas">
+               <param name="Local" value="html/menu_toolbar.html">
+            </object>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="Opciones">
+        </object>
+        <ul>
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Opciones de copia de seguridad">
+               <param name="Local" value="html/backups_tab.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Opciones de visualizaciÃ³n">
+               <param name="Local" value="html/display_tab.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Opciones Misc.">
+               <param name="Local" value="html/misc_tab.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Opciones de historial de contraseÃ±as">
+               <param name="Local" value="html/password_history_tab.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Opciones de polÃ­tica de contraseÃ±as">
+               <param name="Local" value="html/password_policies.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Opciones de seguridad">
+               <param name="Local" value="html/security_tab.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Opciones del sistema">
+               <param name="Local" value="html/system_tab.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Atajos de teclado">
+               <param name="Local" value="html/shortcuts_tab.html">
+            </object>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="ApÃ©ndices">
+        </object>
+        <ul>
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Alias de contraseÃ±as">
+               <param name="Local" value="html/aliases.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="ExportaciÃ³n e importaciÃ³n en texto sin formato">
+               <param name="Local" value="html/imp_exp_text_details.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Preferencias">
+               <param name="Local" value="html/preferences.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Ejecutar comando">
+               <param name="Local" value="html/run_command.html">
+            </object>
+          </li>
+
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="Teclas de acceso directo">
+               <param name="Local" value="html/Shortcut_Keys.html">
+            </object>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="CrÃ©ditos del programa">
+        </object>
+        <ul>
+          <li>
+            <object type="text/sitemap">
+              <param name="Name" value="CrÃ©ditos del programa">
+               <param name="Local" value="html/credits.html">
+            </object>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>

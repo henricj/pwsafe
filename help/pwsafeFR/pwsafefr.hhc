@@ -1,44 +1,73 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
-<HTML>
-<HEAD>
-<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
-<!-- Sitemap 1.0 -->
-</HEAD><BODY>
-<OBJECT type="text/site properties">
-	<param name="ImageType" value="Folder">
-</OBJECT>
-<UL>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="PasswordSafe Introduction">
-		<param name="Local" value="html/pws_intro.htm">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="PasswordSafe Overview">
-		<param name="Local" value="html/pws_main.htm">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Safe Combination Entry">
-		<param name="Local" value="html/pws_combo_entry.htm">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Safe Combination Change">
-		<param name="Local" value="html/pws_combo_chg.htm">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Safe Combination Entry Error">
-		<param name="Local" value="html/pws_combo_err.htm">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Add Entry">
-		<param name="Local" value="html/pws_add_data.htm">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Edit/View Entry">
-		<param name="Local" value="html/pws_edit.htm">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="PasswordSafe Options">
-		<param name="Local" value="html/pws_opts.htm">
-		</OBJECT>
-</UL>
-</BODY></HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="GENERATOR" content="Microsoft® HTML Help Workshop 4.1"><!-- Sitemap 1.0 -->
+
+    <title>
+    </title>
+  </head>
+  <body>
+    <object type="text/site properties">
+      <param name="ImageType" value="Folder">
+    </object>
+    <ul>
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="PasswordSafe Introduction">
+           <param name="Local" value="html/pws_intro.htm">
+        </object>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="PasswordSafe Overview">
+           <param name="Local" value="html/pws_main.htm">
+        </object>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="Safe Combination Entry">
+           <param name="Local" value="html/pws_combo_entry.htm">
+        </object>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="Safe Combination Change">
+           <param name="Local" value="html/pws_combo_chg.htm">
+        </object>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="Safe Combination Entry Error">
+           <param name="Local" value="html/pws_combo_err.htm">
+        </object>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="Add Entry">
+           <param name="Local" value="html/pws_add_data.htm">
+        </object>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="Edit/View Entry">
+           <param name="Local" value="html/pws_edit.htm">
+        </object>
+      </li>
+
+      <li>
+        <object type="text/sitemap">
+          <param name="Name" value="PasswordSafe Options">
+           <param name="Local" value="html/pws_opts.htm">
+        </object>
+      </li>
+    </ul>
+  </body>
+</html>

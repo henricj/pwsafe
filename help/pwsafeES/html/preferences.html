@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head> <META HTTP-EQUIV="Content-Type" Content="text/html; charset=iso-8859-1">
-  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+<html><head> <META HTTP-EQUIV="Content-Type" Content="text/html; charset=UTF-8">
+  <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
 
   
 
@@ -25,36 +25,36 @@
 Al igual que muchas aplicaciones, PasswordSafe le permite configurar su comportamiento 
 y apariencia que mejor se ajuste a su gusto y necesidades. Muchas aplicaciones 
 almacenan las preferencias de este tipo en el 'Registro' de Windows, 
-como una cuestión de convención y conveniencia. Las versiones anteriores 
-de PasswordSafe también utilizaban el registro, pero esto ha demostrado ser 
-problemático por las siguientes razones:<br>
-1. Algunas de las preferencias configurables están relacionadas con la seguridad, 
+como una cuestiÃ³n de convenciÃ³n y conveniencia. Las versiones anteriores 
+de PasswordSafe tambiÃ©n utilizaban el registro, pero esto ha demostrado ser 
+problemÃ¡tico por las siguientes razones:<br>
+1. Algunas de las preferencias configurables estÃ¡n relacionadas con la seguridad, 
 y almacenarlos en un repositorio abierto, como el registro de Windows, 
 puede permitir a un atacante obtener acceso a la base de datos (por ejemplo, 
-si el atacante desactivar el bloqueo de la base de datos después de un tiempo de 
-espera de inactividad, el usuario asumirá que la base de datos se ha bloqueado de 
-forma segura mientras sale a almorzar, mientras el atacante podría acceder a su conveniencia).<br>
+si el atacante desactivar el bloqueo de la base de datos despuÃ©s de un tiempo de 
+espera de inactividad, el usuario asumirÃ¡ que la base de datos se ha bloqueado de 
+forma segura mientras sale a almorzar, mientras el atacante podrÃ­a acceder a su conveniencia).<br>
 2. Muchas personas usan PasswordSafe en un disco-llave o de otra manera 
-compartiendo la misma base de datos entre varias máquinas. Es muy difícil compartir 
-los datos de configuración en un registro de tal manera.<br>
+compartiendo la misma base de datos entre varias mÃ¡quinas. Es muy difÃ­cil compartir 
+los datos de configuraciÃ³n en un registro de tal manera.<br>
 <br>
 PasswordSafe tiene una serie de preferencias, cada una con un valor por defecto razonable. 
-Cuando un usuario cambia la configuración a un valor no predeterminado, el nuevo valor es 
+Cuando un usuario cambia la configuraciÃ³n a un valor no predeterminado, el nuevo valor es 
 almacenado por PasswordSafe.<br>
 PasswordSafe define las preferencias como relacionadas o no con la seguridad. Las primeras 
 se mantienen en la base de datos, cifrado con la misma clave que los datos del usuario.<br>
-Las preferencias no relacionados con la seguridad se guardan en un archivo de configuración, 
-pwsafe.cfg. Este archivo está en formato XML, con secciones por máquina y por usuario, 
-para que el archivo se puede compartir entre diferentes usuarios, así como entre diferentes máquinas.<br>
+Las preferencias no relacionados con la seguridad se guardan en un archivo de configuraciÃ³n, 
+pwsafe.cfg. Este archivo estÃ¡ en formato XML, con secciones por mÃ¡quina y por usuario, 
+para que el archivo se puede compartir entre diferentes usuarios, asÃ­ como entre diferentes mÃ¡quinas.<br>
 Por defecto, pwsafe.cfg se guarda en el mismo directorio que el programa ejecutable pwsafe.exe. 
-Sin embargo, si se establece la variable de entorno PWS_PREFSDIR, pwsafe usará el fichero de 
-configuración almacenados allí. Esto es útil si los permisos de escritura en el directorio 
-de instalación de pwsafe.exe están restringidos.<br>
+Sin embargo, si se establece la variable de entorno PWS_PREFSDIR, pwsafe usarÃ¡ el fichero de 
+configuraciÃ³n almacenados allÃ­. Esto es Ãºtil si los permisos de escritura en el directorio 
+de instalaciÃ³n de pwsafe.exe estÃ¡n restringidos.<br>
 <br>
-En las siguientes tablas se describen los elementos de configuración. Mucho de ellos son 
-configurables a través del diálogo <a href="manage_menu.html">Herramientas-&gt;Opciones</a>.<br>
+En las siguientes tablas se describen los elementos de configuraciÃ³n. Mucho de ellos son 
+configurables a travÃ©s del diÃ¡logo <a href="manage_menu.html">Herramientas-&gt;Opciones</a>.<br>
 <hr style="width: 100%; height: 2px;">
-<h4>Preferencias lógicas (cierto/falso)</h4>
+<h4>Preferencias lÃ³gicas (cierto/falso)</h4>
 <table style="width: 740px;" border="1" cellpadding="2" cellspacing="2" width="100%">
 
   <tbody>
@@ -110,42 +110,42 @@ configurables a través del diálogo <a href="manage_menu.html">Herramientas-&gt;O
       <td style="width: 214px;">pwuselowercase</td>
       <td style="width: 68px;"> cierto</td>
       <td style="width: 140px;"> base de datos</td>
-      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;Política de generación de contraseñas</small></td>
+      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;PolÃ­tica de generaciÃ³n de contraseÃ±as</small></td>
     </tr>
 
     <tr>
       <td style="width: 214px;">pwuseuppercase</td>
       <td style="width: 68px;"> cierto</td>
       <td style="width: 140px;"> base de datos</td>
-      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;Política de generación de contraseñas</small></td>
+      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;PolÃ­tica de generaciÃ³n de contraseÃ±as</small></td>
     </tr>
 
     <tr>
       <td style="width: 214px;">pwusedigits</td>
       <td style="width: 68px;"> cierto</td>
       <td style="width: 140px;"> base de datos</td>
-      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;Política de generación de contraseñas</small></td>
+      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;PolÃ­tica de generaciÃ³n de contraseÃ±as</small></td>
     </tr>
 
     <tr>
       <td style="width: 214px;">pwusesymbols</td>
       <td style="width: 68px;"> falso</td>
       <td style="width: 140px;"> base de datos</td>
-      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;Política de generación de contraseñas</small></td>
+      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;PolÃ­tica de generaciÃ³n de contraseÃ±as</small></td>
     </tr>
 
     <tr>
       <td style="width: 214px;">pwusehexdigits</td>
       <td style="width: 68px;"> falso</td>
       <td style="width: 140px;"> base de datos</td>
-      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;Política de generación de contraseñas</small></td>
+      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;PolÃ­tica de generaciÃ³n de contraseÃ±as</small></td>
     </tr>
 
     <tr>
       <td style="width: 214px;">pweasyvision</td>
       <td style="width: 68px;"> falso</td>
       <td style="width: 140px;"> base de datos</td>
-      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;Política de generación de contraseñas</small></td>
+      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;PolÃ­tica de generaciÃ³n de contraseÃ±as</small></td>
     </tr>
 
     <tr>
@@ -293,14 +293,14 @@ configurables a través del diálogo <a href="manage_menu.html">Herramientas-&gt;O
       <td style="width: 214px;">ExplorerTypeTree</td>
       <td style="width: 68px;"> falso</td>
       <td style="width: 140px;"> pwsafe.cfg</td>
-      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;Mostrar grupos primero en vista árbol</small></td>
+      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;Mostrar grupos primero en vista Ã¡rbol</small></td>
     </tr>
 
     <tr>
       <td style="width: 214px;">ListViewGridLines</td>
       <td style="width: 68px;"> falso</td>
       <td style="width: 140px;"> pwsafe.cfg</td>
-      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;Mostrar líneas de cuadrícula en lista</small></td>
+      <td style="width: 300px; text-align: left;" valign="middle"><small>&nbsp;Mostrar lÃ­neas de cuadrÃ­cula en lista</small></td>
     </tr>
 
     <tr>
@@ -313,7 +313,7 @@ configurables a través del diálogo <a href="manage_menu.html">Herramientas-&gt;O
   </tbody>
 </table>
 <br>
-<h4>Preferencias numéricas</h4>
+<h4>Preferencias numÃ©ricas</h4>
 <table style="width: 780px;" border="1" cellpadding="2" cellspacing="2" width="100%">
 
   <tbody>
@@ -376,7 +376,7 @@ configurables a través del diálogo <a href="manage_menu.html">Herramientas-&gt;O
       <td style="width: 115px;">base de datos</td>
       <td style="width: 40px;"> 4</td>
       <td style="width: 40px;"> 1024</td>
-      <td style="width: 180px;"><small>&nbsp;Longitud de la contraseña</small></td>
+      <td style="width: 180px;"><small>&nbsp;Longitud de la contraseÃ±a</small></td>
     </tr>
 
     <tr>
@@ -439,7 +439,7 @@ configurables a través del diálogo <a href="manage_menu.html">Herramientas-&gt;O
       <td style="width: 115px;">base de datos</td>
       <td style="width: 40px;"> 0</td>
       <td style="width: 40px;"> 255</td>
-      <td style="width: 180px;"><small>&nbsp;contraseñas en historial</small></td>
+      <td style="width: 180px;"><small>&nbsp;contraseÃ±as en historial</small></td>
     </tr>
 
     <tr>
@@ -466,7 +466,7 @@ configurables a través del diálogo <a href="manage_menu.html">Herramientas-&gt;O
       <td style="width: 115px;"> pwsafe.cfg</td>
       <td style="width: 40px;"> 1</td>
       <td style="width: 40px;"> 30</td>
-      <td style="width: 180px;"><small>&nbsp;Aviso caducidad contraseñas</small></td>
+      <td style="width: 180px;"><small>&nbsp;Aviso caducidad contraseÃ±as</small></td>
     </tr>
 
   </tbody>
@@ -486,21 +486,21 @@ configurables a través del diálogo <a href="manage_menu.html">Herramientas-&gt;O
       <td style="width: 185px;">currentbackup</td>
       <td style="width: 80px;"> &lt;none&gt;</td>
       <td style="width: 110px;"> pwsafe.cfg</td>
-      <td style="width: 399px;"><small>&nbsp;Nombre y trayectoria del último archivo de copia de seguridad</small></td>
+      <td style="width: 399px;"><small>&nbsp;Nombre y trayectoria del Ãºltimo archivo de copia de seguridad</small></td>
     </tr>
 
     <tr>
       <td style="width: 185px;">currentfile</td>
       <td style="width: 80px;"> &lt;none&gt;</td>
       <td style="width: 110px;"> pwsafe.cfg</td>
-      <td style="width: 399px;"><small>&nbsp;Archivo abierto actualmente (último)</small></td>
+      <td style="width: 399px;"><small>&nbsp;Archivo abierto actualmente (Ãºltimo)</small></td>
     </tr>
 
     <tr>
       <td style="width: 185px;">lastview</td>
       <td style="width: 80px;"> tree</td>
       <td style="width: 110px;"> pwsafe.cfg</td>
-      <td style="width: 399px;"><small>&nbsp;Última vista seleccionada: Árbol o lista</small></td>
+      <td style="width: 399px;"><small>&nbsp;Ãšltima vista seleccionada: Ãrbol o lista</small></td>
     </tr>
 
     <tr>
@@ -549,7 +549,7 @@ configurables a través del diálogo <a href="manage_menu.html">Herramientas-&gt;O
       <td style="width: 185px;">ColumnWidths</td>
       <td style="width: 80px;"> &lt;none&gt;</td>
       <td style="width: 110px;"> pwsafe.cfg</td>
-      <td style="width: 399px;"><small>&nbsp;Tamaño de columnas</small></td>
+      <td style="width: 399px;"><small>&nbsp;TamaÃ±o de columnas</small></td>
     </tr>
 
     <tr>

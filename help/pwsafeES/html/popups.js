@@ -7,16 +7,16 @@
 
 popFont="Arial,9,,ITALIC"
 
-strPasswordPolicies="Una política de contraseñas determina como se crea la contraseña. La longitud, letras, números, y caracteres especiales que se usan para generar una contraseña se controlan en el diálogo Política de contraseñas del menú Opciones."
+strPasswordPolicies="Una polÃ­tica de contraseÃ±as determina como se crea la contraseÃ±a. La longitud, letras, nÃºmeros, y caracteres especiales que se usan para generar una contraseÃ±a se controlan en el diÃ¡logo PolÃ­tica de contraseÃ±as del menÃº Opciones."
 
-strBruce="Autor de Criptografía aplicada y otros libros, creador del algoritmo Blowfish, y fundador y CTO de Counterpane Internet Security."
+strBruce="Autor de CriptografÃ­a aplicada y otros libros, creador del algoritmo Blowfish, y fundador y CTO de Counterpane Internet Security."
 
 strSpecialChars="   `   ~   !   @   #   $   %   ^   &   *   (   )   _   +   -   =   |   }   {   [   ]   <   >   ?   /   \   :   ;   |   "
 
-strCombination="En nuestra terminología, la combinación es la contraseñas que usas para acceder a la base de datos Password safe."
+strCombination="En nuestra terminologÃ­a, la combinaciÃ³n es la contraseÃ±as que usas para acceder a la base de datos Password safe."
 
 strPopText1="Dummy Placeholder"
 
-strExternalFile="Formatos de archivo soportados: Base de datos Password Safe Versión 1.x; archivos de texto delimitado por tabuladores (.txt). Se recomienda CON INSISTENCIA que el uso de archivos de texto con información sensible de contraseñas sea evitada en lo posible y que el archivo sea borrado con seguridad después."
+strExternalFile="Formatos de archivo soportados: Base de datos Password Safe VersiÃ³n 1.x; archivos de texto delimitado por tabuladores (.txt). Se recomienda CON INSISTENCIA que el uso de archivos de texto con informaciÃ³n sensible de contraseÃ±as sea evitada en lo posible y que el archivo sea borrado con seguridad despuÃ©s."
 
-strHexDec="Sólo los siguientes:\n 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f"
+strHexDec="SÃ³lo los siguientes:\n 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f"

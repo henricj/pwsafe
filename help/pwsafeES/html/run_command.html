@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<head> <META HTTP-EQUIV="Content-Type" Content="text/html; charset=iso-8859-1">
+<head> <META HTTP-EQUIV="Content-Type" Content="text/html; charset=UTF-8">
 
 
 
@@ -30,30 +30,30 @@
 
 
 
-<p>Un campo "Ejecutar comando" de una entrada puede contener un comando que se ejecutará cuando se selecciona 
-la acción ejecutar comando. El comando puede ser cualquier cosa que pueda ejecutarse en el diálogo Inicio-&gt;Ejecutar... 
+<p>Un campo "Ejecutar comando" de una entrada puede contener un comando que se ejecutarÃ¡ cuando se selecciona 
+la acciÃ³n ejecutar comando. El comando puede ser cualquier cosa que pueda ejecutarse en el diÃ¡logo Inicio-&gt;Ejecutar... 
 de tu computador.</p>
 
 
 
-<p>Además, <b>Password Safe</b> puede pasar argumentos al comando como el nombre de la entrada 
-contraseña, etc., como se describe más abajo. Esto te permite programar acciones complejas, como 
+<p>AdemÃ¡s, <b>Password Safe</b> puede pasar argumentos al comando como el nombre de la entrada 
+contraseÃ±a, etc., como se describe mÃ¡s abajo. Esto te permite programar acciones complejas, como 
 ejecutar un programa de acceso remoto (<a target="_blank" href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/">PuTTY</a>, 
-por ejemplo) y pasarle el usuario y contrasaña asociado con la entrada.</p>
+por ejemplo) y pasarle el usuario y contrasaÃ±a asociado con la entrada.</p>
 
 
 
 <p>En general, las 'variables' son reemplazadas por los valores asociados con ellas, 
-antes de transferirlos al ordenador para su ejecución. El signo ('$') dólar se emplea para indicar una variable.</p>
+antes de transferirlos al ordenador para su ejecuciÃ³n. El signo ('$') dÃ³lar se emplea para indicar una variable.</p>
 
 
 
 <ul>
 
 
-  <li>Las variables se especifican como '$nombre', y <i>se distingue entre mayúsculas y minúsculas</i>. 
-Los nombres de variables siempre comienzan con un carácter alfabético y el resto de los caracteres son alfanuméricos. 
-El nombre de la variable se termina al encontrarse con un carácter no alfanumérico (como un espacio) o al 
+  <li>Las variables se especifican como '$nombre', y <i>se distingue entre mayÃºsculas y minÃºsculas</i>. 
+Los nombres de variables siempre comienzan con un carÃ¡cter alfabÃ©tico y el resto de los caracteres son alfanumÃ©ricos. 
+El nombre de la variable se termina al encontrarse con un carÃ¡cter no alfanumÃ©rico (como un espacio) o al 
 alcanzar el final del campo Ejecutar comando.</li>
 
 
@@ -61,7 +61,7 @@ alcanzar el final del campo Ejecutar comando.</li>
   <ul>
 
 
-    <li>Para utilizar una variable seguida de inmediato por un carácter alfanumérico, escribe el nombre de la variable 
+    <li>Para utilizar una variable seguida de inmediato por un carÃ¡cter alfanumÃ©rico, escribe el nombre de la variable 
 entre llaves, por ejemplo, '${nombrevar}cadena'.</li>
 
 
@@ -72,13 +72,13 @@ llamada 'texto'.</li>
 
 
 
-    <li>Para utilizar una barra invertida antes de que un '$', precédela con una barra invertida, por ejemplo, 
+    <li>Para utilizar una barra invertida antes de que un '$', precÃ©dela con una barra invertida, por ejemplo, 
 '\\$nombre' se convierte en "\$nombre' en el texto resultante y' $nombre' se trata como una variable. No hay que preceder
 una barra invertida con otra barra invertida a menos que preceda a un '$' indicando una variable.</li>
 
-    <li>Una variable puede ser seguido por un valor numérico entre corchetes que se denomina un 'valor índice'. 
-El valor índice 'n' puede estar precedido por '+' o '-' ejemplo [-2] o [2] o [+2]. <b>Password Safe</b> interpreta 
-un índice con valor cero como todo el campo.
+    <li>Una variable puede ser seguido por un valor numÃ©rico entre corchetes que se denomina un 'valor Ã­ndice'. 
+El valor Ã­ndice 'n' puede estar precedido por '+' o '-' ejemplo [-2] o [2] o [+2]. <b>Password Safe</b> interpreta 
+un Ã­ndice con valor cero como todo el campo.
     </li>
 
 
@@ -103,7 +103,7 @@ un índice con valor cero como todo el campo.
   <ul>
 
 
-    <li>Relacionados con la aplicación:</li>
+    <li>Relacionados con la aplicaciÃ³n:</li>
 
 
 
@@ -118,8 +118,8 @@ un índice con valor cero como todo el campo.
 
           <td style="font-weight: bold;">appdir</td>
 
-          <td>El directorio que contiene la apliación <b>Password Safe</b>. Ver notas <a href="#n1">1</a> y <a href="#n2">2</a>
-  más abajo.</td>
+          <td>El directorio que contiene la apliaciÃ³n <b>Password Safe</b>. Ver notas <a href="#n1">1</a> y <a href="#n2">2</a>
+  mÃ¡s abajo.</td>
 
         </tr>
 
@@ -150,7 +150,7 @@ un índice con valor cero como todo el campo.
 
           <td style="font-weight: bold;">dbdir</td>
 
-          <td>Directorio de la base de datos actualmente abierta. Ver notas <a href="#n1">1</a> y <a href="#n2">2</a> más abajo.</td>
+          <td>Directorio de la base de datos actualmente abierta. Ver notas <a href="#n1">1</a> y <a href="#n2">2</a> mÃ¡s abajo.</td>
 
         </tr>
 
@@ -159,8 +159,8 @@ un índice con valor cero como todo el campo.
 
           <td style="font-weight: bold;">fulldb</td>
 
-          <td>Ruta de acceso completa, nombre de archivo y extensión de la base de datos abierta. Ver nota
-  <a href="#n2">2</a> más abajo.</td>
+          <td>Ruta de acceso completa, nombre de archivo y extensiÃ³n de la base de datos abierta. Ver nota
+  <a href="#n2">2</a> mÃ¡s abajo.</td>
 
         </tr>
 
@@ -178,7 +178,7 @@ un índice con valor cero como todo el campo.
 
           <td style="font-weight: bold;">dbextn</td>
 
-          <td>Extensión de la base de datos abierta.</td>
+          <td>ExtensiÃ³n de la base de datos abierta.</td>
 
         </tr>
 
@@ -209,7 +209,7 @@ un índice con valor cero como todo el campo.
 
           <td style="font-weight: bold;">g <span style="font-weight: normal;">o</span> group</td>
 
-          <td>Grupo (estructura de árbol completo hasta la raíz con grupos separados por puntos).</td>
+          <td>Grupo (estructura de Ã¡rbol completo hasta la raÃ­z con grupos separados por puntos).</td>
 
         </tr>
 
@@ -218,7 +218,7 @@ un índice con valor cero como todo el campo.
 
           <td style="font-weight: bold;">G <span style="font-weight: normal;">o</span> GROUP</td>
 
-          <td>El grupo que contiene esta entrada sólo.</td>
+          <td>El grupo que contiene esta entrada sÃ³lo.</td>
 
         </tr>
 
@@ -227,7 +227,7 @@ un índice con valor cero como todo el campo.
 
           <td style="font-weight: bold;">t <span style="font-weight: normal;">o</span> title</td>
 
-          <td>Título</td>
+          <td>TÃ­tulo</td>
 
         </tr>
 
@@ -245,7 +245,7 @@ un índice con valor cero como todo el campo.
 
           <td style="font-weight: bold;">p <span style="font-weight: normal;">o</span> password</td>
 
-          <td>Contraseña</td>
+          <td>ContraseÃ±a</td>
 
         </tr>
 
@@ -254,7 +254,7 @@ un índice con valor cero como todo el campo.
 
           <td style="font-weight: bold;">a <span style="font-weight: normal;">o </span>autotype</td>
 
-          <td>Autoescritura. Ver nota <a href="#n5">5</a> más abajo.</td>
+          <td>Autoescritura. Ver nota <a href="#n5">5</a> mÃ¡s abajo.</td>
 
         </tr>
 
@@ -272,8 +272,8 @@ un índice con valor cero como todo el campo.
 
           <td><b>n</b> o <b>n[0]</b></td>
 
-          <td>El campo notas completo (también: notes or notes[0]). Ver nota <a href="#n3">3</a>
-  más abajo.</td>
+          <td>El campo notas completo (tambiÃ©n: notes or notes[0]). Ver nota <a href="#n3">3</a>
+  mÃ¡s abajo.</td>
 
         </tr>
 
@@ -282,8 +282,8 @@ un índice con valor cero como todo el campo.
 
           <td><b>n[i]</b> o <b>notes[i]</b></td>
 
-          <td>Línea i del campo Notas empezando por el principio, i=1 es la primera línea, 
-  i=2 es la segunda línea etc. Ver nota <a href="#n4">4</a> más abajo.</td>
+          <td>LÃ­nea i del campo Notas empezando por el principio, i=1 es la primera lÃ­nea, 
+  i=2 es la segunda lÃ­nea etc. Ver nota <a href="#n4">4</a> mÃ¡s abajo.</td>
 
         </tr>
 
@@ -292,8 +292,8 @@ un índice con valor cero como todo el campo.
 
           <td><b>n[-i]</b> o <b>notes[-i]</b></td>
 
-          <td>Línea idel campo Notas empezando por el final, i=1 es la última línea, 
-  i=2 es la penúltima línea etc. Ver nota <a href="#n4">4</a> más abajo.</td>
+          <td>LÃ­nea idel campo Notas empezando por el final, i=1 es la Ãºltima lÃ­nea, 
+  i=2 es la penÃºltima lÃ­nea etc. Ver nota <a href="#n4">4</a> mÃ¡s abajo.</td>
 
         </tr>
 
@@ -330,7 +330,7 @@ un índice con valor cero como todo el campo.
           <td align="center">1<a name="n1"></a></td>
 
           <td>Los nombres de directorio (appdir o dbdir) no tienen una '\' al final.
-  Recuerda añadirla si la necesitas en tu Ejecutar comando.</td>
+  Recuerda aÃ±adirla si la necesitas en tu Ejecutar comando.</td>
 
         </tr>
 
@@ -341,7 +341,7 @@ un índice con valor cero como todo el campo.
 
           <td>El contenido de las variables (incluyendo los valores de directorio y ruta de acceso completa)
   puede incluir espaciones en blanco. Puedes necesitar encerrar el resultado entre comillas para una
-  correcta ejecución de Ejecutar comando.</td>
+  correcta ejecuciÃ³n de Ejecutar comando.</td>
 
         </tr>
 
@@ -350,8 +350,8 @@ un índice con valor cero como todo el campo.
 
           <td align="center">3<a name="n3"></a></td>
 
-          <td>Si el campo Notas contiene más de una línea, se incluirá cualquier retorno de carro (CR) o 
-  avance de línea (LF) incrustado. Esto puede causar problemas cuando se ejecuta y CR y/o LF se toman como 'Intro'.</td>
+          <td>Si el campo Notas contiene mÃ¡s de una lÃ­nea, se incluirÃ¡ cualquier retorno de carro (CR) o 
+  avance de lÃ­nea (LF) incrustado. Esto puede causar problemas cuando se ejecuta y CR y/o LF se toman como 'Intro'.</td>
 
         </tr>
 
@@ -360,7 +360,7 @@ un índice con valor cero como todo el campo.
 
           <td align="center">4<a name="n4"></a></td>
 
-          <td>Cualquier CR y/o LF final se quitan de las líneas individuales seleccionadas del campo Notas.</td>
+          <td>Cualquier CR y/o LF final se quitan de las lÃ­neas individuales seleccionadas del campo Notas.</td>
 
         </tr>
 
@@ -369,11 +369,11 @@ un índice con valor cero como todo el campo.
 
           <td align="center">5<a name="n5"></a></td>
 
-          <td>Si la variable Autoescritura está presente en el comando Ejecutar, se llevará a cabo una vez que 
-  la ventana de destino esté activa. La variable y su valor, si existe, será eliminado de la cadena que se ejecuta. 
-  Esta variable puede aparecer en cualquier lugar en el comando Ejecutar, ya que sólo especifica lo que 
-  <b>Password Safe</b> hará después de la cadena de comando se ha ejecutado. A diferencia de otras variables, ésta 
-  podrá tomar un valor para reemplazar el valor actual de la entrada. El formato es el siguiente 
+          <td>Si la variable Autoescritura estÃ¡ presente en el comando Ejecutar, se llevarÃ¡ a cabo una vez que 
+  la ventana de destino estÃ© activa. La variable y su valor, si existe, serÃ¡ eliminado de la cadena que se ejecuta. 
+  Esta variable puede aparecer en cualquier lugar en el comando Ejecutar, ya que sÃ³lo especifica lo que 
+  <b>Password Safe</b> harÃ¡ despuÃ©s de la cadena de comando se ha ejecutado. A diferencia de otras variables, Ã©sta 
+  podrÃ¡ tomar un valor para reemplazar el valor actual de la entrada. El formato es el siguiente 
   (puede indicarse '$autotype' en lugar de '$a' en los ejemplos siguientes):<br>
 
 
@@ -407,7 +407,7 @@ un índice con valor cero como todo el campo.
 
                 <td>$a(valor)</td>
 
-                <td>Usa la cadena especificada entre paréntesis para la autoescritura.</td>
+                <td>Usa la cadena especificada entre parÃ©ntesis para la autoescritura.</td>
 
               </tr>
 
@@ -416,7 +416,7 @@ un índice con valor cero como todo el campo.
 
                 <td>${a}(valor)</td>
 
-                <td>Usa la cadena especificada entre paréntesis para la autoescritura.</td>
+                <td>Usa la cadena especificada entre parÃ©ntesis para la autoescritura.</td>
 
               </tr>
 
@@ -441,26 +441,26 @@ un índice con valor cero como todo el campo.
 
 
     
-    <p><b>Nota:</b> Asegúrate de añadir comillas alrededor de la cadena si es necesario, por ejemplo si el directorio 
+    <p><b>Nota:</b> AsegÃºrate de aÃ±adir comillas alrededor de la cadena si es necesario, por ejemplo si el directorio 
 de la base de datos contiene espacios, para acceder a un archivo de texto en el que basa en el nombre de base de datos 
-abierta necesitarás lo siguiente (con comillas):<br>
+abierta necesitarÃ¡s lo siguiente (con comillas):<br>
 
 
 '$dbdir\\$dbname.txt'<br>
 
 
-La barra invertida está precedida por otra de forma que '$dbname' se reconoce como una variable.</p>
+La barra invertida estÃ¡ precedida por otra de forma que '$dbname' se reconoce como una variable.</p>
 
 
 
     
-    <p>En Windows se lleva a cabo la sustitución normal de las variables de entorno (especificado en %nombre_variable%).
-Por ejemplo: '%windir%\notepad.exe' puede convertirse (dependiendo de tu instalación) en
+    <p>En Windows se lleva a cabo la sustituciÃ³n normal de las variables de entorno (especificado en %nombre_variable%).
+Por ejemplo: '%windir%\notepad.exe' puede convertirse (dependiendo de tu instalaciÃ³n) en
 'C:\Windows\notepad.exe'. Los valores de entorno se puede comprobar ejecutando 'cmd.exe' 
-e indicando el comando 'set' sin parámetros. Cualquier variable de entorno desconocida se deja sin cambios 
+e indicando el comando 'set' sin parÃ¡metros. Cualquier variable de entorno desconocida se deja sin cambios 
 en Ejecutar comando, por ejemplo, %xyz%\notepad.exe permanece como %xyz%\notepad.exe si la 
-variable 'xyz' no está definida. Nota: Las variables de entorno de Windows <b>no</b> 
-distinguen maýusculas y minúsculas.</p>
+variable 'xyz' no estÃ¡ definida. Nota: Las variables de entorno de Windows <b>no</b> 
+distinguen maÃ½usculas y minÃºsculas.</p>
 
 
 

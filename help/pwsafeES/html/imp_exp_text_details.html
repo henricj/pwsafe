@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<head> <META HTTP-EQUIV="Content-Type" Content="text/html; charset=iso-8859-1">
-  <title>Formato de importación y exportación texto sin formato</title>
+<head> <META HTTP-EQUIV="Content-Type" Content="text/html; charset=UTF-8">
+  <title>Formato de importaciÃ³n y exportaciÃ³n texto sin formato</title>
 <!-- pwsafe version: 3.23--><!-- Modified: 16/08/2010 --><!--Popup control -->
   <script language="javascript" src="html/popups.js">
   </script>
@@ -12,70 +12,70 @@
 <!-- Popup Source File -->
 <h1>Notas sobre importar y exportar texto sin formato</h1>
 <hr style="width: 100%; height: 2px;">
-<p style="text-align: justify;"><span style="color: rgb(255, 0, 0);"><i><u><b>Atención</b></u></i>: 
-La exportación de información sensible de una base de datos de Password Safe a un archivo de texto tiene 
-consecuencias graves de seguridad. Esta operación va a crear una copia sin protección de las contraseñas 
-de la base de datos. La supresión de esta copia después de su uso <b>no</b> es suficiente, se deben tomar 
+<p style="text-align: justify;"><span style="color: rgb(255, 0, 0);"><i><u><b>AtenciÃ³n</b></u></i>: 
+La exportaciÃ³n de informaciÃ³n sensible de una base de datos de Password Safe a un archivo de texto tiene 
+consecuencias graves de seguridad. Esta operaciÃ³n va a crear una copia sin protecciÃ³n de las contraseÃ±as 
+de la base de datos. La supresiÃ³n de esta copia despuÃ©s de su uso <b>no</b> es suficiente, se deben tomar 
 otras acciones para eliminar adecuadamente los datos (por ejemplo utilidades de &ldquo;triturado&rdquo;). 
-La exportación de datos sensibles pasa por alto la seguridad que proporciona Password Safe.</span></p>
+La exportaciÃ³n de datos sensibles pasa por alto la seguridad que proporciona Password Safe.</span></p>
 <hr style="width: 100%; height: 2px;">
-<small>Nota: La exportación e importación a archivos de texto se cambió en la versión V3.06. 
-Esta página describe el formato actual.</small>
+<small>Nota: La exportaciÃ³n e importaciÃ³n a archivos de texto se cambiÃ³ en la versiÃ³n V3.06. 
+Esta pÃ¡gina describe el formato actual.</small>
 <hr style="width: 100%; height: 2px;">
 <p style="text-align: justify;">El texto exportado</p>
 <ul>
-  <li>Comienza con una fila de títulos como primer registro del archivo de texto</li>
+  <li>Comienza con una fila de tÃ­tulos como primer registro del archivo de texto</li>
   <li>Usa un delimitador para reemplazar el caracter &ldquo;nuevalinea&rdquo; en un campo notas
-con varias líneas y el punto (&lsquo;.&rsquo;) si aparece en el campo título. El valor por defecto 
+con varias lÃ­neas y el punto (&lsquo;.&rsquo;) si aparece en el campo tÃ­tulo. El valor por defecto 
 es &lsquo;&raquo;&rsquo; [Alt+0187], que se puede reemplazar si es necesario.</li>
 </ul>
 <p>Se asume que el texto importado tiene:</p>
 <ul>
-  <li>Una fila de títulos como primer registro del archivo de texto.</li>
+  <li>Una fila de tÃ­tulos como primer registro del archivo de texto.</li>
   <li>Un delimitador para restituir el caracter &ldquo;nuevalinea&rdquo; en un campo notas
-con varias líneas y el punto (&lsquo;.&rsquo;) si aparece en el campo título. El valor por defecto 
+con varias lÃ­neas y el punto (&lsquo;.&rsquo;) si aparece en el campo tÃ­tulo. El valor por defecto 
 es &lsquo;&raquo;&rsquo; [Alt+0187], que se puede reemplazar si es necesario.</li>
 </ul>
-<p>La fila de títulos al exportar todos los datos contiene los siguientes campos por defecto,
+<p>La fila de tÃ­tulos al exportar todos los datos contiene los siguientes campos por defecto,
 separados por tabuladores.</p>
 <ul>
-  <li>Grupo/Título</li>
+  <li>Grupo/TÃ­tulo</li>
   <li>Usuario</li>
-  <li>Contraseña</li>
+  <li>ContraseÃ±a</li>
   <li>URL</li>
   <li>Autoescritura</li>
-  <li>Fecha de creación</li>
-  <li>Modificación de la contraseña</li>
-  <li>Último acceso</li>
-  <li>Caducidad de contraseña</li>
-  <li>Intervalo de caducidad de contraseña</li>
-  <li>Hora de modificación del registro</li>
-  <li>Política de contraseñas</li>
+  <li>Fecha de creaciÃ³n</li>
+  <li>ModificaciÃ³n de la contraseÃ±a</li>
+  <li>Ãšltimo acceso</li>
+  <li>Caducidad de contraseÃ±a</li>
+  <li>Intervalo de caducidad de contraseÃ±a</li>
+  <li>Hora de modificaciÃ³n del registro</li>
+  <li>PolÃ­tica de contraseÃ±as</li>
   <li>Historial</li>
   <li>Ejecutar comando</li>
   <li>ADC</li>
   <li>Correo</li>
   <li>Notas</li>
 </ul>
-<p>Cuando exporte datos, puede utilizar la opción &ldquo;avanzada&rdquo; para excluir cualquier número 
-de estos campos de la fila de título y registros. La opción avanzada también le permite especificar 
-un subconjunto de las entradas a la exportación, como se muestra a continuación.</p>
-<img alt="Opciones avanzadas de exportación de texto" src="images/adv_txt_ex.jpg">
-<p>Durante la importación, la fila de títulos proporcionada debe incluir &ldquo;encabezados de columna&rdquo; 
-que casen exactamente con uno de los anteriores. Si se repite algún &ldquo;encabezado de columna&rdquo;, 
-sólo la información del último se añadirá a las entradas durante la importación. Si un &ldquo;encabezado de columna&rdquo; 
-no casa con los anteriores, el dato de esa columna se ignorará al importar. Los campos deben estar separados 
-con el separador de campos indicado en el diálogo de importación de texto.</p>
+<p>Cuando exporte datos, puede utilizar la opciÃ³n &ldquo;avanzada&rdquo; para excluir cualquier nÃºmero 
+de estos campos de la fila de tÃ­tulo y registros. La opciÃ³n avanzada tambiÃ©n le permite especificar 
+un subconjunto de las entradas a la exportaciÃ³n, como se muestra a continuaciÃ³n.</p>
+<img alt="Opciones avanzadas de exportaciÃ³n de texto" src="images/adv_txt_ex.jpg">
+<p>Durante la importaciÃ³n, la fila de tÃ­tulos proporcionada debe incluir &ldquo;encabezados de columna&rdquo; 
+que casen exactamente con uno de los anteriores. Si se repite algÃºn &ldquo;encabezado de columna&rdquo;, 
+sÃ³lo la informaciÃ³n del Ãºltimo se aÃ±adirÃ¡ a las entradas durante la importaciÃ³n. Si un &ldquo;encabezado de columna&rdquo; 
+no casa con los anteriores, el dato de esa columna se ignorarÃ¡ al importar. Los campos deben estar separados 
+con el separador de campos indicado en el diÃ¡logo de importaciÃ³n de texto.</p>
 <hr style="width: 100%; height: 2px;">
 <small>Notas:<br>
 </small>
 <ul>
-  <li><small>Para importar datos en Password Safe, el título y contraseña <i><u>deben</u></i> estar presentes 
-y ninguno puede estar vacio, tal como al añadir una nueva entrada a la base de datos.</small></li>
+  <li><small>Para importar datos en Password Safe, el tÃ­tulo y contraseÃ±a <i><u>deben</u></i> estar presentes 
+y ninguno puede estar vacio, tal como al aÃ±adir una nueva entrada a la base de datos.</small></li>
 </ul>
 <ul>
-  <li><small>No hay restricción de orden de los &ldquo;encabezados de columnas&rdquo;. Password Safe utilizará 
-la fila títulos proporcionada para añadir datos al campo apropiado.</small></li>
+  <li><small>No hay restricciÃ³n de orden de los &ldquo;encabezados de columnas&rdquo;. Password Safe utilizarÃ¡ 
+la fila tÃ­tulos proporcionada para aÃ±adir datos al campo apropiado.</small></li>
 </ul>
 <hr style="width: 100%; height: 2px;">
 <h2><u>Formato de los datos</u></h2>
@@ -91,16 +91,16 @@ la fila títulos proporcionada para añadir datos al campo apropiado.</small></li>
     </tr>
     <tr>
       <td style="padding: 0in 5.4pt;">Encabezado de columna/Campo</td>
-      <td style="padding: 0in 5.4pt;">Si aparecen, los grupos se separan con puntos (&lsquo;.&rsquo;). El campo título no puede 
-estar vacío o contener el caracter delimitador.</td>
+      <td style="padding: 0in 5.4pt;">Si aparecen, los grupos se separan con puntos (&lsquo;.&rsquo;). El campo tÃ­tulo no puede 
+estar vacÃ­o o contener el caracter delimitador.</td>
     </tr>
     <tr>
       <td style="padding: 0in 5.4pt;">Usuario</td>
       <td style="padding: 0in 5.4pt;"> </td>
     </tr>
     <tr>
-      <td style="padding: 0in 5.4pt;">Contraseñas</td>
-      <td style="padding: 0in 5.4pt;">No puede estar vacía.</td>
+      <td style="padding: 0in 5.4pt;">ContraseÃ±as</td>
+      <td style="padding: 0in 5.4pt;">No puede estar vacÃ­a.</td>
     </tr>
     <tr>
       <td style="padding: 0in 5.4pt;">URL</td>
@@ -111,36 +111,36 @@ estar vacío o contener el caracter delimitador.</td>
       <td style="padding: 0in 5.4pt;"> </td>
     </tr>
     <tr>
-      <td style="padding: 0in 5.4pt;">Fecha de creación</td>
-      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>1</sup></a> más abajo</td>
+      <td style="padding: 0in 5.4pt;">Fecha de creaciÃ³n</td>
+      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>1</sup></a> mÃ¡s abajo</td>
     </tr>
     <tr>
-      <td style="padding: 0in 5.4pt;">Hora de modificación de contraseña</td>
-      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>1</sup></a> más abajo</td>
+      <td style="padding: 0in 5.4pt;">Hora de modificaciÃ³n de contraseÃ±a</td>
+      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>1</sup></a> mÃ¡s abajo</td>
     </tr>
     <tr>
-      <td style="padding: 0in 5.4pt;">Último acceso</td>
-      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>1</sup></a> más abajo</td>
+      <td style="padding: 0in 5.4pt;">Ãšltimo acceso</td>
+      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>1</sup></a> mÃ¡s abajo</td>
     </tr>
     <tr>
-      <td style="padding: 0in 5.4pt;">Caducidad de contraseña</td>
-      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>1</sup></a> más abajo</td>
+      <td style="padding: 0in 5.4pt;">Caducidad de contraseÃ±a</td>
+      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>1</sup></a> mÃ¡s abajo</td>
     </tr>
     <tr>
-      <td style="padding: 0in 5.4pt;">Intervalo de caducidad de contraseña</td>
-      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>1</sup></a> más abajo</td>
+      <td style="padding: 0in 5.4pt;">Intervalo de caducidad de contraseÃ±a</td>
+      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>1</sup></a> mÃ¡s abajo</td>
     </tr>
     <tr>
-      <td style="padding: 0in 5.4pt;">Hora de modificación del registro</td>
-      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>1</sup></a> más abajo</td>
+      <td style="padding: 0in 5.4pt;">Hora de modificaciÃ³n del registro</td>
+      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>1</sup></a> mÃ¡s abajo</td>
     </tr>
     <tr>
-      <td style="padding: 0in 5.4pt;">Política de contraseñas</td>
-      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>3</sup></a> más abajo</td>
+      <td style="padding: 0in 5.4pt;">PolÃ­tica de contraseÃ±as</td>
+      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>3</sup></a> mÃ¡s abajo</td>
     </tr>
     <tr>
       <td style="padding: 0in 5.4pt;">Historial</td>
-      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>2</sup></a> más abajo</td>
+      <td style="padding: 0in 5.4pt;">Ver nota <a href="#1"><sup>2</sup></a> mÃ¡s abajo</td>
     </tr>
     <tr>
       <td style="padding: 0in 5.4pt;">Ejecutar comando</td>
@@ -148,7 +148,7 @@ estar vacío o contener el caracter delimitador.</td>
     </tr>
     <tr>
       <td style="padding: 0in 5.4pt;">ADC</td>
-      <td style="padding: 0in 5.4pt;"> = &lsquo;Acción con Doble Clic&rsquo;. Ver nota <a href="#4"><sup>4</sup></a> más abajo</td>
+      <td style="padding: 0in 5.4pt;"> = &lsquo;AcciÃ³n con Doble Clic&rsquo;. Ver nota <a href="#4"><sup>4</sup></a> mÃ¡s abajo</td>
     </tr>
     <tr>
       <td style="padding: 0in 5.4pt;">Correo</td>
@@ -159,7 +159,7 @@ estar vacío o contener el caracter delimitador.</td>
       <td style="padding: 0in 5.4pt;">
       <ul>
         <li>El campo notas debe estar delimitado por comillas dobles ("como esto").</li>
-        <li>Le campo notas no debe contener el campo delimitador puesto que al importarlo se transformará en una nueva línea.</li>
+        <li>Le campo notas no debe contener el campo delimitador puesto que al importarlo se transformarÃ¡ en una nueva lÃ­nea.</li>
       </ul>
       </td>
     </tr>
@@ -204,7 +204,7 @@ estar vacío o contener el caracter delimitador.</td>
     <tr>
   <td style="padding: 0in 15.4pt;">5.</td>
   <td style="padding: 0in 15.4pt;">now</td>
-  <td style="padding: 0in 15.4pt;">Usa la hora de la operación de importación</td>
+  <td style="padding: 0in 15.4pt;">Usa la hora de la operaciÃ³n de importaciÃ³n</td>
     </tr>
   </tbody>
 </table>
@@ -214,19 +214,19 @@ estar vacío o contener el caracter delimitador.</td>
 <table border="0" cellpadding="0" cellspacing="0">
   <tbody>
   <tr>
-    <td style="padding: 0in 15.4pt;">aaaa</td><td>El año completo. El valor esta entre 1970 y 2038.</td>
+    <td style="padding: 0in 15.4pt;">aaaa</td><td>El aÃ±o completo. El valor esta entre 1970 y 2038.</td>
     </tr>
     <tr>
     <td style="padding: 0in 15.4pt;">mm</td><td>El mes; ejemplo 01 = Enero, 02 = Febrero, etc.</td>
     </tr>
     <tr>
-    <td style="padding: 0in 15.4pt;">dd</td><td>El día del mes</td>
+    <td style="padding: 0in 15.4pt;">dd</td><td>El dÃ­a del mes</td>
     </tr>
     <tr>
-    <td style="padding: 0in 15.4pt;">MMM</td><td>La abreviatura del mes en inglés; ejemplo Jan = Enero, Feb = Febrero, etc.</td>
+    <td style="padding: 0in 15.4pt;">MMM</td><td>La abreviatura del mes en inglÃ©s; ejemplo Jan = Enero, Feb = Febrero, etc.</td>
     </tr>
     <tr>
-    <td style="padding: 0in 15.4pt;">ddd</td><td>La abreviatura del día de la semana en inglés; ejemplo Mon = Lunes, Tue = Martes, etc.</td>
+    <td style="padding: 0in 15.4pt;">ddd</td><td>La abreviatura del dÃ­a de la semana en inglÃ©s; ejemplo Mon = Lunes, Tue = Martes, etc.</td>
     </tr>
     <tr>
     <td style="padding: 0in 15.4pt;">hh</td><td>La hora usando 24 horas.</td>
@@ -241,7 +241,7 @@ estar vacío o contener el caracter delimitador.</td>
 </table>
 
 <p>
-<small>Nota: El formato &lsquo;2&rsquo; es la salida de la función ANSI C <big><a name="asctime">&lsquo;</a><code>asctime</code>&rsquo;</big> y el formato 
+<small>Nota: El formato &lsquo;2&rsquo; es la salida de la funciÃ³n ANSI C <big><a name="asctime">&lsquo;</a><code>asctime</code>&rsquo;</big> y el formato 
 &lsquo;3&rsquo; sigue el estandar ISO 8601.</small>
 </p>
 <hr style="width: 100%; height: 2px;">
@@ -252,23 +252,23 @@ estar vacío o contener el caracter delimitador.</td>
       <p class="CitiChangeSummarybullet" style="margin-left: 0in; text-align: justify;"><a name="2"></a><b><u>Notas:</u> <sup>2</sup></b></p>
       </td>
       <td style="padding: 0in 5.4pt; " valign="top">
-      <p>El historial de contraseñas se representa en el registro de la entrada exportada 
-como un campo de texto compuesto por un encabezado seguido por el número de entradas precisas de viejas contraseñas:</p>
+      <p>El historial de contraseÃ±as se representa en el registro de la entrada exportada 
+como un campo de texto compuesto por un encabezado seguido por el nÃºmero de entradas precisas de viejas contraseÃ±as:</p>
       </td>
     </tr>
   </tbody>
 </table>
-<p>Encabezado de historial de contraseñas:</p>
+<p>Encabezado de historial de contraseÃ±as:</p>
 <ul>
-  <li>1 dígito hexadecimal de estado para almacenar PWH para esta entrada (0 = no; 1 = si)</li>
-  <li>2 dígitos hexadecimales con el máximo número de entradas</li>
-  <li>2 dígitos hexadecimales con el número de entradas guardadas</li>
+  <li>1 dÃ­gito hexadecimal de estado para almacenar PWH para esta entrada (0 = no; 1 = si)</li>
+  <li>2 dÃ­gitos hexadecimales con el mÃ¡ximo nÃºmero de entradas</li>
+  <li>2 dÃ­gitos hexadecimales con el nÃºmero de entradas guardadas</li>
 </ul>
-<p>Cada entrada de historial de contraseñas:</p>
+<p>Cada entrada de historial de contraseÃ±as:</p>
 <ul>
-  <li>8 dígitos hexadecimales con la hora en que se fijó la contraseña</li>
-  <li>4 dígitos hexadecimales con la longitud de la contraseña</li>
-  <li>cadena de caracteres con la antigua contraseña</li>
+  <li>8 dÃ­gitos hexadecimales con la hora en que se fijÃ³ la contraseÃ±a</li>
+  <li>4 dÃ­gitos hexadecimales con la longitud de la contraseÃ±a</li>
+  <li>cadena de caracteres con la antigua contraseÃ±a</li>
 </ul>
 <!-- Added some white space at the bottom for natural scrolling --><br>
 <hr>
@@ -279,34 +279,34 @@ como un campo de texto compuesto por un encabezado seguido por el número de entr
       <p><a name="3"></a><b><u>Notas:</u> <sup>3</sup></b></p>
       </td>
       <td style="padding: 0in 5.4pt;" valign="top">
-      <p>La política de contraseñas se representa en el registro de la entrada exportada como un campo de texto 'ffffnnnllluuudddsss' en formato hexadecimal, ejemplo 'F000010004002005003'. 
-      6 valores hexadecimales están contenidos en este formato. El primero tiene 4 dígitos, los otros 3.</p>
+      <p>La polÃ­tica de contraseÃ±as se representa en el registro de la entrada exportada como un campo de texto 'ffffnnnllluuudddsss' en formato hexadecimal, ejemplo 'F000010004002005003'. 
+      6 valores hexadecimales estÃ¡n contenidos en este formato. El primero tiene 4 dÃ­gitos, los otros 3.</p>
 <p>'ffffnnnllluuudddsss' significa en detalle:</p>
 <ul>
-<li>ffff : 4 dígitos hexadecimales representando los siguientes indicadores
+<li>ffff : 4 dÃ­gitos hexadecimales representando los siguientes indicadores
   <ul>
-<li>0x8000: utilizar caracteres en minúsculas</li>
-<li>0x4000: utilizar caracteres en mayúsculas</li>
-<li>0x2000: utilizar números</li>
-<li>0x1000: utilizar símbolos</li>
-<li>0x0800: utilizar sólo caracteres hexadecimales (0-9,a-f) (si está fijado, no pueden estarlo los otros indicadores)</li>
-<li>0x0400: utilizar caracteres de fácil lectura</li>
-<li>0x0200: utilizar contraseñas pronunciables</li>
+<li>0x8000: utilizar caracteres en minÃºsculas</li>
+<li>0x4000: utilizar caracteres en mayÃºsculas</li>
+<li>0x2000: utilizar nÃºmeros</li>
+<li>0x1000: utilizar sÃ­mbolos</li>
+<li>0x0800: utilizar sÃ³lo caracteres hexadecimales (0-9,a-f) (si estÃ¡ fijado, no pueden estarlo los otros indicadores)</li>
+<li>0x0400: utilizar caracteres de fÃ¡cil lectura</li>
+<li>0x0200: utilizar contraseÃ±as pronunciables</li>
 <li>0x01FF: no utilizado</li>
               </ul></li>
-<li>nnn  : 3 dígitos hexadecimales : longitud de la contraseña</li>
-<li>lll  : 3 dígitos hexadecimales : mínimo número de caracteres en minúsculas</li>
-<li>uuu  : 3 dígitos hexadecimales : mínimo número de caracteres en mayúsculas</li>
-<li>ddd  : 3 dígitos hexadecimales : mínimo número de dígitos</li>
-<li>sss  : 3 dígitos hexadecimales : mínimo número de símbolos</li>
+<li>nnn  : 3 dÃ­gitos hexadecimales : longitud de la contraseÃ±a</li>
+<li>lll  : 3 dÃ­gitos hexadecimales : mÃ­nimo nÃºmero de caracteres en minÃºsculas</li>
+<li>uuu  : 3 dÃ­gitos hexadecimales : mÃ­nimo nÃºmero de caracteres en mayÃºsculas</li>
+<li>ddd  : 3 dÃ­gitos hexadecimales : mÃ­nimo nÃºmero de dÃ­gitos</li>
+<li>sss  : 3 dÃ­gitos hexadecimales : mÃ­nimo nÃºmero de sÃ­mbolos</li>
 </ul>
-<p>La política de contraseñas 'F000010004002005003' significa</p>
-<ul><li>F000 : usar minúsculas, mayúsculas, números y símbolos</li>
+<p>La polÃ­tica de contraseÃ±as 'F000010004002005003' significa</p>
+<ul><li>F000 : usar minÃºsculas, mayÃºsculas, nÃºmeros y sÃ­mbolos</li>
 <li>010  : usar al menos 16 (dec) caracteres</li>
-<li>004  : usar al menos 4 caracteres en minúsculas</li>
-<li>002  : usar al menos 2 caracteres en mayúsculas</li>
-<li>005  : usar al menos 5 dígitos</li>
-<li>003  : usar al menos 3 símbolos</li>
+<li>004  : usar al menos 4 caracteres en minÃºsculas</li>
+<li>002  : usar al menos 2 caracteres en mayÃºsculas</li>
+<li>005  : usar al menos 5 dÃ­gitos</li>
+<li>003  : usar al menos 3 sÃ­mbolos</li>
 </ul>
 
       </td>
@@ -321,15 +321,15 @@ como un campo de texto compuesto por un encabezado seguido por el número de entr
       <p><a name="4"></a><b><u>Notas:</u> <sup>4</sup></b></p>
       </td>
       <td style="padding: 0in 5.4pt;" valign="top">
-      <p>Los siguientes valores están disponibles para la <i><b>Acción tras Doble Clic</b></i>:</p>
+      <p>Los siguientes valores estÃ¡n disponibles para la <i><b>AcciÃ³n tras Doble Clic</b></i>:</p>
 <ul><li>-1:&nbsp;Por defecto</li>
-<li>0:&nbsp;&nbsp;Copiar contraseña al portapapeles</li>
+<li>0:&nbsp;&nbsp;Copiar contraseÃ±a al portapapeles</li>
 <li>1:&nbsp;&nbsp;Ver/editar entrada</li>
 <li>2:&nbsp;&nbsp;Autoescritura</li>
 <li>3:&nbsp;&nbsp;Ir a URL</li>
 <li>4:&nbsp;&nbsp;Copiar notas al portapapeles</li>
 <li>5:&nbsp;&nbsp;Copiar usuario al portapapeles</li>
-<li>6:&nbsp;&nbsp;Copiar contraseñas al portapapeles y minimizar</li>
+<li>6:&nbsp;&nbsp;Copiar contraseÃ±as al portapapeles y minimizar</li>
 <li>7:&nbsp;&nbsp;Ir a URL + Autoescritura</li>
 <li>8:&nbsp;&nbsp;Ejecutar comando</li>
 <li>9:&nbsp;&nbsp;Enviar correo</li>

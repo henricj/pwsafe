@@ -1,8 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<head> <META HTTP-EQUIV="Content-Type" Content="text/html; charset=iso-8859-1">
+<head> <META HTTP-EQUIV="Content-Type" Content="text/html; charset=UTF-8">
 
-  <meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type">
+  <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
   <title>Filtros</title>
 
 
@@ -22,35 +22,35 @@
 <div class="instr"><br>
 
 Un "filtro" es un criterio (o conjunto de criterios) con que una entrada coincide o no.
-<b>PasswordSafe</b> te permite definir filtros, y mostrar sólo aquellas entradas que coincidan con un filtro dado. 
+<b>PasswordSafe</b> te permite definir filtros, y mostrar sÃ³lo aquellas entradas que coincidan con un filtro dado. 
 Puedes definir un filtro para consultar una sola vez, o puedes definir varios filtros, 
 nombrarlos y almacenarlos, por usarlos reiteradamente.
 Los filtros pueden almacenarse junto con la base de datos, o externamente, para 
-compartir el mismo filtro a través de varias bases de datos.<br>
+compartir el mismo filtro a travÃ©s de varias bases de datos.<br>
 
 <h2>Definir un filtro</h2>
 
-Para definir un nuevo filtro, selecciona el menú Ver-&gt;Filtros-&gt;Nuevo/Editar Filtro. 
-Se mostrará el siguiente cuadro de diálogo:<br>
+Para definir un nuevo filtro, selecciona el menÃº Ver-&gt;Filtros-&gt;Nuevo/Editar Filtro. 
+Se mostrarÃ¡ el siguiente cuadro de diÃ¡logo:<br>
 
-<img alt="Diálogo filtro de visualización" src="images/filter.jpg"><br>
+<img alt="DiÃ¡logo filtro de visualizaciÃ³n" src="images/filter.jpg"><br>
 
 <br>
 
-Como puedes ver, cada filtro está compuesto de una o más <b>filas,</b> donde cada fila define un 
+Como puedes ver, cada filtro estÃ¡ compuesto de una o mÃ¡s <b>filas,</b> donde cada fila define un 
 <b>criterio</b> sobre un <b>campo</b> determinado.
 Las condiciones definidas en cada fila puede ser enlazadas con "y" u "o" con las condiciones 
 definidas en la fila anterior. Esto te permite definir los siguientes tipos de filtros:<br>
 
-1. Todas las entradas cuyo usuario contiene "jose" or "José" or "JOSÉ"<br>
+1. Todas las entradas cuyo usuario contiene "jose" or "JosÃ©" or "JOSÃ‰"<br>
 
 <img alt="example1" src="images/filter-ex1.jpg"><br>
 
-2. Todas las entradas con usuario "José" (exactamente) creado tras el 5 de mayo de 2010<br>
+2. Todas las entradas con usuario "JosÃ©" (exactamente) creado tras el 5 de mayo de 2010<br>
 
 <img alt="example2" src="images/filter-ex2.jpg"><br>
 
-3. Todas la entradas cuyo usuario contenga "José" or "María"<br>
+3. Todas la entradas cuyo usuario contenga "JosÃ©" or "MarÃ­a"<br>
 
 <img alt="example3" src="images/filter-ex3.jpg"><br>
 
@@ -64,9 +64,9 @@ Las columnas de la tabla filtro son las siguientes:<br>
 
 <ul>
 
-  <li>'#' - Este es el número de fila. Se muestra por conveniencia y no se puede modificar.</li>
+  <li>'#' - Este es el nÃºmero de fila. Se muestra por conveniencia y no se puede modificar.</li>
 
-  <li>'?' - La casilla de verificación en esta columna determina si la fila está <b>activa</b> o no. Sólo 
+  <li>'?' - La casilla de verificaciÃ³n en esta columna determina si la fila estÃ¡ <b>activa</b> o no. SÃ³lo 
 se usan las filas activas al aplicar el filtro. Hacer click en la casilla activa/desactiva la fila.</li>
 
   <li>'+' - Clic para insertar una nueva fila por debajo de una fila determinada.</li>
@@ -74,12 +74,12 @@ se usan las filas activas al aplicar el filtro. Hacer click en la casilla activa
   <li>'-' - Click para eliminar la fila actual. <b>Nota:</b> Puesto que 
 borrar una fila es permanente, es posible que desees <b>deshabilitarlo</b>.</li>
 
-  <li>'Y/O' - Esto te permite determinar la relación de la regla que está añadiendo con la regla anterior.</li>
+  <li>'Y/O' - Esto te permite determinar la relaciÃ³n de la regla que estÃ¡ aÃ±adiendo con la regla anterior.</li>
 
   <li>'Campo' - Selecciona el campo de la entrada que te interesa, usuario, grupo, notas, etc.</li>
 
   <li>'Criterio' - Define el valor que le interesa para el campos seleccionado. 
-Una vez hayas seleccionado un campo, al hacer clic en este abrirá un cuadro de diálogo que 
+Una vez hayas seleccionado un campo, al hacer clic en este abrirÃ¡ un cuadro de diÃ¡logo que 
 permite especificar los criterios, que se muestran en la tabla.</li>
 
 </ul>
@@ -88,36 +88,36 @@ permite especificar los criterios, que se muestran en la tabla.</li>
 
 <h2>Aplicar un filtro</h2>
 
-Una vez que has definido el filtro, al hacer clic en 'Aplicar' se aplicará el filtro 
-en las entradas de la base de datos, al tiempo que deja el diálogo de ajustar filtro de visualizacion
-abierto. Esto es útil para fijar y refinar un filtro en base a los resultados. 
-Pulsando en 'Aceptar' también se aplica el filtro, pero se cierra el diálogo de ajustar filtro.
+Una vez que has definido el filtro, al hacer clic en 'Aplicar' se aplicarÃ¡ el filtro 
+en las entradas de la base de datos, al tiempo que deja el diÃ¡logo de ajustar filtro de visualizacion
+abierto. Esto es Ãºtil para fijar y refinar un filtro en base a los resultados. 
+Pulsando en 'Aceptar' tambiÃ©n se aplica el filtro, pero se cierra el diÃ¡logo de ajustar filtro.
 <br>
 
 <br>
 
 <h2><a name="ManagingFilters"></a>Administrar filtros</h2>
 
-Fijar/editar un filtro es una buena forma de trabajar con filtros en tareas de una sóla vez. 
+Fijar/editar un filtro es una buena forma de trabajar con filtros en tareas de una sÃ³la vez. 
 Si ves que tienes varios filtros que quieres utilizar repetidamente, entonces puedes  
-almacenarlos y administrarlos a través del diálogo Ver-&gt;Filtros-&gt; Administrar...<br>
+almacenarlos y administrarlos a travÃ©s del diÃ¡logo Ver-&gt;Filtros-&gt; Administrar...<br>
 
 <img alt="Administrar filtros" src="images/filter_mng.jpg"><br>
 
 <br>
 
-El cuadro de diálogo administrar filtros tiene dos tablas. La tabla superior muestra los filtros, 
+El cuadro de diÃ¡logo administrar filtros tiene dos tablas. La tabla superior muestra los filtros, 
 y las tabla inferior el contenido del filtro seleccionado.<br>
 
 <ul>
 
-  <li>Para añadir un nuevo filtro, haz clic en Nuevo. Esto es equivalente a 
-seleccionar el menú Ver-&gt;Filtros-&gt;Nuevo/editar filtro.</li>
+  <li>Para aÃ±adir un nuevo filtro, haz clic en Nuevo. Esto es equivalente a 
+seleccionar el menÃº Ver-&gt;Filtros-&gt;Nuevo/editar filtro.</li>
 
-  <li>Para editar un filtro existente, selecciónelo y haga clic en Editar.</li>
+  <li>Para editar un filtro existente, selecciÃ³nelo y haga clic en Editar.</li>
 
   <li>Para aplicar un filtro existente, haga clic en la casilla Aplicar en la fila el filtro deseado.
-Ten en cuenta que sólo puede aplicarse un filtro en un momento dado.</li>
+Ten en cuenta que sÃ³lo puede aplicarse un filtro en un momento dado.</li>
 
 </ul>
 
@@ -128,29 +128,29 @@ Ten en cuenta que sólo puede aplicarse un filtro en un momento dado.</li>
 Los filtros pueden ser almacenados como parte de la base de datos actual 
 o, externamente, como archivos XML. Almacenar filtros externamente aes una
 buena forma de compartir filtros entre bases de datos, mientras que 
-almacenarlos como parte de la base de datos asegura que información 
-potencialmente sensible de la definición de los filtros está protegida.<br>
+almacenarlos como parte de la base de datos asegura que informaciÃ³n 
+potencialmente sensible de la definiciÃ³n de los filtros estÃ¡ protegida.<br>
 
 <ul>
 
-  <li>Para almacenar los filtros en un archivo externo: Fija la opción Exportar 
-de los filtros que desea almacenar externamente, a continuación, haga clic en el botón Exportar.</li>
+  <li>Para almacenar los filtros en un archivo externo: Fija la opciÃ³n Exportar 
+de los filtros que desea almacenar externamente, a continuaciÃ³n, haga clic en el botÃ³n Exportar.</li>
 
   <li>Para almacenar los filtros de la base de datos actual: Fija la opcion Copiar a la BD
-y pulsa el botón copiar.</li>
+y pulsa el botÃ³n copiar.</li>
 
-  <li>Para cargar un filtro externo: Haz clic en el botón Importar.</li>
+  <li>Para cargar un filtro externo: Haz clic en el botÃ³n Importar.</li>
 
 </ul>
 
 <b>Nota:</b><br>
 
 Al iniciar PasswordSafe busca un archivo llamado autoload_filters.xml en el mismo directorio 
-que el archivo pwsafe.cfg (por defecto el directorio donde está instalado PasswordSafe). 
-Si existe tal archivo, entonces es automáticamente importado y los filtros que contiene 
-están listos para su uso.
-Esto es útil si tienes una serie de filtros que deseas compartir entre varias bases de datos, 
-sin tener que importarlos de forma explícita cada vez.<br>
+que el archivo pwsafe.cfg (por defecto el directorio donde estÃ¡ instalado PasswordSafe). 
+Si existe tal archivo, entonces es automÃ¡ticamente importado y los filtros que contiene 
+estÃ¡n listos para su uso.
+Esto es Ãºtil si tienes una serie de filtros que deseas compartir entre varias bases de datos, 
+sin tener que importarlos de forma explÃ­cita cada vez.<br>
 
 <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
   <param name="Keyword" value="Filtros">

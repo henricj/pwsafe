@@ -1,10 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head> <META HTTP-EQUIV="Content-Type" Content="text/html; charset=iso-8859-1">
+<html><head> <META HTTP-EQUIV="Content-Type" Content="text/html; charset=UTF-8">
 
 
   
 
-  <title>Argumentos de línea de comandos</title><!-- pwsafe version: 3.23--><!-- Modified: 08/08/2010 --><!--Popup control --><script language="javascript" src="html/popups.js">
+  <title>Argumentos de lÃ­nea de comandos</title><!-- pwsafe version: 3.23--><!-- Modified: 08/08/2010 --><!--Popup control --><script language="javascript" src="html/popups.js">
   </script>
   
   
@@ -16,13 +16,13 @@
 
 <object id="popup" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"> </object>
 <!-- Popup Source File -->
-<h2>Argumentos de la línea de comandos</h2>
+<h2>Argumentos de la lÃ­nea de comandos</h2>
 
 
 
-<p>Ejecutar <span style="font-weight: bold;">Password Safe</span> sin argumentos hace que se pregunte por la contraseña 
-maestra de la última base de datos que se abrió, o por la contraseña maestra de una nueva base de datos si nunca fue 
-abierta una en tu máquina (por ejemplo, la primera vez que utilizas <span style="font-weight: bold;">Password Safe</span>).
+<p>Ejecutar <span style="font-weight: bold;">Password Safe</span> sin argumentos hace que se pregunte por la contraseÃ±a 
+maestra de la Ãºltima base de datos que se abriÃ³, o por la contraseÃ±a maestra de una nueva base de datos si nunca fue 
+abierta una en tu mÃ¡quina (por ejemplo, la primera vez que utilizas <span style="font-weight: bold;">Password Safe</span>).
 Es posible modificar esto ejecutando <span style="font-weight: bold;">Password Safe</span> como sigue:</p>
 
 
@@ -35,8 +35,8 @@ Es posible modificar esto ejecutando <span style="font-weight: bold;">Password S
 
 
 
-Esto abrirá el archivo de base de datos especificado en lugar del último abierto. Si se indica un nombre de archivo, sin 
-trayectoria, se buscará en el directorio en que se llama a la aplicación. Si el nombre de archivo y/o trayectoria 
+Esto abrirÃ¡ el archivo de base de datos especificado en lugar del Ãºltimo abierto. Si se indica un nombre de archivo, sin 
+trayectoria, se buscarÃ¡ en el directorio en que se llama a la aplicaciÃ³n. Si el nombre de archivo y/o trayectoria 
 contienen espacios deben encerrarse entre dobles comillas.
 
 
@@ -48,14 +48,14 @@ contienen espacios deben encerrarse entre dobles comillas.
 
 
 
-Esto abrirá la base de datos especificada en modo sólo lectura. Si no se indica base de datos, la aplicación 
-preguntará por ella, y será abierta en modo sólo lectura.</li>
+Esto abrirÃ¡ la base de datos especificada en modo sÃ³lo lectura. Si no se indica base de datos, la aplicaciÃ³n 
+preguntarÃ¡ por ella, y serÃ¡ abierta en modo sÃ³lo lectura.</li>
 
 
 
   <li><span style="font-style: italic;">pwsafe </span><span style="font-weight: bold;">-v basededatos<br></span>
-Esto validará la base de datos tras la introducción de la contraseñas maestra, corrigiendo las inconsistencias que sean 
-necesarias. Bastante útil cuando se trabaja con bases de datos escritas por otras aplicaciones.
+Esto validarÃ¡ la base de datos tras la introducciÃ³n de la contraseÃ±as maestra, corrigiendo las inconsistencias que sean 
+necesarias. Bastante Ãºtil cuando se trabaja con bases de datos escritas por otras aplicaciones.
 
   </li>
 
@@ -65,9 +65,9 @@ necesarias. Bastante útil cuando se trabaja con bases de datos escritas por otra
 
 
 
-Preguntará por una contraseña y encriptará el fichero con una clave derivada de esa contraseña. <b>Nota:</b> 
-El archivo puede ser <i>cualquiera</i>. El archivo encriptado tendrá el nombre del archivo original, con ".PSF" 
-añadodo a el.<br>
+PreguntarÃ¡ por una contraseÃ±a y encriptarÃ¡ el fichero con una clave derivada de esa contraseÃ±a. <b>Nota:</b> 
+El archivo puede ser <i>cualquiera</i>. El archivo encriptado tendrÃ¡ el nombre del archivo original, con ".PSF" 
+aÃ±adodo a el.<br>
 
 
 
@@ -79,8 +79,8 @@ añadodo a el.<br>
 
 
 
-Preguntará por una contraseña y desencriptará el archivo con una clave derivada des esa contraseña. <b>Nota:</b> 
-Esto sólo funciona en archivos que fueron encriptados ejecutando pwsafe con la opción '-e' (ver arriba).</li>
+PreguntarÃ¡ por una contraseÃ±a y desencriptarÃ¡ el archivo con una clave derivada des esa contraseÃ±a. <b>Nota:</b> 
+Esto sÃ³lo funciona en archivos que fueron encriptados ejecutando pwsafe con la opciÃ³n '-e' (ver arriba).</li>
 
 
 
@@ -88,17 +88,17 @@ Esto sólo funciona en archivos que fueron encriptados ejecutando pwsafe con la o
 
 
 
-    </span>Esto iniciará la aplicación cerrada, esto es, sin ninguna base de datos y sin el diálodo inicial de apertura
-(Para acceder a una base de datos usa el menú Archivo).</li>
+    </span>Esto iniciarÃ¡ la aplicaciÃ³n cerrada, esto es, sin ninguna base de datos y sin el diÃ¡lodo inicial de apertura
+(Para acceder a una base de datos usa el menÃº Archivo).</li>
 
 
 
   <li><span style="font-style: italic;">pwsafe </span><span style="font-weight: bold;">-s [basededatos]<br></span>
 
-Iniciará la aplicación "silenciosamente", esto es, minimizada y sin base de datos (salvo que se especifique una). 
-Cuando la aplicación se pasa a primer plano, se presenta el dialodo de apertura (Esta opción es útil para iniciar la 
-aplicación al iniciar sesión, a través de un atajo en la carpeta Inicio del usuario). 
-<b>Nota:</b> Esto pone la apliación implicitamente en la bandeja de notificación.</li>
+IniciarÃ¡ la aplicaciÃ³n "silenciosamente", esto es, minimizada y sin base de datos (salvo que se especifique una). 
+Cuando la aplicaciÃ³n se pasa a primer plano, se presenta el dialodo de apertura (Esta opciÃ³n es Ãºtil para iniciar la 
+aplicaciÃ³n al iniciar sesiÃ³n, a travÃ©s de un atajo en la carpeta Inicio del usuario). 
+<b>Nota:</b> Esto pone la apliaciÃ³n implicitamente en la bandeja de notificaciÃ³n.</li>
 
 
 
@@ -107,7 +107,7 @@ aplicación al iniciar sesión, a través de un atajo en la carpeta Inicio del usua
 
 
 
-    Esta es la misma opción que '<span style="font-weight: bold;">-c</span>', con el añadido de que la aplicación se 
+    Esta es la misma opciÃ³n que '<span style="font-weight: bold;">-c</span>', con el aÃ±adido de que la aplicaciÃ³n se 
 inicia minimizada.
   </li>
 
@@ -124,20 +124,20 @@ Adicionalmente, se aceptan las siguientes opciones:<br>
   <li><span style="font-weight: bold;">-u</span> <span style="font-style: italic;">usuario</span><br>
 
 
-Hace que la aplicación lea y escriba las preferencias del <span style="font-style: italic;">usuario</span> espeficado, en lugar de usar el del 
-usuario de la sesión.</li>
+Hace que la aplicaciÃ³n lea y escriba las preferencias del <span style="font-style: italic;">usuario</span> espeficado, en lugar de usar el del 
+usuario de la sesiÃ³n.</li>
 
 
   <li><span style="font-weight: bold;">-h</span> <span style="font-style: italic;">hostname</span><br>
 
 
-Hace que la aplicación lea y escriba las preferencias del <span style="font-style: italic;">equipo</span>, en lugar del nombre de la máquina.</li>
+Hace que la aplicaciÃ³n lea y escriba las preferencias del <span style="font-style: italic;">equipo</span>, en lugar del nombre de la mÃ¡quina.</li>
 
 
-  <li><span style="font-weight: bold;">-g</span> <span style="font-style: italic;">archivo_configuración</span><br>
+  <li><span style="font-weight: bold;">-g</span> <span style="font-style: italic;">archivo_configuraciÃ³n</span><br>
 
 Hace que se use el archivo especificado para leer y guardar las preferencias, en lugar del archivo por defecto pwsafe.cfg. 
-Si sólo se indica en nombre del archivo, sin trayectoria, se buscará en el directorio en que se llama a la aplicación. 
+Si sÃ³lo se indica en nombre del archivo, sin trayectoria, se buscarÃ¡ en el directorio en que se llama a la aplicaciÃ³n. 
 Si el nombre de archivo y/o trayectoria contienen espacios deben encerrarse entre dobles comillas.</li>
 
 
@@ -151,8 +151,8 @@ Si el nombre de archivo y/o trayectoria contienen espacios deben encerrarse entr
 </ul>
 
 
-Estos puede ser útiles si quieres compartir las mismas preferencias en distintas máquinas, por ejemplo, al ejecutar
-<span style="font-weight: bold;">Password Safe</span> desde una llave portátil.<br>
+Estos puede ser Ãºtiles si quieres compartir las mismas preferencias en distintas mÃ¡quinas, por ejemplo, al ejecutar
+<span style="font-weight: bold;">Password Safe</span> desde una llave portÃ¡til.<br>
 
 
 

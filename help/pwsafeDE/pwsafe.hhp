@@ -8,8 +8,8 @@ Display compile progress=Yes
 Error log file=pwsafeDE.log
 Full-text search=Yes
 Index file=pwsafeDE.hhk
-Language=0x407 Deutsch (Deutschland)
-Title=HTML Help für Password Safe
+Language=0x1000 Deutsch (Deutschland)
+Title=HTML Help fÃ¼r Password Safe
 
 
 [FILES]

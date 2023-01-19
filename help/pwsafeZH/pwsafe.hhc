@@ -9,205 +9,205 @@
 </OBJECT>
 <UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="»¶Ó­">
+		<param name="Name" value="æ¬¢è¿Ž">
 		<param name="Local" value="html/Welcome.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="¹ØÓÚ Password Safe">
+		<param name="Name" value="å…³äºŽ Password Safe">
 		<param name="Local" value="html/about_pws.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Ê¹ÓÃÈëÃÅ">
+		<param name="Name" value="ä½¿ç”¨å…¥é—¨">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="´´½¨Óë´ò¿ªÒ»¸ö±£ÏÕÏä">
+			<param name="Name" value="åˆ›å»ºä¸Žæ‰“å¼€ä¸€ä¸ªä¿é™©ç®±">
 			<param name="Local" value="html/create_new_db.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Ê¹ÓÃÒÑ´æ´¢µÄÃÜÂë">
+			<param name="Name" value="ä½¿ç”¨å·²å­˜å‚¨çš„å¯†ç ">
 			<param name="Local" value="html/retrieve_pwd.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="²éÕÒÒ»¸öÏîÄ¿">
+			<param name="Name" value="æŸ¥æ‰¾ä¸€ä¸ªé¡¹ç›®">
 			<param name="Local" value="html/searching.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Éý¼¶ÔçÆÚ°æ±¾">
+			<param name="Name" value="å‡çº§æ—©æœŸç‰ˆæœ¬">
 			<param name="Local" value="html/upgrade_from_v1x.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Ê¹ÓÃ Password Safe">
+		<param name="Name" value="ä½¿ç”¨ Password Safe">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="¹ØÓÚÖ÷ÃÜÂë">
+			<param name="Name" value="å…³äºŽä¸»å¯†ç ">
 			<param name="Local" value="html/about_combinations.html">
 			</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="ÓÃ»§Ãû¡¢ÃÜÂëºÍ×é">
+			<param name="Name" value="ç”¨æˆ·åã€å¯†ç å’Œç»„">
 			</OBJECT>
 		<UL>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="»ù±¾">
+				<param name="Name" value="åŸºæœ¬">
 				<param name="Local" value="html/entering_pwd.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="¸½¼Ó">
+				<param name="Name" value="é™„åŠ ">
 				<param name="Local" value="html/entering_pwd_add.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="ÈÕÆÚºÍÊ±¼ä">
+				<param name="Name" value="æ—¥æœŸå’Œæ—¶é—´">
 				<param name="Local" value="html/entering_pwd_date.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="ÃÜÂë²ßÂÔ">
+				<param name="Name" value="å¯†ç ç­–ç•¥">
 				<param name="Local" value="html/entering_pwd_pp.html">
 				</OBJECT>
 		</UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="ÉèÖÃÒ»¸öÃÜÂë²ßÂÔ">
+			<param name="Name" value="è®¾ç½®ä¸€ä¸ªå¯†ç ç­–ç•¥">
 			<param name="Local" value="html/password_policies.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="±£´æÀúÊ·ÃÜÂë">
+			<param name="Name" value="ä¿å­˜åŽ†å²å¯†ç ">
 			<param name="Local" value="html/password_history.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="¸ü¸ÄÖ÷ÃÜÂë">
+			<param name="Name" value="æ›´æ”¹ä¸»å¯†ç ">
 			<param name="Local" value="html/change_combo.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Ê¹ÓÃ×Ô¶¯ÊäÈë">
+			<param name="Name" value="ä½¿ç”¨è‡ªåŠ¨è¾“å…¥">
 			<param name="Local" value="html/autotype.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="±¸·ÝÓë»Ö¸´Êý¾Ý¿â">
+			<param name="Name" value="å¤‡ä»½ä¸Žæ¢å¤æ•°æ®åº“">
 			<param name="Local" value="html/backup_and_restore.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="×Ô¶¯ÖÐ¼ä±¸·Ý">
+			<param name="Name" value="è‡ªåŠ¨ä¸­é—´å¤‡ä»½">
 			<param name="Local" value="html/backups_tab.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="×Ô¶¯¹ÊÕÏ±£»¤±¸·Ý">
+			<param name="Name" value="è‡ªåŠ¨æ•…éšœä¿æŠ¤å¤‡ä»½">
 			<param name="Local" value="html/failsafebackups.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="µ¼ÈëÏîÄ¿">
+			<param name="Name" value="å¯¼å…¥é¡¹ç›®">
 			<param name="Local" value="html/import.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="µ¼³öÏîÄ¿">
+			<param name="Name" value="å¯¼å‡ºé¡¹ç›®">
 			<param name="Local" value="html/export.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="É¸Ñ¡ÏîÄ¿">
+			<param name="Name" value="ç­›é€‰é¡¹ç›®">
 			<param name="Local" value="html/filters.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="ÃüÁîÐÐ²ÎÊý">
+			<param name="Name" value="å‘½ä»¤è¡Œå‚æ•°">
 			<param name="Local" value="html/cli.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Password Safe ²Ëµ¥">
+		<param name="Name" value="Password Safe èœå•">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="ÎÄ¼þ²Ëµ¥">
+			<param name="Name" value="æ–‡ä»¶èœå•">
 			<param name="Local" value="html/file_menu.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="±à¼­²Ëµ¥">
+			<param name="Name" value="ç¼–è¾‘èœå•">
 			<param name="Local" value="html/edit_menu.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="²é¿´²Ëµ¥">
+			<param name="Name" value="æŸ¥çœ‹èœå•">
 			<param name="Local" value="html/view_menu.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="¹ÜÀí²Ëµ¥">
+			<param name="Name" value="ç®¡ç†èœå•">
 			<param name="Local" value="html/manage_menu.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="°ïÖú²Ëµ¥">
+			<param name="Name" value="å¸®åŠ©èœå•">
 			<param name="Local" value="html/help_menu.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="¹¤¾ßÀ¸²Ëµ¥">
+			<param name="Name" value="å·¥å…·æ èœå•">
 			<param name="Local" value="html/menu_toolbar.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Ñ¡Ïî">
+		<param name="Name" value="é€‰é¡¹">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="±¸·ÝÑ¡Ïî">
+			<param name="Name" value="å¤‡ä»½é€‰é¡¹">
 			<param name="Local" value="html/backups_tab.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="ÏÔÊ¾Ñ¡Ïî">
+			<param name="Name" value="æ˜¾ç¤ºé€‰é¡¹">
 			<param name="Local" value="html/display_tab.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="ÔÓÏî">
+			<param name="Name" value="æ‚é¡¹">
 			<param name="Local" value="html/misc_tab.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="ÃÜÂë²ßÂÔÑ¡Ïî">
+			<param name="Name" value="å¯†ç ç­–ç•¥é€‰é¡¹">
 			<param name="Local" value="html/password_policies.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="ÀúÊ·ÃÜÂëÑ¡Ïî">
+			<param name="Name" value="åŽ†å²å¯†ç é€‰é¡¹">
 			<param name="Local" value="html/password_history_tab.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="°²È«Ñ¡Ïî">
+			<param name="Name" value="å®‰å…¨é€‰é¡¹">
 			<param name="Local" value="html/security_tab.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="ÏµÍ³Ñ¡Ïî">
+			<param name="Name" value="ç³»ç»Ÿé€‰é¡¹">
 			<param name="Local" value="html/system_tab.html">
 			</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="¿ì½Ý·½Ê½">
+			<param name="Name" value="å¿«æ·æ–¹å¼">
 			<param name="Local" value="html/shortcuts_tab.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="¸½Â¼">
+		<param name="Name" value="é™„å½•">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="±ðÃûÃÜÂë">
+			<param name="Name" value="åˆ«åå¯†ç ">
 			<param name="Local" value="html/aliases.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="´¿ÎÄ±¾µ¼³öÓëµ¼Èë¸ñÊ½">
+			<param name="Name" value="çº¯æ–‡æœ¬å¯¼å‡ºä¸Žå¯¼å…¥æ ¼å¼">
 			<param name="Local" value="html/imp_exp_text_details.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="²ÎÊýÑ¡Ôñ">
+			<param name="Name" value="å‚æ•°é€‰æ‹©">
 			<param name="Local" value="html/preferences.html">
 			</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="ÔËÐÐÃüÁî">
+			<param name="Name" value="è¿è¡Œå‘½ä»¤">
 			<param name="Local" value="html/run_command.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="¿ì½Ý¼ü">
+			<param name="Name" value="å¿«æ·é”®">
 			<param name="Local" value="html/Shortcut_Keys.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="³ÌÐò¹¦ÀÍ">
+		<param name="Name" value="ç¨‹åºåŠŸåŠ³">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="³ÌÐò¹¦ÀÍ">
+			<param name="Name" value="ç¨‹åºåŠŸåŠ³">
 			<param name="Local" value="html/credits.html">
 			</OBJECT>
 	</UL>

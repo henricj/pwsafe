@@ -8,8 +8,8 @@ Display compile progress=Yes
 Error log file=pwsafe.log
 Full-text search=Yes
 Index file=pwsafe.hhk
-Language=0x804 
-Title=Password Safe °ïÖúÖ÷Ìâ
+Language=0x1000
+Title=Password Safe å¸®åŠ©ä¸»é¢˜
 
 
 [FILES]

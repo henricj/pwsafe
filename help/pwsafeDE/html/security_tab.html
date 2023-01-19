@@ -1,80 +1,146 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
-<head>
-  <title>Sicherheit</title>
-<!-- pwsafe version: 2.11--><!-- Modified: 15/06/2005 --><!--Popup control --><!-- VdG 3.15 DE 31/01/2009 -->
-  <script language="javascript" src="html/popups.js">
-  </script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<object id="popup" type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"> </object>
-<!-- Popup Source File -->
-<h2>Sicherheit</h2>
-<img alt="Reiter Sicherheit" src="images/options/security_tab.jpg">
-<p>Im Reiter <b>Sicherheit</b> werden die sicherheitsrelevanten Einstellungen vorgenommen. Eine einfache Handhabung und die Sicherheit der Anwendung werden von den aufgelisteten Optionen beeinflusst. Die Sicherheit der verschl&uuml;sselten Datenbank hingegen ist keineswegs betroffen.</p>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>
+      Sicherheit
+    </title><!-- pwsafe version: 2.11--><!-- Modified: 15/06/2005 --><!--Popup control -->
+    <!-- VdG 3.15 DE 31/01/2009 -->
 
-<h3>Zwischenablage nach Minimieren l&ouml;schen</h3>
-<p>Wenn  markiert, wird die Anwendung, wenn sie minimiert wird, in der Zwischenablage alle gespeicherten Informationen l&ouml;schen (z.B. das Passwort). Dies verhindert dass jemand anderes oder eine andere Anwendung den Inhalt der Zwischenablage lesen kann. Beachten Sie, dass das Markieren dieser Option zusammen mit der Doppelklick-Aktion "Passwort in die Zwischenablage kopieren, minimieren" im Reiter <a href="misc_tab.html">Verschiedenes</a> zu unerwartete Ergebnisse f&uuml;hren kann (das Passwort wird kopiert, aber anschlie&szlig;end gleich wieder gel&ouml;scht).</p>
+    <script language="javascript" src="html/popups.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <object id="popup" type="application/x-oleobject" classid=
+    "clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11">
+    </object> <!-- Popup Source File -->
 
-<h3>Zwischenablage nach Beenden l&ouml;schen</h3>
-<p>Wenn markiert, wird die Anwendung, wenn sie minimiert oder geschlossen wird, in der Zwischenablage alle von <b>Password Safe</b> gespeicherten Informationen l&ouml;schen (z.B. das Passwort). Dies verhindert dass jemand anderes oder eine andere Anwendung den Inhalt der Zwischenablage lesen kann.
-</p>
+    <h2>
+      Sicherheit
+    </h2>
+    <img alt="Reiter Sicherheit" src="images/options/security_tab.jpg">
+    <p>
+      Im Reiter <b>Sicherheit</b> werden die sicherheitsrelevanten Einstellungen vorgenommen. Eine
+      einfache Handhabung und die Sicherheit der Anwendung werden von den aufgelisteten Optionen
+      beeinflusst. Die Sicherheit der verschlüsselten Datenbank hingegen ist keineswegs betroffen.
+    </p>
 
-<h3>Kopieren von Elementen in Zwischenablage best&auml;tigen</h3>
-<p>Wenn markiert, wird der Benutzer jedes Mal aufgefordert das Kopieren des Passwortes aus der Datenbank zur Zwischenablage zu best&auml;tigen.</p>
+    <h3>
+      Zwischenablage nach Minimieren löschen
+    </h3>
 
-<h3>Datenbank sperren</h3> 
+    <p>
+      Wenn markiert, wird die Anwendung, wenn sie minimiert wird, in der Zwischenablage alle
+      gespeicherten Informationen löschen (z.B. das Passwort). Dies verhindert dass jemand anderes
+      oder eine andere Anwendung den Inhalt der Zwischenablage lesen kann. Beachten Sie, dass das
+      Markieren dieser Option zusammen mit der Doppelklick-Aktion "Passwort in die Zwischenablage
+      kopieren, minimieren" im Reiter <a href="misc_tab.html">Verschiedenes</a> zu unerwartete
+      Ergebnisse führen kann (das Passwort wird kopiert, aber anschließend gleich wieder gelöscht).
+    </p>
 
-<p>Wenn die Datenbank aus einem der Gr&uuml;nde die unten stehen gesperrt wird, wird die Datenbank gespeichert 
-und alle Daten im Arbeitsspeicher werden gel&ouml;scht. Die Werte f&uuml;r R&uuml;ckg&auml;ngig und 
-Wiederherstellen werden beibehalten, sodass diese nach dem Entsperren wieder zur Verf&uuml;gung stehen. 
-Hinweis: alle Informationen zum Eintrag (auch R&uuml;ckg&auml;ngig und Wiederherstellen) stehen verschl&uuml;sselt im Arbeitsspeicher.</p> 
+    <h3>
+      Zwischenablage nach Beenden löschen
+    </h3>
 
-<ul>
-<li><b>Passwortdatenbank sperren wenn minimiert</b>
-<p>Wenn markiert, wird die Datenbank gesperrt, wenn die Anwendung minimiert wird. Wenn die Anwendung wieder maximiert wird, 
-m&uuml;ssen Sie den Zugang zur Datenbank durch die Eingabe des Master-Passwortes freigeben.</p>
-</li>
-<li><b>Passwortdatenbank sperren wenn Computer gesperrt</b>
-<p>Wenn markiert, wird die Datenbank gesperrt, wenn der Computer gesperrt wird. Somit werden unberechtigte Zugriffe verhindert 
-von Anwender oder Anwendungen die noch auf dem Computer Zugriff haben (auch von au&szlig;en).</p>
-</li>
-<li><b>Passwortdatenbank sperren nach <i>N</i> Minuten Leerlauf</b>
-<p>Wenn dies markiert ist und die Zeit gesetzt ist, wird <b>Password Safe</b> die Passwortdatenbank nach der gegebenen Zeit sperren, 
-ohne Zutun des Benutzers.</p>
-</li>
-</ul>
+    <p>
+      Wenn markiert, wird die Anwendung, wenn sie minimiert oder geschlossen wird, in der
+      Zwischenablage alle von <b>Password Safe</b> gespeicherten Informationen löschen (z.B. das
+      Passwort). Dies verhindert dass jemand anderes oder eine andere Anwendung den Inhalt der
+      Zwischenablage lesen kann.
+    </p>
 
-<h3>'Gehe zu URL' kopiert Passwort in die Zwischenablage</h3>
-<p>Standardm&auml;&szlig;ig wird beim Ausf&uuml;hren des Kommandos 'Gehe zu URL' das Passwort in die Zwischenablage kopiert. 
-Somit kann es im daf&uuml;r vorgesehenen Feld kopiert werden. Allerdings verlangen einige Webseiten andere oder sogar keine Informationen 
-(z.B. eine Suchmaschine). Durch Abw&auml;hlen dieser Option wird <b>Password Safe</b> 
-bei diesem Kommando nichts in der Zwischenablage abspeichern.</p>
+    <h3>
+      Kopieren von Elementen in Zwischenablage bestätigen
+    </h3>
 
-<h3>Entsperrschwierigkeitsgrad</h3>
-<p>Die Stellung des Schiebers stellt dar wie viel Berechnungszeit ben&ouml;tigt wird um die <b>Password Safe</b> 
-Datenbank zu &ouml;ffnen bzw. zu speichern. Die Stellung <em>Normal</em> sollte gen&uuml;gend Sicherheit bieten,
-um das &Ouml;ffnen einer Datenbank auf den meisten Plattformen nicht allzu viel zu verz&ouml;gern. Wenn dieser Wert erh&ouml;ht wird,
-sollten Sie die langsamste CPU die Sie verwenden um eine Datenbank zu bearbeiten ber&uuml;cksichtigen.</p>
-<p>
-PasswordSafe verwendet den  <!-- [V4Format:] <a href="https://en.wikipedia.org/wiki/PBKDF2">PBKDF2</a> -->
-originalen <a href="http://www.schneier.com/paper-low-entropy.pdf">Key Stretching</a> Algorithmus, herausgegeben von Bruce Schneier. 
-Dieser vergr&ouml;&szlig;ert das Passwort, sodass es mehr Entropie besitzt. Dadurch ist es wesentlich schwieriger zu entschl&uuml;sseln, 
-auch bei einem Brute-Force-Angriff. Der Schieber setzt die Anzahl Schleifen f&uuml;r das <i>Key Stretching</i> 
-zwischen 2048 and 2<sup><small>22</small></sup>.</p>
+    <p>
+      Wenn markiert, wird der Benutzer jedes Mal aufgefordert das Kopieren des Passwortes aus der
+      Datenbank zur Zwischenablage zu bestätigen.
+    </p>
 
-</p>
+    <h3>
+      Datenbank sperren
+    </h3>
 
-<!-- Added some white space at the bottom for natural scrolling -->
-<br>
-<br>
-<br>
-<object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
- <param name="Keyword" value="Reiter Sicherheit">
- <param name="Keyword" value="Datenbank sperren">
- <param name="Keyword" value="Kopieren in die Zwischenablage best&auml;tigen">
- <param name="Keyword" value="Zwischenablage l&ouml;schen">
-</object>
-</body>
+    <p>
+      Wenn die Datenbank aus einem der Gründe die unten stehen gesperrt wird, wird die Datenbank
+      gespeichert und alle Daten im Arbeitsspeicher werden gelöscht. Die Werte für Rückgängig und
+      Wiederherstellen werden beibehalten, sodass diese nach dem Entsperren wieder zur Verfügung
+      stehen. Hinweis: alle Informationen zum Eintrag (auch Rückgängig und Wiederherstellen) stehen
+      verschlüsselt im Arbeitsspeicher.
+    </p>
+
+    <ul>
+      <li>
+        <b>Passwortdatenbank sperren wenn minimiert</b>
+        <p>
+          Wenn markiert, wird die Datenbank gesperrt, wenn die Anwendung minimiert wird. Wenn die
+          Anwendung wieder maximiert wird, müssen Sie den Zugang zur Datenbank durch die Eingabe
+          des Master-Passwortes freigeben.
+        </p>
+      </li>
+
+      <li>
+        <b>Passwortdatenbank sperren wenn Computer gesperrt</b>
+        <p>
+          Wenn markiert, wird die Datenbank gesperrt, wenn der Computer gesperrt wird. Somit werden
+          unberechtigte Zugriffe verhindert von Anwender oder Anwendungen die noch auf dem Computer
+          Zugriff haben (auch von außen).
+        </p>
+      </li>
+
+      <li>
+        <b>Passwortdatenbank sperren nach <i>N</i> Minuten Leerlauf</b>
+        <p>
+          Wenn dies markiert ist und die Zeit gesetzt ist, wird <b>Password Safe</b> die
+          Passwortdatenbank nach der gegebenen Zeit sperren, ohne Zutun des Benutzers.
+        </p>
+      </li>
+    </ul>
+
+    <h3>
+      'Gehe zu URL' kopiert Passwort in die Zwischenablage
+    </h3>
+
+    <p>
+      Standardmäßig wird beim Ausführen des Kommandos 'Gehe zu URL' das Passwort in die
+      Zwischenablage kopiert. Somit kann es im dafür vorgesehenen Feld kopiert werden. Allerdings
+      verlangen einige Webseiten andere oder sogar keine Informationen (z.B. eine Suchmaschine).
+      Durch Abwählen dieser Option wird <b>Password Safe</b> bei diesem Kommando nichts in der
+      Zwischenablage abspeichern.
+    </p>
+
+    <h3>
+      Entsperrschwierigkeitsgrad
+    </h3>
+
+    <p>
+      Die Stellung des Schiebers stellt dar wie viel Berechnungszeit benötigt wird um die
+      <b>Password Safe</b> Datenbank zu öffnen bzw. zu speichern. Die Stellung <em>Normal</em>
+      sollte genügend Sicherheit bieten, um das Öffnen einer Datenbank auf den meisten Plattformen
+      nicht allzu viel zu verzögern. Wenn dieser Wert erhöht wird, sollten Sie die langsamste CPU
+      die Sie verwenden um eine Datenbank zu bearbeiten berücksichtigen.
+    </p>
+
+    <p>
+      PasswordSafe verwendet den 
+      <!-- [V4Format:] <a href="https://en.wikipedia.org/wiki/PBKDF2">PBKDF2</a> -->
+       originalen <a href="http://www.schneier.com/paper-low-entropy.pdf">Key Stretching</a>
+      Algorithmus, herausgegeben von Bruce Schneier. Dieser vergrößert das Passwort, sodass es mehr
+      Entropie besitzt. Dadurch ist es wesentlich schwieriger zu entschlüsseln, auch bei einem
+      Brute-Force-Angriff. Der Schieber setzt die Anzahl Schleifen für das <i>Key Stretching</i>
+      zwischen 2048 and 2<sup><small>22</small></sup>.
+    </p>
+    <!-- Added some white space at the bottom for natural scrolling -->
+    <br>
+    <br>
+    <br>
+    <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+      <param name="Keyword" value="Reiter Sicherheit">
+       <param name="Keyword" value="Datenbank sperren">
+       <param name="Keyword" value="Kopieren in die Zwischenablage bestätigen">
+       <param name="Keyword" value="Zwischenablage löschen">
+    </object>
+  </body>
 </html>

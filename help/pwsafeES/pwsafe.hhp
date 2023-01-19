@@ -8,7 +8,7 @@ Display compile progress=Yes
 Error log file=pwsafe.log
 Full-text search=Yes
 Index file=pwsafe.hhk
-Language=0x40A Castilian Spanish
+Language=0x1000 Castilian Spanish
 Title=Ayuda HTML para Password Safe
 
 

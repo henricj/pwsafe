@@ -25,7 +25,7 @@
 			<param name="Local" value="html/create_new_db.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Usar contraseñas almacenadas">
+			<param name="Name" value="Usar contraseÃ±as almacenadas">
 			<param name="Local" value="html/retrieve_pwd.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -42,15 +42,15 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Una nota sobre contraseñas maestras">
+			<param name="Name" value="Una nota sobre contraseÃ±as maestras">
 			<param name="Local" value="html/about_combinations.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Nombres de usuario, contraseñas y grupos">
+			<param name="Name" value="Nombres de usuario, contraseÃ±as y grupos">
 			</OBJECT>
 		<UL>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Básico">
+				<param name="Name" value="BÃ¡sico">
 				<param name="Local" value="html/entering_pwd.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
@@ -62,20 +62,20 @@
 				<param name="Local" value="html/entering_pwd_date.html">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Política de contraseñas">
+				<param name="Name" value="PolÃ­tica de contraseÃ±as">
 				<param name="Local" value="html/entering_pwd_pp.html">
 				</OBJECT>
 		</UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Fijar una política de contraseñas">
+			<param name="Name" value="Fijar una polÃ­tica de contraseÃ±as">
 			<param name="Local" value="html/password_policies.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Mantener el historial de contraseñas">
+			<param name="Name" value="Mantener el historial de contraseÃ±as">
 			<param name="Local" value="html/password_history.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Cambiar las contraseñas maestras">
+			<param name="Name" value="Cambiar las contraseÃ±as maestras">
 			<param name="Local" value="html/change_combo.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -87,11 +87,11 @@
 			<param name="Local" value="html/backup_and_restore.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Copias de respaldo intermedias automáticas">
+			<param name="Name" value="Copias de respaldo intermedias automÃ¡ticas">
 			<param name="Local" value="html/backups_tab.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Copias de seguridad a prueba de fallos automáticas">
+			<param name="Name" value="Copias de seguridad a prueba de fallos automÃ¡ticas">
 			<param name="Local" value="html/failsafebackups.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -107,36 +107,36 @@
 			<param name="Local" value="html/filters.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Argumentos de la línea de comandos">
+			<param name="Name" value="Argumentos de la lÃ­nea de comandos">
 			<param name="Local" value="html/cli.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Menús de Password Safe">
+		<param name="Name" value="MenÃºs de Password Safe">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menú archivo">
+			<param name="Name" value="MenÃº archivo">
 			<param name="Local" value="html/file_menu.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menú editar">
+			<param name="Name" value="MenÃº editar">
 			<param name="Local" value="html/edit_menu.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menú ver">
+			<param name="Name" value="MenÃº ver">
 			<param name="Local" value="html/view_menu.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menú herramientas">
+			<param name="Name" value="MenÃº herramientas">
 			<param name="Local" value="html/manage_menu.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menú ayuda">
+			<param name="Name" value="MenÃº ayuda">
 			<param name="Local" value="html/help_menu.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Menú barra de herramientas">
+			<param name="Name" value="MenÃº barra de herramientas">
 			<param name="Local" value="html/menu_toolbar.html">
 			</OBJECT>
 	</UL>
@@ -149,7 +149,7 @@
 			<param name="Local" value="html/backups_tab.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Opciones de visualización">
+			<param name="Name" value="Opciones de visualizaciÃ³n">
 			<param name="Local" value="html/display_tab.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -157,11 +157,11 @@
 			<param name="Local" value="html/misc_tab.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Opciones de historial de contraseñas">
+			<param name="Name" value="Opciones de historial de contraseÃ±as">
 			<param name="Local" value="html/password_history_tab.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Opciones de política de contraseñas">
+			<param name="Name" value="Opciones de polÃ­tica de contraseÃ±as">
 			<param name="Local" value="html/password_policies.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -178,15 +178,15 @@
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Apéndices">
+		<param name="Name" value="ApÃ©ndices">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Alias de contraseñas">
+			<param name="Name" value="Alias de contraseÃ±as">
 			<param name="Local" value="html/aliases.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Exportación e importación en texto sin formato">
+			<param name="Name" value="ExportaciÃ³n e importaciÃ³n en texto sin formato">
 			<param name="Local" value="html/imp_exp_text_details.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -203,11 +203,11 @@
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Créditos del programa">
+		<param name="Name" value="CrÃ©ditos del programa">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Créditos del programa">
+			<param name="Name" value="CrÃ©ditos del programa">
 			<param name="Local" value="html/credits.html">
 			</OBJECT>
 	</UL>

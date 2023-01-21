@@ -278,6 +278,7 @@ list(APPEND PWSAFE_SRC_LIST
             src/ui/Windows/WZPropertySheet.cpp
             src/ui/Windows/WZSelectDB.cpp
             src/ui/Windows/PasswordSafe.rc
+            src/ui/Windows/res/pwsafe.exe.manifest
             src/ui/Windows/res/PasswordSafe2.rc2
             src/ui/Windows/res/PasswordSafe3.rc2
     )

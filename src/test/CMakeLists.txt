@@ -21,19 +21,20 @@ file (COPY "data/import-text-unit-test4.csv" DESTINATION "data")
 file (COPY "data/import-text-unit-test5.csv" DESTINATION "data")
 
 add_executable(coretest ${TEST_SRCS})
-if (MSVC)
-set_target_properties(coretest PROPERTIES EXCLUDE_FROM_DEFAULT_BUILD_RELEASE 1)
-target_link_libraries(coretest gtest core os Rpcrt4 harden_interface)
-elseif (APPLE)
-target_link_libraries(coretest gtest core os pthread "-framework CoreFoundation")
-else ()
-target_link_libraries(coretest gtest core os uuid pthread magic ${wxWidgets_LIBRARIES} Xtst X11)
-endif()
-if (XercesC_LIBRARY)
-  target_link_libraries(coretest ${XercesC_LIBRARY})
-endif (XercesC_LIBRARY)
+target_link_libraries(coretest PRIVATE gtest core os pws_ui_interface pws_xml_interface harden_interface)
 
-target_link_libraries(coretest harden_interface)
+if (WIN32)
+  set_target_properties(coretest PROPERTIES EXCLUDE_FROM_DEFAULT_BUILD_RELEASE 1)
+  target_link_libraries(coretest PRIVATE Rpcrt4)
+elseif (APPLE)
+  target_link_libraries(coretest PRIVATE pthread "-framework CoreFoundation")
+else ()
+  target_link_libraries(coretest PRIVATE uuid pthread Magic::Magic Xtst X11)
+endif()
+
+if (USE_PRECOMPILED_HEADERS)
+    target_precompile_headers(coretest PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:${CMAKE_CURRENT_SOURCE_DIR}/coretest_pch.h>")
+endif ()
 
 add_test(NAME Coretests
   COMMAND coretest

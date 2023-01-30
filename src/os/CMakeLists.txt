@@ -2,6 +2,7 @@ include(CheckLibraryExists)
 
 if (WIN32)
   set (OS_SRCS
+    windows/cleanup.cpp
     windows/debug.cpp
     windows/dir.cpp
     windows/env.cpp
@@ -20,21 +21,21 @@ if (WIN32)
     windows/utf8conv.cpp
     windows/UUID.cpp
     )
-if (NOT NO_YUBI)
-    list(APPEND OS_SRCS
-        windows/yubi/stdafx.cpp
-        windows/yubi/YkLib.cpp)
-endif ()
+  if (PWS_YUBI)
+      list(APPEND OS_SRCS
+          windows/yubi/stdafx.cpp
+          windows/yubi/YkLib.cpp)
+  endif ()
 
-if (NOT WX_WINDOWS)
-    add_subdirectory (windows/pws_autotype)
-    add_subdirectory (windows/pws_osk)
-endif (NOT WX_WINDOWS)
+  if (PWS_UI_MFC)
+      add_subdirectory (windows/pws_autotype)
+      add_subdirectory (windows/pws_osk)
+  endif (PWS_UI_MFC)
 
-if (NOT NO_YUBI)
-    add_subdirectory (windows/yubi)
-endif ()
-  elseif (APPLE)
+  if (PWS_YUBI)
+      add_subdirectory (windows/yubi)
+  endif ()
+elseif (APPLE)
   set (OS_SRCS
     mac/cleanup.cpp
     mac/debug.cpp
@@ -55,7 +56,7 @@ endif ()
     mac/UUID.cpp
     mac/media.cpp
     )
-  elseif (${CMAKE_SYSTEM_NAME} MATCHES "(Linux|FreeBSD)")
+elseif (UNIX)
   set (OS_SRCS
     unix/KeySend.cpp
     unix/UUID.cpp
@@ -80,14 +81,26 @@ endif ()
     )
   set (OS_YUBI_SRC unix/PWYubi.cpp)
 else()
-  message (FATAL_ERROR "Unsupported OS "
-    ${CMAKE_SYSTEM_NAME}
-    " - can't build OS library")
+  message (FATAL_ERROR "Unsupported OS ${CMAKE_SYSTEM_NAME} - can't build OS library")
 endif()
 
-if(HAVE_YKPERS_H)
+if(PWS_YUBI)
     list(APPEND OS_SRCS ${OS_YUBI_SRC})
 endif()
 
-add_library(os STATIC ${OS_SRCS})
-target_link_libraries(os PRIVATE harden_interface)
+add_library(os STATIC)
+target_sources(os PRIVATE ${OS_SRCS})
+target_include_directories(os INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}")
+
+# The Yubikey interface library will either define NO_YUBI or add the
+# include path and actual link library.
+target_link_libraries(os PRIVATE pws_ui_interface YubikeyInterface harden_interface)
+
+if (WIN32 AND PWS_UI_WX)
+  target_link_libraries(os PUBLIC urlmon)
+endif ()
+
+if (USE_PRECOMPILED_HEADERS)
+    target_precompile_headers(os PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:${CMAKE_CURRENT_SOURCE_DIR}/os_pch.h>")
+endif ()
+

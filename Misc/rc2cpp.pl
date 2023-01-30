@@ -137,7 +137,7 @@ sub WriteHFile {
 
 #if !defined(_WIN32) || defined(__WX__)
 #include <map>
-#include "../os/typedefs.h" // for definition of TCHAR
+#include "os/typedefs.h" // for definition of TCHAR
 extern std::map<int, const TCHAR *> ${b}_st;
 #endif
 

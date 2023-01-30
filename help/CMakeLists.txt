@@ -9,7 +9,7 @@ macro(set_lang_help_files FILES_VAR DIR)
   )
 endmacro(set_lang_help_files)
 
-if (WIN32 AND NOT WX_WINDOWS)
+if (PWS_UI_MFC)
   set (LANGS DE ES FR RU ZH)
   # pwsafePL -- nothing there :-(
 
@@ -41,8 +41,7 @@ if (WIN32 AND NOT WX_WINDOWS)
 
     set(${OUTPUT_FILE_VAR} "${OUTPUT_FILE}" PARENT_SCOPE)
   endfunction(make_help)
-
-else (WIN32 AND NOT WX_WINDOWS)
+else (PWS_UI_MFC)
   function(make_help OUTPUT_FILE_VAR DIR LANG)
     set_lang_help_files(INPUT_FILES "${DIR}")
 
@@ -56,13 +55,13 @@ else (WIN32 AND NOT WX_WINDOWS)
 
     set(${OUTPUT_FILE_VAR} "${OUTPUT_FILE}" PARENT_SCOPE)
   endfunction(make_help)
-endif (WIN32 AND NOT WX_WINDOWS)
+endif (PWS_UI_MFC)
 
 unset(OUTPUT_FILES)
 
 # English help is a special case: default -> pwsafe.chm
 
-if (WIN32 AND NOT WX_WINDOWS)
+if (PWS_UI_MFC)
   make_help(DEFAULT_OUTPUT_FILE default "")
 else()
   make_help(DEFAULT_OUTPUT_FILE default EN)

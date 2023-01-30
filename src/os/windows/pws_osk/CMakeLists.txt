@@ -72,7 +72,7 @@ target_sources(pws_osk PRIVATE ${OSK_SRCS} ${OSK_RES})
 target_link_libraries(pws_osk PRIVATE harden_interface)
 target_include_directories(pws_osk BEFORE PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
 target_compile_definitions(pws_osk PRIVATE PWS_OSK_EXPORTS)
-target_link_options(pws_osk PRIVATE /MAP)
+
 set_target_properties(pws_osk PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
 
 install (TARGETS pws_osk RUNTIME DESTINATION bin)

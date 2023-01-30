@@ -13,11 +13,15 @@
 ## Shared code (executed during both build and config)
 #######
 
-if (WIN32 AND NOT WX_WINDOWS)
+if (PWS_UI_MFC)
   set (PWS_VERSION_FILE "${PROJECT_SOURCE_DIR}/version.mfc")
-else (WIN32 AND NOT WX_WINDOWS)
+  set (PWS_UI_VERSION_DEFINE -DPWS_UI_MFC=TRUE)
+elseif (PWS_UI_WX)
   set (PWS_VERSION_FILE "${PROJECT_SOURCE_DIR}/version.wx")
-endif (WIN32 AND NOT WX_WINDOWS)
+  set (PWS_UI_VERSION_DEFINE -DPWS_UI_WX=TRUE)
+else ()
+  message(FATAL_ERROR "Invalid UI framework.  Make sure PWS_UI_FRAMEWORK is set to a valid value.")
+endif ()
 
 if (NOT EXISTS "${PWS_VERSION_FILE}")
   message (FATAL_ERROR "Missing ${PWS_VERSION_FILE} - unable to proceed")
@@ -61,11 +65,13 @@ set (pwsafe_VERSION "${pwsafe_VERSION_MAJOR}.${pwsafe_VERSION_MINOR}.${pwsafe_RE
 if (NOT PWS_VERSION_BUILD)
   set(PWS_VERSION_OUT "${PROJECT_BINARY_DIR}/version.h")
 
-  if (WIN32 AND NOT WX_WINDOWS)
+  if (PWS_UI_MFC)
     set(PWS_VERSION_IN "${PROJECT_SOURCE_DIR}/src/ui/Windows/version.in")
-  else (WIN32 AND NOT WX_WINDOWS)
+  elseif (PWS_UI_WX)
     set(PWS_VERSION_IN "${PROJECT_SOURCE_DIR}/src/ui/wxWidgets/version.in")
-  endif (WIN32 AND NOT WX_WINDOWS)
+  else ()
+    message(FATAL_ERROR "Unknwon UI framework.")
+  endif ()
 
   find_package(Git)
 
@@ -82,6 +88,7 @@ if (NOT PWS_VERSION_BUILD)
       "${PWS_VERSION_IN}"
       "${PWS_VERSION_FILE}"
     COMMAND "${CMAKE_COMMAND}"
+      "${PWS_UI_VERSION_DEFINE}"
       "-DPWS_BUILD_CONFIG=$<CONFIG>"
       "-DPROJECT_SOURCE_DIR=${PROJECT_SOURCE_DIR}"
       "-DPWS_VERSION_IN=${PWS_VERSION_IN}"

@@ -12,7 +12,7 @@
 
 #include "../media.h"
 #include "../debug.h"
-#include <windows.h>
+#include <Urlmon.h>
 
 // Windows uses the file extension to get the Media/MIME type
 

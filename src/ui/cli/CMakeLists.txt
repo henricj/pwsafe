@@ -19,28 +19,22 @@ set (CLI_TEST_SRC
   search-test.cpp
   search.cpp)
 
-if (WIN32)
-  list (APPEND CLI_SRCS cli.rc)
-endif(WIN32)
-
-
-add_executable(pwsafe-cli ${CLI_SRCS})
-target_link_libraries(pwsafe-cli harden_interface)
+add_executable(pwsafe-cli)
+target_sources(pwsafe-cli PRIVATE ${CLI_SRCS})
+target_link_libraries(pwsafe-cli PRIVATE core os core uuid pws_xml_interface pws_ui_interface harden_interface)
 
 install (TARGETS pwsafe-cli RUNTIME DESTINATION "bin")
 
-if (IPO_SUPPORTED)
-  set_property(TARGET pwsafe-cli PROPERTY INTERPROCEDURAL_OPTIMIZATION_RELEASE True)
-endif (IPO_SUPPORTED)
-
-target_link_libraries(pwsafe-cli core os core uuid ${wxWidgets_LIBRARIES})
-if (XercesC_LIBRARY)
-  target_link_libraries(pwsafe-cli ${XercesC_LIBRARY})
-endif (XercesC_LIBRARY)
-
-if (NOT WIN32)
-	target_link_libraries(pwsafe-cli pthread magic)
+if (WIN32)
+  target_sources(pwsafe-cli PRIVATE cli.rc)
+  target_link_libraries(pwsafe-cli PRIVATE Rpcrt4)
+  set_target_properties(pwsafe-cli PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
 else ()
-	target_link_libraries(pwsafe-cli Rpcrt4)
-	set_target_properties(pwsafe-cli PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
-endif (NOT WIN32)
+  target_link_libraries (pwsafe-cli PRIVATE pthread Magic::Magic)
+endif (WIN32)
+
+if (USE_PRECOMPILED_HEADERS)
+  target_compile_definitions(pwsafe-cli PRIVATE USE_PRECOMPILED_HEADER)
+  target_precompile_headers(pwsafe-cli PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:${CMAKE_CURRENT_SOURCE_DIR}/stdafx.h>")
+endif ()
+

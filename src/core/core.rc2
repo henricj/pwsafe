@@ -8,7 +8,7 @@
     #error this file is not editable by Microsoft Visual C++
 #endif //APSTUDIO_INVOKED
 
-#include "..\core\core.h"
+#include "core.h"
 
 /////////////////////////////////////////////////////////////////////////////
 //

@@ -19,6 +19,8 @@
 #include <iomanip>
 #include <assert.h>
 
+#include <WinSock2.h>
+
 using namespace std;
 
 static void array2UUUID(const uuid_array_t &ua, UUID &uuid)

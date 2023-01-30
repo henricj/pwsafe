@@ -72,7 +72,7 @@ target_sources(pws_at PRIVATE ${AT_SRCS} ${AT_RES})
 target_link_libraries(pws_at PRIVATE harden_interface)
 target_compile_definitions(pws_at PRIVATE PWS_AT_EXPORTS)
 target_include_directories(pws_at BEFORE PRIVATE "${CMAKE_CURRENT_BINARY_DIR}")
-target_link_options(pws_at PRIVATE /MAP)
+
 set_target_properties(pws_at PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
 
 install (TARGETS pws_at RUNTIME DESTINATION bin)

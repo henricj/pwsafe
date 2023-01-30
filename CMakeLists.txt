@@ -1,5 +1,7 @@
 cmake_minimum_required (VERSION 3.13...3.25) # 3.13 is used by Debian 10
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules")
+
 project (passwordsafe CXX C)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -13,16 +15,18 @@ else (NOT WIN32 OR WX_WINDOWS)
     set(CMAKE_CXX_STANDARD 17)
 endif (NOT WIN32 OR WX_WINDOWS)
 
+########
 # prerequisites
 include(CheckLibraryExists)
 include(CheckIncludeFile)
 
+if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.16)
+  option(USE_PRECOMPILED_HEADERS "Precompile headers" ON)
+endif()
+
 # IPO = interprocedural optimisation, not initial public offering (unfortunately)
-include(CheckIPOSupported OPTIONAL RESULT_VARIABLE CHECK_IPO_FOUND)
-if (${CHECK_IPO_FOUND} STREQUAL "NOTFOUND")
-else (${CHECK_IPO_FOUND} STREQUAL "NOTFOUND")
-  check_ipo_supported(RESULT IPO_SUPPORTED)
-endif (${CHECK_IPO_FOUND} STREQUAL "NOTFOUND")
+include(CheckIPOSupported)
+check_ipo_supported(RESULT IPO_SUPPORTED)
 
 if (IPO_SUPPORTED)
   option(USE_INTERPROCEDURAL_OPTIMIZATION "Enable interprocedural optimization (LTO/LTCG)" ON)
@@ -42,55 +46,114 @@ if (UNIX)
 endif ()
 
 if (NOT WIN32)
-include(FindUnixCommands)
+  include(FindUnixCommands)
 endif (NOT WIN32)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules")
-
-include(create-harden-interface)
-
-
+########
 # Configurable options:
 option (NO_YUBI "Set ON to disable YubiKey support" OFF)
 option (NO_GTEST "Set ON to disable gtest unit testing" OFF)
 option (GTEST_BUILD "Set OFF to disable gtest download and build on-fly" ON)
 
-if (WIN32)
-  option (WX_WINDOWS "Build wxWidget under Windows" OFF)
-  if (WX_WINDOWS)
-    option (XML_XERCESC "Set ON for XML import support with XercesC" ON)
-  else (WX_WINDOWS)
-    option (XML_MSXML "Set ON for XML import support with MSXML" ON)
-    option (XML_XERCESC "Set ON for XML import support with XercesC" OFF)    
-  endif (WX_WINDOWS)
-  if (XML_MSXML AND XML_XERCESC)
-    message (FATAL_ERROR "MSXML and XERCESC are mutually exclusive")
-  endif (XML_MSXML AND XML_XERCESC)
-  if (XML_MSXML AND WX_WINDOWS)
-    message (FATAL_ERROR "MSXML is not supported for wxWidget under Windows")
-  endif (XML_MSXML AND WX_WINDOWS)
-else (WIN32)
-  option (XML_XERCESC "Set OFF to disable XML import support" ON)
-endif (WIN32)
-if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-  option (USE_ASAN "Set ON to add -fsanitize=address to Debug builds" OFF)
-endif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+set(XML_FRAMEWORK_OPTIONS XercesC None)
 
-if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-  option (NO_QR "Set ON to disable QR support" OFF)
+add_library (pws_ui_interface INTERFACE)
+set (PWS_LIBS pws_ui_interface)
+
+if (WIN32)
+  option(PWS_MSVC_STATIC_RUNTIME "Use the static MSVC C++ runtime" ON)
+
+  add_library(pws_mfc_interface INTERFACE)
+
+  if (NOT PWS_MSVC_STATIC_RUNTIME)
+    target_compile_definitions(pws_mfc_interface INTERFACE _AFXDLL)
+  endif ()
+
+  set(PWS_UI_FRAMEWORK "MFC" CACHE STRING "UI Framework")
+  set_property(CACHE PWS_UI_FRAMEWORK PROPERTY STRINGS MFC WX)
+
+  if(PWS_UI_FRAMEWORK STREQUAL "MFC")
+    set (PWS_UI_MFC TRUE)
+    target_compile_definitions (pws_ui_interface INTERFACE PWS_UI_MFC)
+    target_link_libraries(pws_ui_interface INTERFACE pws_mfc_interface)
+
+    set (DEFAULT_XML_FRAMEWORK "MSXML")
+    list (APPEND XML_FRAMEWORK_OPTIONS MSXML)
+  elseif (PWS_UI_FRAMEWORK STREQUAL "WX")
+    set(PWS_UI_WX TRUE)
+    target_compile_definitions (pws_ui_interface INTERFACE PWS_UI_WX)
+
+    set (DEFAULT_XML_FRAMEWORK "XercesC")
+  endif ()
+else (WIN32)
+  set(PWS_UI_FRAMEWORK "WX")
+  set(PWS_UI_WX TRUE)
+  set (DEFAULT_XML_FRAMEWORK "XercesC")
+endif (WIN32)
+
+message (STATUS "Using UI framework: ${PWS_UI_FRAMEWORK}")
+
+set(PWS_XML_FRAMEWORK "${DEFAULT_XML_FRAMEWORK}" CACHE STRING "XML Framework")
+set_property(CACHE PWS_XML_FRAMEWORK PROPERTY STRINGS ${XML_FRAMEWORK_OPTIONS})
+
+message(STATUS "Using XML framework: ${PWS_XML_FRAMEWORK}")
+
+add_library (pws_xml_interface INTERFACE)
+list (APPEND PWS_LIBS pws_xml_interface)
+
+# Set XML framework flags
+if (PWS_XML_FRAMEWORK STREQUAL "MSXML")
+  set(PWS_XML_MSXML TRUE)
+  target_compile_definitions (pws_xml_interface INTERFACE PWS_XML_MSXML)
+elseif (PWS_XML_FRAMEWORK STREQUAL "XercesC")
+  set(PWS_XML_XERCESC TRUE)
+endif ()
+
+if (PWS_UI_WX AND PWS_XML_MSXML)
+  message(FATAL_ERROR "MSXML cannot be used with wxWidgets.")
+endif ()
+
+if (PWS_UI_WX)
+  add_library(pws_qr INTERFACE)
+  list(APPEND PWS_LIBS pws_qr)
+
+  set(NO_QR_DEFAULT ON)
+  if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    set(NO_QR_DEFAULT OFF)
+  endif ()
+  option (NO_QR "Set ON to disable QR support" ${NO_QR_DEFAULT})
   if (NOT NO_QR)
-    CHECK_INCLUDE_FILE("qrencode.h" HAVE_LIBQRENCODE_DEV)
+    check_include_file("qrencode.h" HAVE_LIBQRENCODE_DEV)
     if(NOT HAVE_LIBQRENCODE_DEV)
       unset(HAVE_LIBQRENCODE_DEV CACHE)
       message( FATAL_ERROR "libqrencode-dev(el) not installed: install or select NO_QR")
     endif(NOT HAVE_LIBQRENCODE_DEV)
-  else (NOT NO_QR)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DNO_QR")
-  endif (NOT NO_QR)
-else(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-endif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
-if (NOT WIN32 OR WX_WINDOWS)
+    target_link_libraries(pws_qr INTERFACE qrencode)
+  else (NOT NO_QR)
+    target_compile_definitions(pws_qr INTERFACE NO_QR)
+  endif (NOT NO_QR)
+endif(PWS_UI_WX)
+
+# TODO: Add a compile check to see if we actually have ASAN support.
+# Just looking at the platform and compiler isn't enough.
+option (USE_ASAN "Set ON to enable the address sanitizer (ASAN)" OFF)
+
+option(USE_UBSAN "Set ON to enable the undefined behavior sanitizer (UBSAN)" OFF)
+
+if (USE_UBSAN)
+  include(ubsan-setup)
+endif()
+
+include(create-harden-interface)
+list (APPEND PWS_LIBS harden_interface)
+
+include(pws-version)
+
+########
+# Find packages
+
+if (PWS_UI_WX)
   if (NOT WIN32)
      # help people with wxWidgets on non-standard installation
      # quick-and-dirty since wxWdigets cmake's support is not yet loaded.
@@ -103,61 +166,87 @@ if (NOT WIN32 OR WX_WINDOWS)
                )
      endif (NOT PWSHINT_wxconfig)
   endif (NOT WIN32)
-  find_package(wxWidgets COMPONENTS adv aui base core html net REQUIRED)
-  include(${wxWidgets_USE_FILE})
 
+  find_package(wxWidgets COMPONENTS adv aui base core html net REQUIRED)
+  include("${wxWidgets_USE_FILE}")
+
+  add_library(wxWidgetsInterface INTERFACE)
+
+  target_link_libraries(wxWidgetsInterface INTERFACE ${wxWidgets_LIBRARIES})
+  target_link_directories(wxWidgetsInterface INTERFACE ${wxWidgets_LIBRARY_DIRS})
+  target_include_directories(wxWidgetsInterface INTERFACE ${wxWidgets_INCLUDE_DIRS})
+  target_compile_definitions(wxWidgetsInterface INTERFACE PWS_UI_WX __WX__ ${wxWidgets_DEFINITIONS})
+
+  target_link_libraries (pws_ui_interface INTERFACE wxWidgetsInterface)
+
+  target_compile_definitions(pws_ui_interface INTERFACE PWS_UI_WX)
+elseif (PWS_UI_MFC)
+  target_compile_definitions(pws_ui_interface INTERFACE PWS_UI_MFC)
+endif ()
+
+if(NOT WIN32)
   find_package(OpenSSL REQUIRED)
-  include_directories(${OPENSSL_INCLUDE_DIR})
+  list (APPEND PWS_LIBS OpenSSL::Crypto)
 
   find_package(Magic REQUIRED)
-  include_directories(${MAGIC_INCLUDE_DIRS})
-endif (NOT WIN32 OR WX_WINDOWS)
+  list (APPEND PWS_LIBS Magic::Magic)
+endif()
 
-if (NOT WIN32)
-    if (${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
-      set( CMAKE_REQUIRED_INCLUDES "/usr/local/include" )
-    endif (${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
-  CHECK_INCLUDE_FILE("uuid/uuid.h" UUID_H)
+if (UNIX)
+  if (CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
+    include_directories("/usr/local/include")
+  endif (CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
+
+  check_include_file("uuid/uuid.h" UUID_H)
   if (NOT UUID_H)
     message(FATAL_ERROR
       "uuid.h not found - uuid-dev / libuuid-devel not installed?")
   endif(NOT UUID_H)
-  if(NOT NO_YUBI)
+endif (UNIX)
+
+add_library(YubikeyInterface INTERFACE)
+list (APPEND PWS_LIBS YubikeyInterface)
+
+if (NO_YUBI)
+  target_compile_definitions(YubikeyInterface INTERFACE NO_YUBI)
+  set(PWS_YUBI FALSE)
+else ()
+  set(PWS_YUBI TRUE)
+
+  if (WIN32)
+    target_link_libraries (YubikeyInterface INTERFACE YkLib22)
+  else (WIN32)
     CHECK_LIBRARY_EXISTS(ykpers-1 yk_init "ykpers-1/ykpers.h" HAVE_YKPERS_H)
-  endif(NOT NO_YUBI)
 
-  if(NOT HAVE_YKPERS_H)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DNO_YUBI")
-    message(STATUS "Yubikey support disabled")
-  endif(NOT HAVE_YKPERS_H)
-endif (NOT WIN32)
+    if (HAVE_YKPERS_H)
+      target_include_directories(YubikeyInterface INTERFACE /usr/include/ykpers-1)
+      target_link_libraries(YubikeyInterface INTERFACE ykpers-1)
+    else ()
+      target_compile_definitions(YubikeyInterface INTERFACE NO_YUBI)
+      set(PWS_YUBI FALSE)
+      message(STATUS "Yubikey support disabled")
+    endif()
+  endif (WIN32)
+endif()
 
-if (XML_XERCESC)
-  find_package (XercesC QUIET MODULE)
-  if (NOT XercesC_FOUND)
-    # FindXercesC module was added to cmake in 3.1. Debian 8 uses 3.0.2
-    # If the module wasn't found yet XML is enabled, we set the default
-    # values. If this isn't what you want, either configure NO_XML
-    # or edit the following values manually.
-    if (NOT XercesC_INCLUDE_DIR)
-      message (WARNING "XML enabled but XercesC_INCLUDE_DIR unset - using default")
-      set (XercesC_INCLUDE_DIR "/usr/include")
-    endif ()
-    if (NOT XercesC_LIBRARY)
-      message (WARNING "XML enabled but XercesC_LIBRARY unset - using default")
-      set (XercesC_LIBRARY "xerces-c")
-    endif ()
-  endif(NOT XercesC_FOUND)
-  include_directories( ${XercesC_INCLUDE_DIR} )
-  add_definitions ("-DUSE_XML_LIBRARY=XERCES")
-endif (XML_XERCESC)
+if (PWS_XML_XERCESC)
+  find_package (XercesC REQUIRED)
 
-if (XML_MSXML)
-  add_definitions ("-DUSE_XML_LIBRARY=MSXML")
-  set (MSXML_LIB "msxml6")
-endif (XML_MSXML)
+  target_compile_definitions (pws_xml_interface INTERFACE USE_XML_LIBRARY=XERCES PWS_XML_XERCESC WCHAR_INCOMPATIBLE_XMLCH)
 
-if (USE_ASAN)
+  target_link_libraries (pws_xml_interface INTERFACE XercesC::XercesC)
+endif (PWS_XML_XERCESC)
+
+if (PWS_XML_MSXML)
+  add_library(msxmlInterface INTERFACE)
+
+  target_compile_definitions(msxmlInterface INTERFACE USE_XML_LIBRARY=MSXML PWS_XML_MSXML)
+  target_link_libraries(msxmlInterface INTERFACE msxml6)
+
+  target_link_libraries (pws_xml_interface INTERFACE msxmlInterface)
+endif (PWS_XML_MSXML)
+
+if (USE_ASAN AND NOT MSVC)
   # Requires libasan, which I can't get CHECK_LIBRARY_EXISTS to find under Debian
   CHECK_LIBRARY_EXISTS("asan" "" "" HAS_ASAN)
   CHECK_LIBRARY_EXISTS("asan" "" "/usr/lib/x86_64-linux-gnu/" HAS_ASAN1)
@@ -165,18 +254,11 @@ if (USE_ASAN)
     message (WARNING
       "-fsanitize=address requested but libasan not found.")
   endif (NOT HAS_ASAN AND NOT HAS_ASAN1)
-endif (USE_ASAN)
-
-enable_testing()
+endif (USE_ASAN AND NOT MSVC)
 
 # Common configurations
 
-include_directories (${PROJECT_SOURCE_DIR}/src/os)
-include_directories (${PROJECT_SOURCE_DIR}/src/core)
-include_directories (${PROJECT_BINARY_DIR})
-include_directories ("${PROJECT_SOURCE_DIR}/src"
-  "${PROJECT_SOURCE_DIR}/src/core"
-  "${PROJECT_SOURCE_DIR}/src/ui/wxWidgets")
+include_directories(src)
 
 add_compile_definitions(
   __STDC_WANT_LIB_EXT1__=1
@@ -187,61 +269,22 @@ add_compile_definitions(
 
 # Assume that we're either MSVC or a Unix-like
 if (MSVC)
-# Debug build looks for dlls with _D postfix, this provides it:
-set (CMAKE_DEBUG_POSTFIX "_D")
-# This copies dlls to same directory as exec upon 'install' build
-set (CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR})
+  # Debug build looks for dlls with _D postfix, this provides it:
+  set (CMAKE_DEBUG_POSTFIX "_D")
+  # This copies dlls to same directory as exec upon 'install' build
+  set (CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}")
 
-set_property (GLOBAL PROPERTY USE_FOLDERS ON)
+  set_property (GLOBAL PROPERTY USE_FOLDERS ON)
 
-if (NO_YUBI)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DNO_YUBI")
-endif (NO_YUBI)
+  include(set-options-msvc)
+else (MSVC)
+  add_compile_definitions(Wall)
 
-if (WX_WINDOWS)
-   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /D __WX__")
-endif (WX_WINDOWS)
-
-set(CMAKE_MFC_FLAG 1)  # Static MFC
-
-include(set-options-msvc)
-else ()
-set(CMAKE_CXX_FLAGS
-  "${CMAKE_CXX_FLAGS} -Wall -DUNICODE -DWCHAR_INCOMPATIBLE_XMLCH ${CMAKE_WXWINDOWS_CXX_FLAGS}")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG -DDEBUG")
-if (USE_ASAN)
-  set(CMAKE_CXX_FLAGS_DEBUG
-    "${CMAKE_CXX_FLAGS_DEBUG} -gdwarf-4 -O0 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address")
-endif (USE_ASAN)
+  if (USE_ASAN)
+    set(CMAKE_CXX_FLAGS_DEBUG
+      "${CMAKE_CXX_FLAGS_DEBUG} -gdwarf-4 -O0 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address")
+  endif (USE_ASAN)
 endif (MSVC)
-
-if (NOT NO_GTEST AND GTEST_BUILD)
-   # Download and unpack googletest at configure time
-   # See https://crascit.com/2015/07/25/cmake-gtest/
-   configure_file(Misc/CMakeLists.gtest.txt.in googletest-download/CMakeLists.txt)
-   execute_process(COMMAND "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
-       WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/googletest-download" )
-   execute_process(COMMAND "${CMAKE_COMMAND}" --build .
-       WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/googletest-download" )
-
-   # Prevent GoogleTest from overriding our compiler/linker options
-   # when building with Visual Studio
-   set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-   # Set some other gtest configurations:
-   set(BUILD_GMOCK OFF CACHE BOOL "" FORCE)
-   set(BUILD_GTEST ON CACHE BOOL "" FORCE)
-   set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
-
-   # Add googletest directly to our build. This adds
-   # the following targets: gtest, gtest_main, gmock
-   # and gmock_main
-   add_subdirectory("${CMAKE_BINARY_DIR}/googletest-src"
-                    "${CMAKE_BINARY_DIR}/googletest-build")
-
-   include_directories("${gtest_SOURCE_DIR}/include"
-#                       "${gmock_SOURCE_DIR}/include"
-                       )
-endif(NOT NO_GTEST AND GTEST_BUILD)
 
 if( NOT CMAKE_BUILD_TYPE )
   set( CMAKE_BUILD_TYPE Release )
@@ -255,87 +298,128 @@ endif(HAVE_YKPERS_H)
 if (NOT MSVC)
    # Following is because (a) -O3 breaks the test and application, and
    # (b) -O3 is the default for cmake
-   set (CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
+   set (CMAKE_CXX_FLAGS_RELEASE -O2)
 endif (NOT MSVC)
 
-include(pws-version)
-
 if (WIN32)
-   set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+   set (CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
 endif (WIN32)
+
+# The global compiler and linker options should all have been set by now.
+
+enable_testing()
 
 # Subdirectories
 
 add_subdirectory (src/os) # os-specific library
 add_subdirectory (src/core) # core library
 add_subdirectory(src/ui/cli "./cli")
-if (NOT NO_GTEST)
-   add_subdirectory (src/test) # tests (gtest framework)
-endif(NOT NO_GTEST)
 add_subdirectory (help) # online help
-if (WIN32 AND NOT WX_WINDOWS)
+
+if (PWS_UI_MFC)
   add_subdirectory (src/Tools/Windows/I18N/ResText)
   add_subdirectory (src/Tools/Windows/I18N/ResPWSL)
   add_subdirectory (src/ui/Windows)
   add_subdirectory (src/ui/Windows/I18N)
-else()
+elseif (PWS_UI_WX)
   add_subdirectory (src/ui/wxWidgets)
-  if (NOT WIN32)
-    # TBD - handle I18N under WX_WINDOWS.
-    find_package(Gettext QUIET)
-    if (GETTEXT_FOUND)
+
+  target_include_directories (pws_ui_interface INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/src/ui/wxWidgets")
+
+  find_package(Gettext QUIET)
+
+  if (GETTEXT_FOUND)
+    if (NOT GETTEXT_XGETTEXT_EXECUTABLE)
+        get_filename_component(GETTEXT_DIR GETTEXT_MSGFMT_EXECUTABLE DIRECTORY)
+        find_program(GETTEXT_XGETTEXT_EXECUTABLE xgettext HINT "${GETTEXT_DIR}")
+    endif ()
+
+    if (GETTEXT_XGETTEXT_EXECUTABLE)
       add_subdirectory (src/ui/wxWidgets/I18N)
-    else (GETTEXT_FOUND)
-      message("Gettext support not found, skipping I18N build")
-    endif(GETTEXT_FOUND)
-  endif (NOT WIN32)
-endif()
+    endif ()
+  endif ()
+endif ()
 
-if (NOT WIN32)
-  add_executable(pwsafe ${PWSAFE_SRCS})
-else (NOT WIN32)
-   add_executable(pwsafe WIN32 ${PWSAFE_SRCS})
-   add_dependencies( pwsafe language-dlls) # i18n dlls
-   if (NOT WX_WINDOWS)
-      set (PWS_DLL_LIBS "pws_at" "pws_osk")
-      set_target_properties(pwsafe PROPERTIES COMPILE_DEFINITIONS
-                            "_BIND_TO_CURRENT_CRT_VERSION;_BIND_TO_CURRENT_MFC_VERSION"
-                            LINK_FLAGS "/ENTRY:\"wWinMainCRTStartup\" /MAP /DEBUG")
-   else (NOT WX_WINDOWS)
-#      set_target_properties(pwsafe PROPERTIES COMPILE_DEFINITIONS
-#                            _BIND_TO_CURRENT_CRT_VERSION
-#                            LINK_FLAGS "/ENTRY:\"wWinMainCRTStartup\"")
-   endif (NOT WX_WINDOWS)
-endif (NOT WIN32)
-target_link_libraries(pwsafe core os)
-if (XML_XERCESC)
-  target_link_libraries(pwsafe ${XercesC_LIBRARY})
-endif (XML_XERCESC)
+add_executable(pwsafe)
+target_sources(pwsafe PRIVATE ${PWSAFE_SRCS} ${PWSAFE_HDRS})
+target_link_libraries(pwsafe PRIVATE core os ${PWS_LIBS})
+target_include_directories(pwsafe PRIVATE "${PROJECT_BINARY_DIR}")
 
-target_link_libraries(pwsafe pws_version)
+if (WIN32)
+  set_target_properties(pwsafe PROPERTIES WIN32_EXECUTABLE ON)
+
+  target_compile_options(pwsafe PRIVATE "$<$<NOT:$<CONFIG:DEBUG>>:/GA>")
+
+  if (PWS_UI_MFC)
+    add_dependencies (pwsafe language-dlls) # i18n dlls
+    target_link_libraries (pwsafe PRIVATE pws_at pws_osk)
+    #target_compile_definitions(pwsafe PRIVATE _BIND_TO_CURRENT_CRT_VERSION;_BIND_TO_CURRENT_MFC_VERSION)
+
+    target_link_options(pwsafe PRIVATE /ENTRY:wWinMainCRTStartup /MAP)
+  endif (PWS_UI_MFC)
+elseif (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  # squash lintian hardening-no-relro warning, probably good for all Linuxen
+  set_target_properties(pwsafe PROPERTIES LINK_FLAGS "-z relro")
+endif ()
+
+if (USE_PRECOMPILED_HEADERS)
+  if (PWS_UI_MFC)
+    target_precompile_headers(pwsafe PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:${CMAKE_CURRENT_SOURCE_DIR}/src/ui/Windows/StdAfx.h>")
+  elseif (PWS_UI_WX)
+    target_precompile_headers(pwsafe PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:${CMAKE_CURRENT_SOURCE_DIR}/src/ui/wxWidgets/wx_pch.h>")
+  endif ()
+endif ()
+
+target_link_libraries(pwsafe PRIVATE pws_version)
 
 if (APPLE)
-  FIND_LIBRARY(QUARTZCORE_LIBS QuartzCore)
-  target_link_libraries(pwsafe ${wxWidgets_LIBRARIES} ${CMAKE_REQUIRED_LIBRARIES} ${QUARTZCORE_LIBS} curl ${OPENSSL_SSL_LIBRARY})
+  find_library(QUARTZCORE_LIBS QuartzCore)
+  target_link_libraries(pwsafe PRIVATE ${QUARTZCORE_LIBS} curl)
 elseif (WIN32)
-  if (NOT NO_YUBI)
-    set (YUBILIB "YkLib22")
-  endif ()
-  target_link_libraries(pwsafe ${wxWidgets_LIBRARIES} 
-      ${YUBILIB} ${PWS_DLL_LIBS} version Rpcrt4 htmlhelp SetupAPI Hid usp10
-      Dbghelp Urlmon gdiplus ${MSXML_LIB} ${CMAKE_REQUIRED_LIBRARIES})
+  target_link_libraries(pwsafe PRIVATE ${PWS_DLL_LIBS}
+    version Rpcrt4 htmlhelp SetupAPI Hid usp10 Dbghelp Urlmon gdiplus)
 else ()
-  if (NOT NO_QR)
-    target_link_libraries(pwsafe qrencode  ${CMAKE_REQUIRED_LIBRARIES})
-  endif (NOT NO_QR)
-  target_link_libraries(pwsafe ${wxWidgets_LIBRARIES} uuid Xtst X11 curl ${OPENSSL_SSL_LIBRARY} ${MAGIC_LIBRARIES}
-  ${CMAKE_REQUIRED_LIBRARIES})
+  target_link_libraries(pwsafe PRIVATE uuid Xtst X11 curl)
 endif()
+
+if (NOT NO_GTEST)
+  if (GTEST_BUILD)
+    # Download and unpack googletest at configure time
+    # See https://crascit.com/2015/07/25/cmake-gtest/
+    configure_file(Misc/CMakeLists.gtest.txt.in googletest-download/CMakeLists.txt)
+    execute_process(COMMAND "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
+        WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/googletest-download" )
+    execute_process(COMMAND "${CMAKE_COMMAND}" --build .
+        WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/googletest-download" )
+
+    # Prevent GoogleTest from overriding our compiler/linker options
+    # when building with Visual Studio
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+    # Set some other gtest configurations:
+    set(BUILD_GMOCK OFF CACHE BOOL "" FORCE)
+    set(BUILD_GTEST ON CACHE BOOL "" FORCE)
+    set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
+
+    set(CMAKE_POLICY_DEFAULT_CMP0069 NEW)
+
+    # Add googletest directly to our build. This adds
+    # the following targets: gtest, gtest_main, gmock
+    # and gmock_main
+    add_subdirectory("${CMAKE_BINARY_DIR}/googletest-src"
+                      "${CMAKE_BINARY_DIR}/googletest-build")
+
+    unset(CMAKE_POLICY_DEFAULT_CMP0069)
+
+#    include_directories("${gtest_SOURCE_DIR}/include"
+  #                       "${gmock_SOURCE_DIR}/include"
+ #                       )
+  endif(GTEST_BUILD)
+
+  add_subdirectory (src/test) # tests (gtest framework)
+endif(NOT NO_GTEST)
 
 # Installation stuff (for 'make install', but mainly for 'make package')
 install (TARGETS pwsafe RUNTIME DESTINATION "bin")
-
-target_link_libraries(pwsafe harden_interface)
 
 if (NOT WIN32)
   install (DIRECTORY xml DESTINATION "share/passwordsafe")

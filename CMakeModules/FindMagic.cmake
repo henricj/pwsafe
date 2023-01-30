@@ -14,13 +14,13 @@
 #
 # This module defines the following variables:
 #
-# ``MAGIC_FOUND``
+# ``Magic_FOUND``
 #   True if Magic found.
 #
-# ``MAGIC_INCLUDE_DIRS``
+# ``Magic_INCLUDE_DIRS``
 #   Location of magic.h.
 #
-# ``MAGIC_LIBRARIES``
+# ``Magic_LIBRARIES``
 #   List of libraries when using Magic.
 #
 #
@@ -47,26 +47,34 @@
 #
 # Locate header 'magic.h'
 #
-find_path(MAGIC_INCLUDE_DIR
+find_path(Magic_INCLUDE_DIR
   NAMES magic.h
   PATHS /usr/include /usr/local/include
 )
-mark_as_advanced(MAGIC_INCLUDE_DIR)
+mark_as_advanced(Magic_INCLUDE_DIR)
 
 #
 # Locate shared library 'libmagic'
 #
-find_library(MAGIC_LIBRARY
+find_library(Magic_LIBRARY
   NAMES magic
   PATHS /usr/lib /usr/lib64 /usr/local/lib
 )
-mark_as_advanced(MAGIC_LIBRARY)
+mark_as_advanced(Magic_LIBRARY)
 
-FIND_PACKAGE_HANDLE_STANDARD_ARGS(Magic
-  REQUIRED_VARS MAGIC_LIBRARY MAGIC_INCLUDE_DIR
+find_package_handle_standard_args(Magic
+  REQUIRED_VARS Magic_LIBRARY Magic_INCLUDE_DIR
 )
 
-if (MAGIC_FOUND)
-  set(MAGIC_INCLUDE_DIRS ${MAGIC_INCLUDE_DIR})
-  set(MAGIC_LIBRARIES ${MAGIC_LIBRARY})
+if (Magic_FOUND)
+  set(Magic_INCLUDE_DIRS ${Magic_INCLUDE_DIR})
+  set(Magic_LIBRARIES ${Magic_LIBRARY})
+
+  if (NOT TARGET Magic::Magic)
+    add_library(Magic::Magic UNKNOWN IMPORTED)
+    set_target_properties(Magic::Magic PROPERTIES
+      IMPORTED_LOCATION "${Magic_LIBRARY}"
+      INTERFACE_INCLUDE_DIRECTORIES "${Magic_INCLUDE_DIR}"
+    )
+  endif ()
 endif ()

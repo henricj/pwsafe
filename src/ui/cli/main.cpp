@@ -354,7 +354,7 @@ bool parseArgs(int argc, char *argv[], UserArgs &ua)
   return true;
 }
 
-#ifdef _WIN32
+#if defined(_WIN32) && defined(__AFX_H__)
 
 CWinApp theApp;
 
@@ -374,7 +374,11 @@ static bool winInit()
     return false;
   }
 }
-#endif // _WIN32
+#else // defined(_WIN32) && defined(__AFX_H__)
+
+static bool winInit() { return true; }
+
+#endif // defined(_WIN32) && defined(__AFX_H__)
 
 int main(int argc, char *argv[])
 {

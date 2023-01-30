@@ -13,12 +13,19 @@ add_compile_options(/utf-8 /volatile:iso /Zc:__cplusplus /Zc:inline /Zc:lambda)
 # https://learn.microsoft.com/en-us/cpp/build/reference/permissive-standards-conformance
 #add_compile_options(/permissive- /Zc:gotoScope-)
 
-# Set the runtime library
-if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.15)
-  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-else()
-  add_compile_options("/MT$<$<CONFIG:Debug>:d>")
-endif()
+if (CMAKE_VERSION VERSION_GREATER_EQUAL 3.15)
+  if (PWS_MSVC_STATIC_RUNTIME)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  else ()
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+  endif ()
+else ()
+  if (PWS_MSVC_STATIC_RUNTIME)
+    add_compile_options("/MT$<$<CONFIG:Debug>:d>")
+  else ()
+    add_compile_options("/MD$<$<CONFIG:Debug>:d>")
+  endif ()
+endif ()
 
 # Debug build
 add_compile_options("$<$<CONFIG:DEBUG>:/Od;/Oy-;/RTC1>")

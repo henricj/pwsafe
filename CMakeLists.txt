@@ -314,10 +314,18 @@ add_subdirectory(src/ui/cli "./cli")
 add_subdirectory (help) # online help
 
 if (PWS_UI_MFC)
-  add_subdirectory (src/Tools/Windows/I18N/ResText)
-  add_subdirectory (src/Tools/Windows/I18N/ResPWSL)
+  include(CheckCXXSourceRuns)
+  # See if we can run what we're compiling.
+  check_cxx_source_runs("int main() { return 0; }" PWS_CAN_RUN_BINARIES)
+
+  if (PWS_CAN_RUN_BINARIES)
+    add_subdirectory (src/Tools/Windows/I18N/ResText)
+    add_subdirectory (src/Tools/Windows/I18N/ResPWSL)
+  endif ()
   add_subdirectory (src/ui/Windows)
-  add_subdirectory (src/ui/Windows/I18N)
+  if (PWS_CAN_RUN_BINARIES)
+    add_subdirectory (src/ui/Windows/I18N)
+  endif ()
 elseif (PWS_UI_WX)
   add_subdirectory (src/ui/wxWidgets)
 
@@ -348,7 +356,9 @@ if (WIN32)
   target_compile_options(pwsafe PRIVATE "$<$<NOT:$<CONFIG:DEBUG>>:/GA>")
 
   if (PWS_UI_MFC)
-    add_dependencies (pwsafe language-dlls) # i18n dlls
+    if (PWS_CAN_RUN_BINARIES)
+      add_dependencies (pwsafe language-dlls) # i18n dlls
+    endif ()
     target_link_libraries (pwsafe PRIVATE pws_at pws_osk)
     #target_compile_definitions(pwsafe PRIVATE _BIND_TO_CURRENT_CRT_VERSION;_BIND_TO_CURRENT_MFC_VERSION)
 

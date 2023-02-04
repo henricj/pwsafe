@@ -54,7 +54,7 @@ void *pws_os::LoadLibrary(const TCHAR *lib, loadLibraryTypes type)
     // data files to avoid any problem with 32/64 bit DLLs. This allows
     // the use of 32-bit language DLLs in 64-bit builds and vice versa.
     case loadLibraryTypes::RESOURCE:
-      hMod = ::LoadLibraryEx(szFilePath, NULL, LOAD_LIBRARY_AS_DATAFILE);
+      hMod = ::LoadLibraryEx(szFilePath, NULL, LOAD_LIBRARY_AS_IMAGE_RESOURCE | LOAD_LIBRARY_AS_DATAFILE);
 	    break;
     // All other DLLs are loaded for execution
     default:

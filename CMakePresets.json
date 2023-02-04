@@ -89,7 +89,9 @@
         "strategy": "external"
       },
       "cacheVariables": {
-        "PWS_UI_FRAMEWORK": "WX"
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "PWS_UI_FRAMEWORK": "WX",
+        "NO_YUBI": true
       }
     },
     {
@@ -105,7 +107,7 @@
       "inherits": "windows-wx-x64-base",
       "displayName": "Windows wxWidgets x64 Release",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
+        "VCPKG_TARGET_TRIPLET": "x64-windows-ltcg-static-md"
       }
     },
     {

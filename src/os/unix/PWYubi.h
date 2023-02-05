@@ -26,10 +26,10 @@ public:
   static bool YubiExists() {return s_yubiDetected;}
 
   // request is non-blocking
-  // GetResponse returns pending until done or timeout. If ERROR returned,
+  // GetResponse returns pending until done or timeout. If ERROR_ returned,
   // call GetErrStr for details.
   bool RequestHMacSHA1(const unsigned char *challenge, unsigned int len);
-  enum RequestStatus {DONE, PENDING, TIMEOUT, ERROR};
+  enum class RequestStatus {DONE, PENDING, TIMEOUT, ERROR_};
   enum {RESPLEN=20, SHA1_MAX_BLOCK_SIZE=64};
 
   RequestStatus GetResponse(unsigned char resp[RESPLEN]);

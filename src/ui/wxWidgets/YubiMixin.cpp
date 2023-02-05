@@ -134,14 +134,14 @@ bool YubiMixin::PerformChallengeResponse(wxWindow *win,
   PWYubi yubi;
   if (yubi.RequestHMacSHA1(chalBuf, chalLength)) {
     unsigned char hmac[PWYubi::RESPLEN];
-    PWYubi::RequestStatus status = PWYubi::PENDING;
+    PWYubi::RequestStatus status = PWYubi::RequestStatus::PENDING;
     do {
       status = yubi.GetResponse(hmac);
-      if (status == PWYubi::PENDING)
+      if (status == PWYubi::RequestStatus::PENDING)
         pws_os::sleep_ms(250); // Ugh.
       ::wxSafeYield(win); // so as not to totally freeze the app...
-    } while (status == PWYubi::PENDING);
-    if (status == PWYubi::DONE) {
+    } while (status == PWYubi::RequestStatus::PENDING);
+    if (status == PWYubi::RequestStatus::DONE) {
 #if 0
       for (unsigned i = 0; i < sizeof(hmac); i++)
         std::cerr << std::hex << std::setw(2) << (int)hmac[i];
@@ -151,7 +151,7 @@ bool YubiMixin::PerformChallengeResponse(wxWindow *win,
       response = Bin2Hex(hmac, PWYubi::RESPLEN);
       retval = true;
     } else {
-      if (status == PWYubi::TIMEOUT) {
+      if (status == PWYubi::RequestStatus::TIMEOUT) {
         m_status->SetForegroundColour(*wxRED);
         m_status->SetLabel(_("Timeout - please try again"));
       } else { // error

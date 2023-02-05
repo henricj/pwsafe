@@ -29,7 +29,7 @@ using namespace std;
 bool PWYubi::s_yubiDetected = false;
 std::mutex PWYubi::s_mutex;
 
-PWYubi::PWYubi() : m_isInited(false), m_reqstat(ERROR)
+PWYubi::PWYubi() : m_isInited(false), m_reqstat(RequestStatus::ERROR_)
 {
   std::lock_guard<std::mutex> guard{ s_mutex };
 
@@ -177,7 +177,7 @@ bool PWYubi::WriteSK(const unsigned char *yubi_sk_bin, size_t sklen)
 bool PWYubi::RequestHMacSHA1(const unsigned char *challenge, unsigned int len)
 {
   bool retval = false;
-  m_reqstat = ERROR;
+  m_reqstat = RequestStatus::ERROR_;
   YK_KEY *ykey = nullptr;
   std::lock_guard<std::mutex> guard{ s_mutex };
 
@@ -187,7 +187,7 @@ bool PWYubi::RequestHMacSHA1(const unsigned char *challenge, unsigned int len)
     if (ykey == nullptr)
       goto done;
   if (yk_write_to_key(ykey, SLOT_CHAL_HMAC2, challenge, len)) {
-      m_reqstat = PENDING;
+      m_reqstat = RequestStatus::PENDING;
       retval = true;
     }
   }
@@ -203,10 +203,10 @@ PWYubi::RequestStatus PWYubi::GetResponse(unsigned char resp[PWYubi::RESPLEN])
   std::lock_guard<std::mutex> guard{ s_mutex };
 
   // if yk isn't init'ed, don't bother
-  if (m_isInited && m_reqstat == PENDING) {
+  if (m_isInited && m_reqstat == RequestStatus::PENDING) {
     ykey = yk_open_first_key();
     if (ykey == nullptr) {
-      m_reqstat = ERROR;
+      m_reqstat = RequestStatus::ERROR_;
       goto done;
     }
     unsigned char response[64];
@@ -215,10 +215,10 @@ PWYubi::RequestStatus PWYubi::GetResponse(unsigned char resp[PWYubi::RESPLEN])
                                   response, sizeof(response),
                                   20, &response_len)) {
       memcpy(resp, response, RESPLEN);
-      m_reqstat = DONE;
+      m_reqstat = RequestStatus::DONE;
     } else {
       if (yk_errno == YK_ETIMEOUT)
-        m_reqstat = TIMEOUT;
+        m_reqstat = RequestStatus::TIMEOUT;
       // It's unclear what's returned if the user hasn't
       // pressed the button. We'll leave the status untouched (PENDING)
       // if read failed but hasn't timed out, so that next time

@@ -142,6 +142,13 @@ if (USE_UBSAN)
   include(ubsan-setup)
 endif()
 
+
+option(USE_UBSAN "Set ON to enable the undefined behavior sanitizer (UBSAN)" OFF)
+
+if (USE_UBSAN)
+  include(ubsan-setup)
+endif()
+
 include(create-harden-interface)
 list (APPEND PWS_LIBS harden_interface)
 

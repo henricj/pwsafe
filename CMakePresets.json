@@ -297,7 +297,9 @@
       "inherits": "linux-debug",
       "displayName": "Linux ASAN Debug",
       "cacheVariables": {
-        "USE_ASAN": true
+        "USE_ASAN": true,
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux-asan"
       }
     },
     {
@@ -306,7 +308,9 @@
       "displayName": "Linux ASAN Release",
       "cacheVariables": {
         "USE_ASAN": true,
-        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux-asan"
       }
     },
     {
@@ -314,7 +318,9 @@
       "displayName": "Linux UBSAN Debug",
       "inherits": "linux-debug",
       "cacheVariables": {
-        "USE_UBSAN": true
+        "USE_UBSAN": true,
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux-ubsan"
       }
     },
     {
@@ -323,7 +329,9 @@
       "inherits": "linux-release",
       "cacheVariables": {
         "USE_UBSAN": true,
-        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux-ubsan"
       }
     },
     {

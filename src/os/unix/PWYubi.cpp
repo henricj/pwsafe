@@ -17,6 +17,7 @@
 #include <ykcore.h>
 #include <ykpers.h>
 #include <ykpers-version.h>
+#include <mutex>
 #include <string>
 #include <cstring>
 #include <sstream>
@@ -26,29 +27,30 @@
 using namespace std;
 
 bool PWYubi::s_yubiDetected = false;
-pthread_mutex_t PWYubi::s_mutex = PTHREAD_MUTEX_INITIALIZER;
+std::mutex PWYubi::s_mutex;
 
 PWYubi::PWYubi() : m_isInited(false), m_reqstat(ERROR)
 {
-  pthread_mutex_lock(&s_mutex);
+  std::lock_guard<std::mutex> guard{ s_mutex };
+
   m_isInited = yk_init() != 0;
-  pthread_mutex_unlock(&s_mutex);
 }
 
 PWYubi::~PWYubi()
 {
-  pthread_mutex_lock(&s_mutex);
+  std::lock_guard<std::mutex> guard{ s_mutex };
+
   if (m_isInited)
     yk_release();
-  pthread_mutex_unlock(&s_mutex);
 }
 
 bool PWYubi::IsYubiInserted() const
 {
   bool retval = false;
-  pthread_mutex_lock(&s_mutex);
+  std::lock_guard<std::mutex> guard{ s_mutex };
+
   if (m_isInited) {
-    YK_KEY *ykey = yk_open_first_key();
+    YK_KEY* ykey = yk_open_first_key();
     if (ykey != nullptr) {
       yk_close_key(ykey);
       retval = true;
@@ -60,7 +62,6 @@ bool PWYubi::IsYubiInserted() const
   } else { // try again
     m_isInited = yk_init() != 0;
   }
-  pthread_mutex_unlock(&s_mutex);
   if (retval)
     s_yubiDetected = true;
   return retval;
@@ -88,7 +89,8 @@ bool PWYubi::GetSerial(unsigned int &serial) const
 {
   bool retval = false;
   YK_KEY *ykey = nullptr;
-  pthread_mutex_lock(&s_mutex);
+  std::lock_guard<std::mutex> guard{ s_mutex };
+
   // if yk isn't init'ed, don't bother
   if (m_isInited) {
     ykey = yk_open_first_key();
@@ -109,7 +111,6 @@ bool PWYubi::GetSerial(unsigned int &serial) const
   done:
   if (ykey != nullptr)
     yk_close_key(ykey);
-  pthread_mutex_unlock(&s_mutex);
   return retval;
 }
 
@@ -119,7 +120,8 @@ bool PWYubi::WriteSK(const unsigned char *yubi_sk_bin, size_t sklen)
   YK_KEY *ykey = nullptr;
   YKP_CONFIG *cfg = ykp_alloc();
   YK_STATUS *st = ykds_alloc();
-  pthread_mutex_lock(&s_mutex);
+  std::lock_guard<std::mutex> guard{ s_mutex };
+
   // if yk isn't init'ed, don't bother
   if (m_isInited) {
     ykey = yk_open_first_key();
@@ -167,7 +169,6 @@ bool PWYubi::WriteSK(const unsigned char *yubi_sk_bin, size_t sklen)
   done:
   if (ykey != nullptr)
     yk_close_key(ykey);
-  pthread_mutex_unlock(&s_mutex);
   free(cfg);
   free(st);
   return retval;
@@ -178,7 +179,8 @@ bool PWYubi::RequestHMacSHA1(const unsigned char *challenge, unsigned int len)
   bool retval = false;
   m_reqstat = ERROR;
   YK_KEY *ykey = nullptr;
-  pthread_mutex_lock(&s_mutex);
+  std::lock_guard<std::mutex> guard{ s_mutex };
+
   // if yk isn't init'ed, don't bother
   if (m_isInited) {
     ykey = yk_open_first_key();
@@ -192,14 +194,14 @@ bool PWYubi::RequestHMacSHA1(const unsigned char *challenge, unsigned int len)
  done:
   if (ykey != nullptr)
     yk_close_key(ykey);
-  pthread_mutex_unlock(&s_mutex);
   return retval;
 }
 
 PWYubi::RequestStatus PWYubi::GetResponse(unsigned char resp[PWYubi::RESPLEN])
 {
- YK_KEY *ykey = nullptr;
-  pthread_mutex_lock(&s_mutex);
+  YK_KEY *ykey = nullptr;
+  std::lock_guard<std::mutex> guard{ s_mutex };
+
   // if yk isn't init'ed, don't bother
   if (m_isInited && m_reqstat == PENDING) {
     ykey = yk_open_first_key();
@@ -226,7 +228,6 @@ PWYubi::RequestStatus PWYubi::GetResponse(unsigned char resp[PWYubi::RESPLEN])
  done:
   if (ykey != nullptr)
     yk_close_key(ykey);
-  pthread_mutex_unlock(&s_mutex);
   return m_reqstat;
 }
 

@@ -9,7 +9,7 @@
 #ifndef __PWYUBI_H
 #define __PWYUBI_H
 
-#include <pthread.h> // for pthread_mutex_*
+#include <mutex>
 #include <string>
 
 class PWYubi {
@@ -40,7 +40,7 @@ private:
   void report_error() const;
   mutable bool m_isInited;
   static bool s_yubiDetected;
-  static pthread_mutex_t s_mutex;
+  static std::mutex s_mutex;
   mutable std::wstring m_ykerrstr;
   RequestStatus m_reqstat;
 };

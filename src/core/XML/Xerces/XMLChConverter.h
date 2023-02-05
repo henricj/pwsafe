@@ -79,9 +79,8 @@ struct _XMLChDeallocator {
   }
 
   void Clear() {
-    using namespace std;
-    for_each(allocations.begin(), allocations.end(), bind1st(mem_fun(&_XMLChDeallocator::Release), this));
-      allocations.clear();
+    std::for_each(allocations.begin(), allocations.end(), [this](auto& a){ Release(a); });
+    allocations.clear();
   }
 
   ~_XMLChDeallocator() {

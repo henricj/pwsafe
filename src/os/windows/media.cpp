@@ -25,10 +25,7 @@ stringT pws_os::GetMediaType(const stringT &sfilename)
   wchar_t extn[_MAX_EXT];
   _tsplitpath_s(sfilename.c_str(), NULL, 0, NULL, 0, NULL, 0, extn, _MAX_EXT);
 
-  // Note 1: FMFD_IGNOREMIMETEXTPLAIN not defined (UrlMon.h) if still supporting Windows XP
-  // Note 2: FMFD_RETURNUPDATEDIMGMIMES not defined (UrlMon.h) in SDK 7.1A - need SDK 8.1 or later
-  // Hardcode values for now
-  DWORD dwMimeFlags = FMFD_URLASFILENAME | 0x4 /*FMFD_IGNOREMIMETEXTPLAIN*/ | 0x20 /*FMFD_RETURNUPDATEDIMGMIMES*/;
+  DWORD dwMimeFlags = FMFD_URLASFILENAME | FMFD_IGNOREMIMETEXTPLAIN | FMFD_RETURNUPDATEDIMGMIMES;
   hResult = FindMimeFromData(NULL, extn, NULL, 0, NULL, dwMimeFlags, &pwzMimeOut, 0);
 
   if (SUCCEEDED(hResult)) {

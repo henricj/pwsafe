@@ -829,8 +829,6 @@ private:
   wxTopLevelWindow* m_pengingCloseWindow = nullptr; // current window that processing close event
 };
 
-BEGIN_DECLARE_EVENT_TYPES()
-DECLARE_EVENT_TYPE(wxEVT_GUI_DB_PREFS_CHANGE, -1)
-END_DECLARE_EVENT_TYPES()
+wxDECLARE_EVENT(wxEVT_GUI_DB_PREFS_CHANGE, wxCommandEvent);
 
 #endif // _PASSWORDSAFEFRAME_H_

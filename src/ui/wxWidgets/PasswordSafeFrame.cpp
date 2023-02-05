@@ -73,15 +73,15 @@ using std::make_tuple;
  * PasswordSafeFrame type definition
  */
 
-IMPLEMENT_CLASS( PasswordSafeFrame, wxFrame )
+wxIMPLEMENT_CLASS(PasswordSafeFrame, wxFrame)
 
-DEFINE_EVENT_TYPE(wxEVT_GUI_DB_PREFS_CHANGE)
+wxDEFINE_EVENT(wxEVT_GUI_DB_PREFS_CHANGE, wxCommandEvent);
 
 /*!
  * PasswordSafeFrame event table definition
  */
 
-BEGIN_EVENT_TABLE( PasswordSafeFrame, wxFrame )
+wxBEGIN_EVENT_TABLE( PasswordSafeFrame, wxFrame )
 
   EVT_CHAR_HOOK(                        PasswordSafeFrame::OnChar                        )
   EVT_CLOSE(                            PasswordSafeFrame::OnCloseWindow                 )
@@ -318,7 +318,7 @@ BEGIN_EVENT_TABLE( PasswordSafeFrame, wxFrame )
   EVT_MENU( ID_EDITMENU_FIND_NEXT,      PasswordSafeFrame::OnFindNext                    )
   EVT_MENU( ID_EDITMENU_FIND_PREVIOUS,  PasswordSafeFrame::OnFindPrevious                )
 
-END_EVENT_TABLE()
+wxEND_EVENT_TABLE()
 
 /*!
  * PasswordSafeFrame constructors

@@ -1121,7 +1121,7 @@ void TreeCtrlTimer::Notify() {
 
 void TreeCtrl::CheckScrollList()
 {
-  if(m_isDragging) {
+  if(nullptr != m_drag_item) {
     int width, height;
     wxPoint mousePt = ScreenToClient(wxGetMousePosition());  // Find where the mouse is in relation to the (exited) pane
     
@@ -1137,13 +1137,13 @@ void TreeCtrl::CheckScrollList()
     wxEventType commandType = wxEVT_NULL;
     
     if(mousePt.y <= 0) { // We're above the pane
-      StopAutoScrolling();
+      m_scrollHelper->StopAutoScrolling();
       if(PosVert > 0) {
         commandType = wxEVT_SCROLLWIN_PAGEUP;
       }
     }
     else if(mousePt.y > height) {  // We're below the pane
-      StopAutoScrolling();
+      m_scrollHelper->StopAutoScrolling();
       if(PosVert < RangeVert) { // Normally ThumVert should be added to PosVert = GetScrollThumb (wxVERTICAL), but we like to have more space at the end of the list
         commandType = wxEVT_SCROLLWIN_PAGEDOWN;
       }
@@ -1214,7 +1214,7 @@ void TreeCtrl::OnMouseMove(wxMouseEvent& event)
   bool bSetCursor = false;
   wxCursor newCursor = wxNullCursor;
   
-  if(m_isDragging && m_drag_item.IsOk())
+  if(nullptr != m_drag_item && m_drag_item.IsOk())
   {
     int width, height;
     wxPoint pt = ScreenToClient(wxGetMousePosition());
@@ -1290,7 +1290,7 @@ void TreeCtrl::OnMouseMove(wxMouseEvent& event)
     }
     
     if((pt.x >= 0) && (pt.x < width) && (pt.y >= 0) && (pt.y < height)) {
-      StopAutoScrolling();
+      m_scrollHelper->StopAutoScrolling() ;
       if(m_drag_image) {
         m_drag_image->Hide();
         m_drag_image->Move(pt);
@@ -1359,7 +1359,7 @@ void TreeCtrl::OnBeginDrag(wxTreeEvent& evt)
 
 void TreeCtrl::resetScrolling()
 {
-  StopAutoScrolling();
+  m_scrollHelper->StopAutoScrolling();
   if(m_scroll_timer.IsRunning()) m_scroll_timer.Stop();
 }
 

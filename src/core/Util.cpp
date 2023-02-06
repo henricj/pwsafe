@@ -885,7 +885,7 @@ bool PWSUtil::pull_time(time_t &t, const unsigned char *data, size_t len)
     t = getInt<time_t>(buf);
   } else { // convert from 40 or 64 bit time to 32 bit
     unsigned char buf[sizeof(__time64_t)] = {0};
-    memcpy(buf, data, len); // not needed if len == 8, but no harm
+    memcpy(buf, data, sizeof(buf)); // not needed if len == 8, but no harm
     struct tm ts;
     const auto t64 = getInt<__time64_t>(buf);
     if (_localtime64_s(&ts, &t64) != 0) {

@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.13...3.25) # 3.13 is used by Debian 10
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules")
 
-project (passwordsafe CXX C)
+project (passwordsafe CXX C OBJCXX OBJC)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -281,14 +281,16 @@ if (MSVC)
   set_property (GLOBAL PROPERTY USE_FOLDERS ON)
 
   include(set-options-msvc)
-else (MSVC)
+elseif (APPLE)
+  include(set-options-macos)
+else ()
   add_compile_definitions(Wall)
 
   if (USE_ASAN)
     set(CMAKE_CXX_FLAGS_DEBUG
       "${CMAKE_CXX_FLAGS_DEBUG} -gdwarf-4 -O0 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address")
   endif (USE_ASAN)
-endif (MSVC)
+endif ()
 
 if( NOT CMAKE_BUILD_TYPE )
   set( CMAKE_BUILD_TYPE Release )

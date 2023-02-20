@@ -44,8 +44,20 @@ jobs:
         sudo apt-get update
         sudo ./Misc/setup-linux-dev-env.sh
 
+    - name: Restore artifacts, or setup vcpkg (do not install any package)
+      uses: lukka/run-vcpkg@v10
+      with:
+        vcpkgDirectory: external/vcpkg/vcpkg
+        vcpkgJsonGlob: cmake/vcpkg.json
+        prependedCacheKey: "build/${{ matrix.preset }}"
+
     - name: Configure
       run: cmake -B build --preset ${{ matrix.preset }}
+
+    - name: Block cache on failure
+      if: ${{ failure() || cancelled() }}
+      shell: bash
+      run: echo "RUNVCPKG_NO_CACHE=1" >> $GITHUB_ENV
 
     - name: Build
       run: cmake --build build

@@ -13,7 +13,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ 'windows-latest', 'ubuntu-latest', 'macos-latest' ]
+        include:
+          - os: 'windows-latest'
+            preset: 'windows-x64-release'
+          - os: 'ubuntu-latest'
+            preset: 'linux-release'
+          - os: 'macos-latest'
+            preset: 'macos-arm64-release'
 
     runs-on: ${{ matrix.os }}
 
@@ -38,7 +44,7 @@ jobs:
         sudo ./Misc/setup-linux-dev-env.sh
 
     - name: Configure
-      run: cmake -B build --preset release
+      run: cmake -B build --preset ${{ matrix.preset }}
 
     - name: Build
       run: cmake --build build

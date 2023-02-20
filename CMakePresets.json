@@ -89,7 +89,8 @@
         "strategy": "external"
       },
       "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/external/vcpkg/config",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/external/vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "PWS_UI_FRAMEWORK": "WX",
         "NO_YUBI": true
       }
@@ -298,7 +299,8 @@
       "displayName": "Linux ASAN Debug",
       "cacheVariables": {
         "USE_ASAN": true,
-        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/external/vcpkg/config",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/external/vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-linux-asan"
       }
     },
@@ -309,7 +311,8 @@
       "cacheVariables": {
         "USE_ASAN": true,
         "CMAKE_BUILD_TYPE": "RelWithDebInfo",
-        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/external/vcpkg/config",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/external/vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-linux-asan"
       }
     },
@@ -319,7 +322,8 @@
       "inherits": "linux-debug",
       "cacheVariables": {
         "USE_UBSAN": true,
-        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/external/vcpkg/config",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/external/vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-linux-ubsan"
       }
     },
@@ -330,7 +334,8 @@
       "cacheVariables": {
         "USE_UBSAN": true,
         "CMAKE_BUILD_TYPE": "RelWithDebInfo",
-        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/external/vcpkg/config",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/external/vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-linux-ubsan"
       }
     },
@@ -340,7 +345,8 @@
       "inherits": "base",
       "displayName": "macOS default",
       "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake"
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/external/vcpkg/config",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/external/vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake"
       },
       "vendor": {
         "microsoft.com/VisualStudioSettings/CMake/1.0": {

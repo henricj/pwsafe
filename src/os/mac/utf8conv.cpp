@@ -18,7 +18,24 @@
 #include <cstring>
 #include <string>
 
+#include <xlocale.h>
+
 using namespace std;
+
+class locale_handle {
+    locale_t locale_;
+  public:
+    locale_handle(const char* name) {
+    locale_ = newlocale(LC_ALL, name, LC_GLOBAL_LOCALE);
+    if (nullptr == locale_)
+      throw "Couldn't initialize locale - bailing out";
+  }
+  ~locale_handle() {
+    freelocale(locale_);
+  }
+
+  [[nodiscard]] locale_t locale() const noexcept { return locale_; }
+};
 
 class Startup {
 public:
@@ -27,20 +44,25 @@ public:
     if (sl == NULL)
       throw "Couldn't initialize locale - bailing out";
   }
+  [[nodiscard]] locale_t locale(bool utf8) const noexcept
+  { return utf8 ? generic_utf8.locale() : from_env.locale(); }
+private:
+    locale_handle from_env{""};
+    locale_handle generic_utf8{"en_US.UTF-8"};
 };
 
 static Startup startup;
 
 size_t pws_os::wcstombs(char *dst, size_t maxdstlen,
-                        const wchar_t *src, size_t , bool )
+                        const wchar_t *src, size_t , bool utf8)
 {
-  return ::wcstombs(dst, src, maxdstlen) + 1;
+  return ::wcstombs_l(dst, src, maxdstlen, startup.locale(utf8)) + 1;
 }
 
 size_t pws_os::mbstowcs(wchar_t *dst, size_t maxdstlen,
-                        const char *src, size_t , bool )
+                        const char *src, size_t , bool utf8)
 {
-  return ::mbstowcs(dst, src, maxdstlen) + 1;
+  return ::mbstowcs_l(dst, src, maxdstlen, startup.locale(utf8)) + 1;
 }
 
 wstring pws_os::towc(const char *val)

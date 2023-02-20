@@ -44,6 +44,13 @@ jobs:
         sudo apt-get update
         sudo ./Misc/setup-linux-dev-env.sh
 
+    - name: Install packages (macOS)
+      if: ${{ runner.os == 'macOS' }}
+      run: |
+        brew update
+        brew install automake gettext pkg-config
+
+
     - name: Restore artifacts, or setup vcpkg (do not install any package)
       uses: lukka/run-vcpkg@v10
       with:

@@ -363,21 +363,19 @@
       "generator": "Xcode"
     },
     {
-      "name": "macos-arm64-debug",
+      "name": "macos-debug",
       "inherits": "macos-base",
-      "displayName": "macOS arm64 Debug",
+      "displayName": "macOS Debug",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "VCPKG_TARGET_TRIPLET": "arm64-osx"
+        "CMAKE_BUILD_TYPE": "Debug"
       }
     },
     {
-      "name": "macos-arm64-release",
+      "name": "macos-release",
       "inherits": "macos-base",
-      "displayName": "macOS arm64 Release",
+      "displayName": "macOS Release",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release",
-        "VCPKG_TARGET_TRIPLET": "arm64-osx-release"
+        "CMAKE_BUILD_TYPE": "Release"
       }
     }
   ]

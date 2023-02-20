@@ -19,7 +19,7 @@ jobs:
           - os: 'ubuntu-latest'
             preset: 'linux-release'
           - os: 'macos-latest'
-            preset: 'macos-arm64-release'
+            preset: 'macos-release'
 
     runs-on: ${{ matrix.os }}
 

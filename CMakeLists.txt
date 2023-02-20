@@ -2,7 +2,15 @@ cmake_minimum_required (VERSION 3.13...3.25) # 3.13 is used by Debian 10
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules")
 
-project (passwordsafe CXX C OBJCXX OBJC)
+set(PWSAFE_LANGUAGES CXX C)
+
+if (APPLE)
+  list(APPEND PWSAFE_LANGUAGES OBJCXX OBJC)
+endif ()
+
+project (passwordsafe
+  LANGUAGES ${PWSAFE_LANGUAGES}
+)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
